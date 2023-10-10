@@ -3,9 +3,9 @@ import { Toggle } from "../components/themeToggle";
 import * as React from "react";
 
 import styled from "styled-components";
-import { StyledButton, LinkStyle } from "../components/StyledButton";
+import { LinkStyle } from "../components/StyledButton";
 //import { animateScroll as scroll } from "react-scroll";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 type NavProps = {
   checked: boolean;
   onChange: any;
@@ -13,13 +13,13 @@ type NavProps = {
 
 const NavContainer = styled.div<{ checked: boolean }>`
   height: 100px;
-  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
   background-image: ${(props) =>
     props.checked
       ? `linear-gradient(180deg, #0C0C0F, rgba(12, 12, 15, 0.8) 59%, transparent);`
@@ -53,6 +53,9 @@ const MiddleGroup = styled.div`
   flex-basis: 70%;
   height: 100%;
   gap: 2rem;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
@@ -70,10 +73,10 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
         </LogoButton>
       </LeftGroup>
       <MiddleGroup>
-        <LinkStyle name="About Me" to="About" />
-        <LinkStyle name="Experience" to="Experience" />
+        <LinkStyle to="About">About Me</LinkStyle>
+        <LinkStyle to="Experience">Experience</LinkStyle>
         {/* <LinkStyle name="Projects" to="Projects" /> */}
-        <LinkStyle name="Resume" to="Resume" />
+        <LinkStyle to="Resume">Resume</LinkStyle>
         {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
       </MiddleGroup>
