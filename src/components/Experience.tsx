@@ -1,152 +1,210 @@
-// import * as React from "react";
-
-// import { motion, AnimatePresence } from "framer-motion";
-// import { useState } from "react";
-
-import React, { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import { Tile, TileExpanded } from "./ExperienceTile";
+import Card from "./Card";
+import Reveal from "./Reveal";
 import RBClogo from "../assets/RBClogo.png";
-import { Console } from "console";
-
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
+import TUTfclogo from "../assets/TUTfclogo.png";
+import { Element } from "react-scroll";
+import { StyledButton } from "./StyledButton";
+import PdfViewer from "./PdfViewer";
+import { GrInstallOption } from "react-icons/gr";
+import { AiOutlineMail } from "react-icons/ai";
+import { BsFacebook, BsWhatsapp, BsPrinter, BsMessenger } from "react-icons/bs";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import { useTheme } from "styled-components";
+const Experience: React.FunctionComponent<any | false> = () => {
+  const cardData: ReactNode[] = [
+    {
+      logo: RBClogo,
+      title: "Full Stack Engineer",
+      subtitle: "RBC",
+      company: "RBC",
+      fromDate: "2021",
+      toDate: "Present",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
     },
-  },
-};
-const ItemVar = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
-//  animation for  popup
-
-const variants = {
-  visible: {
-    scale: 1.1,
-    boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)",
-    y: -50,
-    x: -100,
-    cursor: "pointer",
-    transition: { duration: 1, type: "spring" },
-  },
-  hidden: { scale: 1, opacity: 0 },
-};
-const items: {
-  id: string | any;
-  logo: string;
-  title: string;
-  subtitle: string;
-  description: string;
-}[] = [
-  {
-    id: "1",
-    logo: RBClogo,
-    title: "Software Engineer",
-    subtitle: "RBC",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
-  },
-  {
-    id: "2",
-    logo: RBClogo,
-    title: "Data Science Engineer",
-    subtitle: "RBC2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
-  },
-  {
-    id: "3",
-    logo: RBClogo,
-    title: "Software Engineer",
-    subtitle: "RBC",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
-  },
-];
-
-const Experience: React.FunctionComponent<any> = () => {
-  const [selectedId, setSelectedId] = useState(null as string | null);
-  const [Item, setItem] = useState({
-    id: null,
-    logo: RBClogo,
-    title: "",
-    subtitle: "RBC",
-    description: "DESC3",
+    {
+      logo: RBClogo,
+      company: "RBC",
+      fromDate: "2021",
+      toDate: "Present",
+      title: "Data Engineer",
+      subtitle: "RBC",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
+    },
+    {
+      logo: TUTfclogo,
+      company: "RBC",
+      fromDate: "2021",
+      toDate: "Present",
+      title: "Machine Learning Engineer",
+      subtitle: "Tutankhamun FC",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
+    },
+  ].map((cardObj, index) => {
+    return (
+      <Card
+        index={index}
+        key={`card-${index}`}
+        title={cardObj.title}
+        company={cardObj.company}
+        fromDate={cardObj.fromDate}
+        toDate={cardObj.toDate}
+        subtitle={cardObj.subtitle}
+        logo={cardObj.logo}
+        description={cardObj.description}
+      />
+    );
   });
-
+  const [showPDF, setShowPDF] = useState(false);
+  const theme = useTheme();
+  console.log("Current theme: ", theme);
   return (
-    <Wrapper variants={container} initial="hidden" animate="visible">
-      {items.map((item) => {
-        return (
-          <motion.div
-            variants={ItemVar}
-            onClick={() => {
-              setItem(item);
-              setSelectedId(item.id);
-              // console.log(item);
-            }}
-          >
-            <Tile
-              logo={item.logo}
-              title={item.title}
-              subtitle={item.subtitle}
-              description={item.description}
-              id={item.id}
-              key={item.id}
-            />
-          </motion.div>
-        );
-      })}
-      <AnimatePresence>
-        {selectedId && (
-          <motion.div
-            layoutId={selectedId}
-            onClick={() => setSelectedId(null)}
-            exit={{ opacity: 0 }}
-            variants={variants}
-            animate={selectedId ? "visible" : "hidden"}
-          >
-            <TileExpanded
-              logo={Item.logo}
-              title={Item.title}
-              subtitle={Item.subtitle}
-              description={Item.description}
-              exit={{ scale: 1, opacity: 0 }}
-              variants={variants}
-              animate={selectedId ? "visible" : "hidden"}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <Wrapper name="Experience" showTitle setShowPDF={setShowPDF}>
+      <MainContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 1,
+        }}
+      >
+        {cardData}
+      </MainContainer>
+
+      <SpringModal isOpen={showPDF} setIsOpen={setShowPDF} />
     </Wrapper>
   );
 };
 
-const ExpandedItem = styled(motion.div)`
-  height: 20rem;
-  width: 20rem;
-  background: #fff;
-`;
+const SpringModal = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const theme = useTheme();
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+        >
+          <motion.div
+            initial={{ scale: 0, rotate: "12.5deg" }}
+            animate={{ scale: 1, rotate: "0deg" }}
+            exit={{ scale: 0, rotate: "0deg" }}
+            onClick={(e) => e.stopPropagation()}
+            className={`${
+              theme.color === "#fff" ? "bg-transparent" : "bg-white"
+            } bg-transparent text-white p-6 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
+          >
+            <div className="flex flex-col gap-2 z-10 w-full p-8">
+              <PdfViewer />
+              <div
+                className={`${
+                  theme.color === "#fff" ? "" : "invert"
+                } h-48 w-full`}
+              >
+                <motion.div className="w-full h-full flex gap-12 justify-center items-center">
+                  <GrInstallOption className="h-10 w-10 invert cursor-pointer" />
+                  <AiOutlineMail className="h-10 w-10 cursor-pointer" />
+                  <BsPrinter className="h-10 w-10 cursor-pointer" />
+                  <BsFacebook className="h-10 w-10 cursor-pointer" />
+                  <BsMessenger className="h-10 w-10 cursor-pointer" />
+                  <BsWhatsapp className="h-10 w-10 cursor-pointer" />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
-const Wrapper = styled(motion.div)`
-  height: 100vh;
+const MainContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Title = styled.h1`
+  margin-bottom: 1.5rem;
+  font-size: 3.75rem;
+  line-height: 1rem;
+`;
+
+export const PageDiv = styled(Element)`
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+`;
+
+export const PlusSign = styled.span`
+  color: rgb(104 154 248);
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  font-size: 3rem;
+  line-height: 2rem;
+  vertical-align: sub;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  row-gap: 0.5rem;
 `;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+interface WrapperProps {
+  name: string;
+  children: JSX.Element | JSX.Element[];
+  showTitle?: boolean;
+  setShowPDF: any;
+}
+const Wrapper: React.FunctionComponent<WrapperProps> = ({
+  children,
+  name,
+  showTitle,
+  setShowPDF,
+}) => {
+  return (
+    <PageDiv name={name}>
+      <Header>
+        {showTitle && (
+          <Title>
+            {name}
+            <PlusSign>+</PlusSign>
+          </Title>
+        )}
+
+        <Reveal width="fit-content">
+          <StyledButton onClick={() => setShowPDF(true)}>
+            Download Resume
+          </StyledButton>
+        </Reveal>
+      </Header>
+      <Container>{children}</Container>
+    </PageDiv>
+  );
+};
 export default Experience;

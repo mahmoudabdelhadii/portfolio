@@ -76,7 +76,7 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
         <LinkStyle to="About">About Me</LinkStyle>
         <LinkStyle to="Experience">Experience</LinkStyle>
         {/* <LinkStyle name="Projects" to="Projects" /> */}
-        <LinkStyle to="Resume">Resume</LinkStyle>
+        <LinkStyle to="My Resume">Resume</LinkStyle>
         {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
       </MiddleGroup>

@@ -1,9 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-
+import { Wrapper } from "./PageComponents";
 const Contact: React.FunctionComponent<any> = () => {
-  return <Wrapper>Contact me</Wrapper>;
+  return (
+    <Wrapper name="Get in touch with me" showTitle>
+      <p>...</p>
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.div``;
 export default Contact;

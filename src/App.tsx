@@ -16,11 +16,17 @@ export const ThemeContext = createContext(null as any);
 const baseTheme = {
   background: "#F5F5F5",
   color: "#222",
+  border: "#689af8",
+  secondary: "0C0C0F",
+  subtitle: "#afafaf",
 };
 
 const darkTheme = {
   background: "#0C0C0F",
   color: "#fff",
+  border: "#689af8",
+  secondary: "#F5F5F5",
+  subtitle: "#afafaf",
 };
 
 const Container = styled.div`
@@ -39,12 +45,12 @@ const Container = styled.div`
 `;
 
 const Center = styled.div`
-  width: 65%;
-  gap: 3rem;
+  width: 75%;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   @media screen and (max-width: 600px) {
     width: 90%;
   }
@@ -60,24 +66,15 @@ function App() {
       <Container>
         <Nav onChange={toggleTheme} checked={theme === "dark"} />
         <Center>
-          <Element name="About" className="element">
-            <IntroSlide id="About" />
-          </Element>
-          <Element name="Projects" className="element">
-            <Projects />
-          </Element>
-          <Element name="Experience" className="element">
-            <Experience />
-          </Element>
-          <Element name="Skills" className="element">
-            <Skills />
-          </Element>
-          <Element name="Resume" className="element">
-            <Resume />
-          </Element>
-          <Element name="Contact" className="element">
-            <Contact />
-          </Element>
+          <IntroSlide />
+          <Skills />
+          <Projects />
+
+          <Experience />
+
+          <Resume />
+
+          <Contact />
         </Center>
       </Container>
     </ThemeProvider>

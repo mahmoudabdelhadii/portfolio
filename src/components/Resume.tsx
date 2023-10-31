@@ -1,11 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Wrapper } from "./PageComponents";
 
 const Resume: React.FunctionComponent<any> = () => {
-  return <Wrapper>Resume</Wrapper>;
+  return (
+    <Wrapper name=" My Resume" showTitle>
+      <p>...</p>
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.div`
-  height: 100vh;
-`;
 export default Resume;

@@ -25,16 +25,25 @@ export const StyledButton = styled(motion.button)`
     padding-left: 0.7rem;
     background-color: rgba(11, 39, 90, 0.24);
   }
+  &.active {
+    border-left: 2px solid #689af8;
+  }
 
   @media screen and (max-width: 600px) {
     display: none;
   }
 `;
 
+const LinkS = styled(Link)`
+  &.active {
+    border-right: 1px solid #689af8;
+    border-top: 1px solid #689af8;
+  }
+`;
 export const LinkStyle: React.FunctionComponent<any> = ({ children, to }) => {
   return (
-    <Link to={to} spy={true} smooth={true} duration={500} offset={-200}>
+    <LinkS to={to} spy={true} activeClass="active" smooth={true} duration={500}>
       <StyledButton whileTap={{ scale: 1.1 }}>{children}</StyledButton>
-    </Link>
+    </LinkS>
   );
 };
