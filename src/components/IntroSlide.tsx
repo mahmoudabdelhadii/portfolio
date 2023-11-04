@@ -20,31 +20,25 @@ const IntroSlide: React.FunctionComponent<any> = () => {
           </Reveal>
           <Reveal from="left">
             <h1 className="text-7xl font-bold md:text-7xl">
-              Mahmoud Abdelhadi
-              <svg height="10" width="10">
-                <circle
-                  cx="5"
-                  cy="5"
-                  r="4"
-                  stroke="#689af8"
-                  strokeWidth={1}
-                  fill="#689af8"
-                />
-              </svg>
+              Mahmoud
+              <span className="align-baseline inline-block pl-2">
+                <svg height="10" width="10">
+                  <circle
+                    cx="5"
+                    cy="5"
+                    r="4"
+                    stroke="#689af8"
+                    strokeWidth={1}
+                    fill="#689af8"
+                  />
+                </svg>
+              </span>
             </h1>
           </Reveal>
           <Reveal from="left">
             <Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              quidem laudantium pariatur dolores debitis aperiam fuga doloremque
-              cumque! Id quam fugit maiores aperiam, laboriosam excepturi,
-              adipisci illum voluptates ad laborum animi asperiores. Corporis
-              mollitia pariatur unde, commodi distinctio temporibus veniam hic
-              velit fuga veritatis beatae, excepturi exercitationem quas aut
-              odio iste sint nesciunt! Iste iure corrupti at a minus quos qui
-              eaque quis id quo, ipsam quas omnis quae dolore necessitatibus
-              asperiores vel voluptates impedit officiis! Reprehenderit porro
-              iusto architecto.
+              I love everything software, from application development and
+              deployment, to data and model training
             </Description>
           </Reveal>
           <Reveal>

@@ -47,15 +47,18 @@ const Card: React.FunctionComponent<CardProps> = ({
         <Reveal from="left" delay={index * 0.5}>
           <CardWrapper>
             <CardHead>
-              <Seperator>|</Seperator>
-              <Company>{company}</Company>
+              <Seperator isCardOpened={isCardOpened}>|</Seperator>
+              <CardImage isCardOpened={isCardOpened} src={logo} />
+              <div className="flex flex-col pl-4 m-1">
+                <Company>{company}</Company>
+
+                <JobTitle>{title}</JobTitle>
+                <Date>
+                  {fromDate} - {toDate}
+                </Date>
+              </div>
             </CardHead>
-            <CardBody>
-              <JobTitle>{title}</JobTitle>
-              <Date>
-                {fromDate} - {toDate}
-              </Date>
-            </CardBody>
+            <CardBody></CardBody>
           </CardWrapper>
         </Reveal>
 
@@ -65,23 +68,22 @@ const Card: React.FunctionComponent<CardProps> = ({
           </CardDescription>
         )}
       </CardLink>
-      <AnimatePresence>
-        {isCardOpened && (
-          <>
-            <div
-              style={{
-                width: cardDimensions.width,
-                height: cardDimensions.height,
-              }}
-            ></div>
-            <CardBackground
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              onClick={() => setIsCardOpened(false)}
-            />
-          </>
-        )}
-      </AnimatePresence>
+
+      {isCardOpened && (
+        <>
+          <div
+            style={{
+              width: cardDimensions.width,
+              height: cardDimensions.height,
+            }}
+          ></div>
+          <CardBackground
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            onClick={() => setIsCardOpened(false)}
+          />
+        </>
+      )}
     </>
   );
 };
@@ -117,7 +119,7 @@ const CardLink = styled(motion.div)<CardLinkProps>`
     props.isCardOpened &&
     css`
       pointer: none;
-      width: min(20rem, 95%);
+      width: min(30rem, 95%);
       height: calc(80% - 10rem);
       overflow-y: auto;
       overflow-x: hidden;
@@ -165,13 +167,16 @@ const Company = styled(motion.h5)`
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-  padding-left: 1rem;
 `;
 
-const Seperator = styled(motion.span)`
+interface SeperatorProps {
+  isCardOpened: boolean;
+}
+const Seperator = styled(motion.span)<SeperatorProps>`
   color: rgb(104 154 248);
   font-weight: 700;
   font-size: 1.5rem;
+  display: ${(props: any) => (props.isCardOpened ? "none" : "")};
 `;
 interface CardHeadProps {
   isCardOpened: boolean;
@@ -220,7 +225,7 @@ const CardDescription = styled(motion.p)`
   color: ${(props: any) => props.theme.color};
 `;
 interface CardImageProps {
-  layout: string;
+  layout?: string;
   isCardOpened: boolean;
 }
 const CardImage = styled(motion.img)<CardImageProps>`
@@ -230,9 +235,9 @@ const CardImage = styled(motion.img)<CardImageProps>`
   ${(props: any) =>
     props.isCardOpened &&
     css`
-      display: block;
+      display: flex;
       width: auto;
-      height: 4rem;
+      height: 5.5rem;
     `}
 `;
 

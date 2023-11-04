@@ -1,7 +1,7 @@
 import logo from "../assets/logo.svg";
 import { Toggle } from "../components/themeToggle";
 import * as React from "react";
-
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import styled from "styled-components";
 import { LinkStyle } from "../components/StyledButton";
 //import { animateScroll as scroll } from "react-scroll";
@@ -59,6 +59,19 @@ const MiddleGroup = styled.div`
 `;
 
 const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
+  const { scrollY } = useScroll();
+
+  const [hidden, setHidden] = React.useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+
+    if (latest > previous && latest > 350) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
   return (
     <NavContainer checked={checked}>
       <LeftGroup>
@@ -72,14 +85,23 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
           />
         </LogoButton>
       </LeftGroup>
-      <MiddleGroup>
-        <LinkStyle to="About">About Me</LinkStyle>
-        <LinkStyle to="Experience">Experience</LinkStyle>
-        {/* <LinkStyle name="Projects" to="Projects" /> */}
-        <LinkStyle to="My Resume">Resume</LinkStyle>
-        {/* <LinkStyle name="Skills" to="Skills" />
+      <motion.nav
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-300%" },
+        }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        animate={hidden ? "hidden" : "visible"}
+      >
+        <MiddleGroup>
+          <LinkStyle to="About">About Me</LinkStyle>
+          <LinkStyle to="Experience">Experience</LinkStyle>
+          {/* <LinkStyle name="Projects" to="Projects" /> */}
+          <LinkStyle to="My Resume">Resume</LinkStyle>
+          {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
-      </MiddleGroup>
+        </MiddleGroup>
+      </motion.nav>
       <RightGroup>
         <Toggle checked={checked} onChange={onChange} />
       </RightGroup>

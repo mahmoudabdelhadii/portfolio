@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | false | undefined;
   width?: "fit-content" | "100%";
   delay?: number;
   from?: "top" | "bottom" | "left" | "right";
+  once?: boolean | true;
 }
 
 const Reveal: React.FunctionComponent<Props> = ({
@@ -13,9 +14,10 @@ const Reveal: React.FunctionComponent<Props> = ({
   width,
   delay,
   from,
+  once,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: once });
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) {

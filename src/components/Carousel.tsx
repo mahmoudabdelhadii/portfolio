@@ -1,9 +1,16 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import styled from "styled-components";
-import pythonlogo from "../assets/JavaScriptlogo.png";
-const Example = () => {
-  return <HorizontalScrollCarousel />;
+import f1gif from "../assets/ezgif-1-a134de1717.gif";
+import pcagif from "../assets/PCA.gif";
+import HoverCard from "./HoverCard";
+import Reveal from "./Reveal";
+const Carousel = () => {
+  return (
+    <Reveal from="bottom" delay={0.8}>
+      <HorizontalScrollCarousel />
+    </Reveal>
+  );
 };
 
 const HorizontalScrollCarousel = () => {
@@ -28,9 +35,9 @@ const HorizontalScrollCarousel = () => {
 };
 
 const Card = ({ card }: { card: CardType }) => {
-  return (
-    <Cardiv key={card.id}>
-      <Cardiv2
+  return <HoverCard card={card} key={card.id} />;
+  {
+    /* <Cardiv2
         style={{
           backgroundImage: `url(${card.url})`,
           backgroundSize: "cover",
@@ -39,12 +46,15 @@ const Card = ({ card }: { card: CardType }) => {
       ></Cardiv2>
       <Cardiv3>
         <Cardp>{card.title}</Cardp>
-      </Cardiv3>
-    </Cardiv>
-  );
+      </Cardiv3> */
+  }
+  {
+    /* </HoverCard> */
+  }
+  // );
 };
 
-export default Example;
+export default Carousel;
 
 type CardType = {
   url: string;
@@ -54,38 +64,38 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 1",
     id: 1,
   },
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 2",
     id: 2,
   },
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 3",
     id: 3,
   },
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 4",
     id: 4,
   },
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 5",
     id: 5,
   },
   {
-    url: pythonlogo,
+    url: pcagif,
     title: "Title 6",
     id: 6,
   },
   {
-    url: pythonlogo,
-    title: "Title 7",
+    url: f1gif,
+    title: "Formula One Predictor",
     id: 7,
   },
 ];

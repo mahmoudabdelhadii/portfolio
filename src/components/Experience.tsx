@@ -19,16 +19,16 @@ const Experience: React.FunctionComponent<any | false> = () => {
       title: "Full Stack Engineer",
       subtitle: "RBC",
       company: "RBC",
-      fromDate: "2021",
-      toDate: "Present",
+      fromDate: "September, 2022",
+      toDate: "August, 2023",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
     },
     {
       logo: RBClogo,
       company: "RBC",
-      fromDate: "2021",
-      toDate: "Present",
+      fromDate: "September, 2022",
+      toDate: "August, 2023",
       title: "Data Engineer",
       subtitle: "RBC",
       description:
@@ -36,9 +36,9 @@ const Experience: React.FunctionComponent<any | false> = () => {
     },
     {
       logo: TUTfclogo,
-      company: "RBC",
-      fromDate: "2021",
-      toDate: "Present",
+      company: "Tutankhamun FC",
+      fromDate: "May, 2021",
+      toDate: "August 2021",
       title: "Machine Learning Engineer",
       subtitle: "Tutankhamun FC",
       description:
@@ -190,14 +190,16 @@ const Wrapper: React.FunctionComponent<WrapperProps> = ({
   return (
     <PageDiv name={name}>
       <Header>
-        {showTitle && (
-          <Title>
-            {name}
-            <PlusSign>+</PlusSign>
-          </Title>
-        )}
+        <Reveal from="left">
+          {showTitle && (
+            <Title>
+              {name}
+              <PlusSign>+</PlusSign>
+            </Title>
+          )}
+        </Reveal>
 
-        <Reveal width="fit-content">
+        <Reveal from="right" width="fit-content">
           <StyledButton onClick={() => setShowPDF(true)}>
             Download Resume
           </StyledButton>
