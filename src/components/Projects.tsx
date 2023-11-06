@@ -2,23 +2,49 @@ import * as React from "react";
 import styled from "styled-components";
 import { Wrapper } from "./PageComponents";
 import Carousel from "./Carousel";
+import HoverCards from "./HoverCards";
+import { motion } from "framer-motion";
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 const Projects: React.FunctionComponent<any> = () => {
+  const [page, setPage] = React.useState(0);
   return (
-    <div className="flex justify-start flex-col align-start">
-      <Title>
-        Recent Projects
-        <PlusSign>+</PlusSign>
-      </Title>
-      <Carousel />
+    <div className="flex justify-center flex-col align-start w-full">
+      <div className="flex justify-start align-start">
+        <h1 className="mb-6 text-4xl leading-4 md:text-6xl">
+          Recent Projects
+          <PlusSign>+</PlusSign>
+        </h1>
+      </div>
+      <div className="flex w-full justify-between items-center">
+        <div className="h-full w-1/6 flex justify-start">
+          <motion.div whileHover={{ scale: 1.8 }} whileTap={{ scale: 0.9 }}>
+            <MdArrowBackIosNew
+              className={`${page === 0 ? "hidden" : ""}`}
+              onClick={() => {
+                if (page > 0) {
+                  setPage(page - 1);
+                }
+              }}
+            />
+          </motion.div>
+        </div>
+        <HoverCards page={page} className="basis-4/6" />
+        <div className="h-full w-1/6 flex justify-end">
+          <motion.div whileHover={{ scale: 1.8 }} whileTap={{ scale: 0.9 }}>
+            <MdArrowForwardIos
+              className={`${page === 1 ? "hidden" : ""}`}
+              onClick={() => {
+                setPage(page + 1);
+              }}
+            />
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export const Title = styled.h1`
-  margin-bottom: 1.5rem;
-  font-size: 3.75rem;
-  line-height: 1rem;
-`;
+export const Title = styled.h1``;
 
 export const Page = styled.div<any>`
   height: ${(props) => (props.size ? props.size + "%" : "80vh")};

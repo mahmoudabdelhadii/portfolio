@@ -8,7 +8,7 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
-import Resume from "./components/Resume";
+import AboutMe from "./components/AboutMe";
 import { Element } from "react-scroll";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 export const ThemeContext = createContext(null as any);
@@ -49,7 +49,7 @@ const Center = styled.div`
   gap: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   @media screen and (max-width: 600px) {
     width: 90%;
@@ -72,7 +72,7 @@ function App() {
 
           <Experience />
 
-          <Resume />
+          <AboutMe />
 
           <Contact />
         </Center>

@@ -81,7 +81,6 @@ const BarLogo = styled(motion.img)`
 const BarDiv = styled(motion.div)`
   display: flex;
   justify-content: space-between;
-
   align-content: center;
   margin: 1rem 0 1rem 2rem;
 `;
@@ -89,6 +88,8 @@ const BarDiv = styled(motion.div)`
 const BarMax = styled(motion.div)`
   flex-basis: 80%;
   height: 2rem;
+  display: flex;
+  width: 100%;
 `;
 const Bar = styled(motion.div)<any>`
   height: 2rem;
@@ -103,34 +104,45 @@ Bar.defaultProps = {
   height: "100%",
 };
 
-const delay = 1000;
+const delay = 4000;
 const ChipTabs = () => {
   const [current, setCurrent] = useState(0);
+  const [clicked, setClicked] = useState(false);
   const timeoutRef = useRef(null as any);
-  function resetTimeout() {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  }
-  // useEffect(() => {
-  //   resetTimeout();
-  //   timeoutRef.current = setTimeout(() => {
-  //     setCurrent((prevIndex: number) =>
-  //       prevIndex === tabs.length - 1 ? 0 : prevIndex + 1
-  //     );
-  //     console.log(current);
-  //   }, delay);
-
-  //   return () => {
-  //     resetTimeout();
-  //   };
-  // }, [current]);
-
   const [selected, setSelected] = useState(tabs[current]);
   const [FilteredTabs, setFilteredTabs] = useState(
     tabrating.filter((tab) => tab.group === tabs[current])
   );
   const [isHovering, setIsHovering] = useState(false);
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }
+  useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(() => {
+      if (!clicked) {
+        setCurrent((prevIndex: number) =>
+          prevIndex === tabs.length - 1 ? 0 : prevIndex + 1
+        );
+
+        setSelected(tabs[current]);
+        setFilteredTabs(tabrating.filter((tab) => tab.group === tabs[current]));
+      } else {
+        resetTimeout();
+        setCurrent(tabs.findIndex((x) => x == selected));
+
+        timeoutRef.current = setTimeout(() => {
+          setClicked(false);
+        }, 6000);
+      }
+    }, delay);
+
+    return () => {
+      resetTimeout();
+    };
+  }, [current, clicked]);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -151,8 +163,8 @@ const ChipTabs = () => {
   }, [isInView]);
   const themeContext = useTheme();
   return (
-    <Reveal width="fit-content">
-      <div className="flex-column justify-center">
+    <Reveal width="100%">
+      <div className="flex-column justify-center w-full">
         <TabContainer>
           {tabs.map((tab) => (
             <Chip
@@ -160,6 +172,7 @@ const ChipTabs = () => {
               selected={selected === tab}
               setSelected={setSelected}
               setFilteredTabs={setFilteredTabs}
+              setClicked={setClicked}
               key={tab}
             />
           ))}
@@ -188,7 +201,7 @@ const ChipTabs = () => {
           return (
             <BarDiv
               key={index}
-              className="w-full"
+              className="w-11/12"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
             >
@@ -225,17 +238,20 @@ const Chip = ({
   selected,
   setSelected,
   setFilteredTabs,
+  setClicked,
 }: {
   text: string;
   selected: boolean;
   setSelected: Dispatch<SetStateAction<string>>;
   setFilteredTabs: Dispatch<SetStateAction<tabratingType[]>>;
+  setClicked: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
     <TabButton
       onClick={() => {
         setSelected(text);
         setFilteredTabs(tabrating.filter((tab) => tab.group === text));
+        setClicked(true);
       }}
       className={`${
         selected

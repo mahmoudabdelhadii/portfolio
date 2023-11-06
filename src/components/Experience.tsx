@@ -64,7 +64,8 @@ const Experience: React.FunctionComponent<any | false> = () => {
   console.log("Current theme: ", theme);
   return (
     <Wrapper name="Experience" showTitle setShowPDF={setShowPDF}>
-      <MainContainer
+      <motion.div
+        className="flex flex-col justify-between w-full items-center mt-8 md:flex-row"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
@@ -72,7 +73,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
         }}
       >
         {cardData}
-      </MainContainer>
+      </motion.div>
 
       <SpringModal isOpen={showPDF} setIsOpen={setShowPDF} />
     </Wrapper>
@@ -145,7 +146,7 @@ export const Title = styled.h1`
 `;
 
 export const PageDiv = styled(Element)`
-  height: 70vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   flex-direction: column;

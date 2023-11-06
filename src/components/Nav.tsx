@@ -66,7 +66,7 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
 
-    if (latest > previous && latest > 350) {
+    if (latest > previous && latest > 200) {
       setHidden(true);
     } else {
       setHidden(false);

@@ -12,7 +12,7 @@ const Skills: React.FunctionComponent<any> = () => {
         </Reveal>
       </CardHead>
 
-      <CardBody>
+      <div className="flex w-full flex-col items-between justify-center md:flex md:w-full md:flex-row md:items-start md:justify-between">
         <CardBodyLeft>
           <Reveal width="100%" from="left" delay={0.75}>
             <CardLeftText>
@@ -25,11 +25,11 @@ const Skills: React.FunctionComponent<any> = () => {
           </Reveal>
         </CardBodyLeft>
         <CardBodyRight>
-          <Reveal from="right" width="fit-content" delay={0.75}>
+          <Reveal from="right" width="100%">
             <ChipTabs />
           </Reveal>
         </CardBodyRight>
-      </CardBody>
+      </div>
     </Wrapper>
   );
 };
@@ -42,13 +42,7 @@ const CardHead = styled.div`
   justify-content: flex-start;
 `;
 
-const CardBody = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-`;
+const CardBody = styled.div``;
 
 const CardLeftText = styled.h2`
   font-weight: 700;

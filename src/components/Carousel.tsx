@@ -7,12 +7,42 @@ import HoverCard from "./HoverCard";
 import Reveal from "./Reveal";
 const Carousel = () => {
   return (
-    <Reveal from="bottom" delay={0.8}>
-      <HorizontalScrollCarousel />
-    </Reveal>
+    <>
+      <Reveal from="bottom" delay={0.8}>
+        <HorizontalScrollCarousel />
+      </Reveal>
+    </>
   );
 };
 
+export const Title = styled.h1`
+  margin-bottom: 1.5rem;
+  font-size: 3.75rem;
+  line-height: 1rem;
+`;
+
+export const PlusSign = styled.span`
+  color: rgb(104 154 248);
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  font-size: 3rem;
+  line-height: 2rem;
+  vertical-align: sub;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -36,22 +66,6 @@ const HorizontalScrollCarousel = () => {
 
 const Card = ({ card }: { card: CardType }) => {
   return <HoverCard card={card} key={card.id} />;
-  {
-    /* <Cardiv2
-        style={{
-          backgroundImage: `url(${card.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></Cardiv2>
-      <Cardiv3>
-        <Cardp>{card.title}</Cardp>
-      </Cardiv3> */
-  }
-  {
-    /* </HoverCard> */
-  }
-  // );
 };
 
 export default Carousel;
@@ -114,7 +128,7 @@ const Span2 = styled.span`
 
 const Section3 = styled.section`
   position: relative;
-  height: 250vh;
+  height: 200vh;
   width: 70vw;
   scroll-behaviour: smooth;
 `;
@@ -125,7 +139,7 @@ const Div4 = styled.div`
   position: sticky;
   top: 0;
   align-items: center;
-  height: 100vh;
+  height: 70vh;
 `;
 
 const MotionDiv = styled(motion.div)`

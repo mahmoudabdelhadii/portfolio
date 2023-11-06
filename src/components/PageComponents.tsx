@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Element } from "react-scroll";
 export const Title = styled.h1`
   margin-bottom: 1.5rem;
   font-size: 3.75rem;
@@ -7,7 +6,7 @@ export const Title = styled.h1`
 `;
 
 export const Page = styled.div<any>`
-  height: ${(props) => (props.size ? props.size + "%" : "80vh")};
+  height: ${(props) => (props.size ? props.size + "vh" : "80vh")};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -60,10 +59,10 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     <Page name={name} size={size} justify={justify}>
       <Header>
         {showTitle && (
-          <Title>
+          <h1 className="mb-6 text-4xl leading-4 md:text-6xl">
             {name}
             <PlusSign>+</PlusSign>
-          </Title>
+          </h1>
         )}
       </Header>
       <Container>{children}</Container>

@@ -14,14 +14,22 @@ const IntroSlide: React.FunctionComponent<any> = () => {
   return (
     <Wrapper name="About">
       <IntroContainer>
+        <div
+          style={{
+            backgroundImage: `url(${pic2})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="h-[40vh] w-full z-0 absolute top-20 left-0"
+        ></div>
         <Textbox>
           <Reveal from="left">
             <Subtitle> Hi, I am</Subtitle>
           </Reveal>
           <Reveal from="left">
-            <h1 className="text-7xl font-bold md:text-7xl">
+            <h1 className="text-5xl font-bold md:text-7xl z-20">
               Mahmoud
-              <span className="align-baseline inline-block pl-2">
+              <span className="align-baseline inline-block pl-2 md:z-20">
                 <svg height="10" width="10">
                   <circle
                     cx="5"
@@ -36,15 +44,16 @@ const IntroSlide: React.FunctionComponent<any> = () => {
             </h1>
           </Reveal>
           <Reveal from="left">
-            <Description>
+            <p className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg">
               I love everything software, from application development and
               deployment, to data and model training
-            </Description>
+            </p>
           </Reveal>
           <Reveal>
             <ResumeButton to="Resume">Scroll to Resume</ResumeButton>
           </Reveal>
         </Textbox>
+
         <FadeIn>
           <FadeImage>
             <ProfileImage src={pic2} alt="" />

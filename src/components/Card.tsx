@@ -93,14 +93,6 @@ interface CardLinkProps {
   theme: any;
 }
 
-const CloseButton = styled(motion.img)`
-  border: none;
-  width: 2.5rem;
-  height: 2.5rem;
-
-  cursor: pointer;
-`;
-
 const CardBody = styled(motion.div)`
   display: flex;
   flex-direction: column;
