@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { StyledButton } from "./StyledButton";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className=" flex flex-row justify-between align-center w-[80vw]">
-      <div className="w-full flex flex-row justify-between align-center h-130">
+    <motion.div className="relative flex flex-row justify-between items-between w-[90vw] md:w-[80vw]">
+      <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
         <div className="w-1/2 h-full basis-1/3">
-          <div className="flex flex-col justify-between align-center w-full h-full">
+          <div className="flex flex-col justify-between items-center w-full h-full">
             <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
-            <h3 className="z-0 text-4xl font-bold">
+            <h3 className="z-0 text-2xl font-bold md:text-4xl">
               {" "}
               Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
             </h3>
@@ -25,7 +25,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 text-justify text-slate-400 h-full">
+        <p className="w-5/6 text-slate-400 h-full text-justify md:w-1/2">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
           deleniti esse necessitatibus pariatur! Nesciunt totam suscipit
           inventore maiores esse eum odio nisi nulla explicabo aut, praesentium
@@ -49,7 +49,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
           quia ad debitis, quos cum quo velit inventore. Eum asperiores
           laboriosam consectetur nulla nostrum rem aliquid perspiciatis
           obcaecati vero iste.
-        </div>
+        </p>
       </div>
     </motion.div>
   );

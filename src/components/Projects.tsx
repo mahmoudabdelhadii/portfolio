@@ -16,7 +16,7 @@ const Projects: React.FunctionComponent<any> = () => {
         </h1>
       </div>
       <div className="flex w-full justify-between items-center">
-        <div className="h-full w-1/6 flex justify-start">
+        <div className="h-full w-1/12 flex justify-start">
           <motion.div whileHover={{ scale: 1.8 }} whileTap={{ scale: 0.9 }}>
             <MdArrowBackIosNew
               className={`${page === 0 ? "hidden" : ""}`}
@@ -28,8 +28,8 @@ const Projects: React.FunctionComponent<any> = () => {
             />
           </motion.div>
         </div>
-        <HoverCards page={page} className="basis-4/6" />
-        <div className="h-full w-1/6 flex justify-end">
+        <HoverCards page={page} className="basis-5/6" />
+        <div className="h-full w-1/12 flex justify-end">
           <motion.div whileHover={{ scale: 1.8 }} whileTap={{ scale: 0.9 }}>
             <MdArrowForwardIos
               className={`${page === 1 ? "hidden" : ""}`}

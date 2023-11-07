@@ -15,13 +15,13 @@ const Skills: React.FunctionComponent<any> = () => {
       <div className="flex w-full flex-col items-between justify-center md:flex md:w-full md:flex-row md:items-start md:justify-between">
         <CardBodyLeft>
           <Reveal width="100%" from="left" delay={0.75}>
-            <CardLeftText>
+            <h2 className="font-bold text-2xl leading-10 mt-6 md:tex-4xl">
               Full Stack Development,
               <br />
               Data Engineering &
               <br />
               Machine Learning
-            </CardLeftText>
+            </h2>
           </Reveal>
         </CardBodyLeft>
         <CardBodyRight>

@@ -38,7 +38,7 @@ const HoverCards = ({
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="grid grid-cols-4 grid-rows-4 gap-4 place-content-center"
+        className="grid grid-cols-1 grid-rows-3 gap-2 md:grid-cols-4 md:grid-rows-4 md:gap-4 place-content-center"
         key={page}
       >
         {cards
@@ -49,10 +49,10 @@ const HoverCards = ({
                 key={card.id}
                 className={`${
                   card.id % 3 === 1
-                    ? "grid row-start-2 row-span-2 col-start-1 col-span-2"
+                    ? "grid row-start-1 row-span-1 col-start-1 col-span-1 md:row-start-2 md:row-span-2 md:col-start-1 md:col-span-2"
                     : card.id % 3 === 2
-                    ? "grid col-start-3 col-span-2 row-start-1 row-span-2"
-                    : "grid col-start-3 col-span-2 row-start-3 row-span-2"
+                    ? "grid row-start-2 row-span-1 col-start-1 col-span-1 md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-2"
+                    : "grid row-start-3 row-span-1 col-start-1 col-span-1 md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2"
                 }`}
                 initial="hidden"
                 custom={card.id}

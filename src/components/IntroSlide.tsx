@@ -14,20 +14,12 @@ const IntroSlide: React.FunctionComponent<any> = () => {
   return (
     <Wrapper name="About">
       <IntroContainer>
-        <div
-          style={{
-            backgroundImage: `url(${pic2})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          className="h-[40vh] w-full z-0 absolute top-20 left-0"
-        ></div>
         <Textbox>
           <Reveal from="left">
             <Subtitle> Hi, I am</Subtitle>
           </Reveal>
           <Reveal from="left">
-            <h1 className="text-5xl font-bold md:text-7xl z-20">
+            <h1 className="text-4xl font-bold md:text-7xl z-20">
               Mahmoud
               <span className="align-baseline inline-block pl-2 md:z-20">
                 <svg height="10" width="10">
@@ -55,9 +47,11 @@ const IntroSlide: React.FunctionComponent<any> = () => {
         </Textbox>
 
         <FadeIn>
-          <FadeImage>
-            <ProfileImage src={pic2} alt="" />
-          </FadeImage>
+          <div className="hidden md:block">
+            <FadeImage>
+              <ProfileImage src={pic2} alt="" />
+            </FadeImage>
+          </div>
         </FadeIn>
       </IntroContainer>
     </Wrapper>

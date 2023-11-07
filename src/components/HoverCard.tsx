@@ -95,7 +95,7 @@ const TiltCard = ({ card }: { card: CardType }) => {
           className={`${
             isOpen
               ? "grid h-[50vh] w-[50vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
-              : "relative h-80 w-[20vw] rounded-xl bg-blue-300"
+              : "relative h-[23vw] w-[25vw] rounded-xl bg-blue-300"
           } `}
         >
           <div
@@ -110,7 +110,7 @@ const TiltCard = ({ card }: { card: CardType }) => {
               className={`${
                 isOpen
                   ? "hidden"
-                  : "group relative h-[19.5rem] w-[18vw] overflow-hidden bg-neutral-200"
+                  : "group relative h-[22vw] w-[24vw] overflow-hidden bg-neutral-200"
               }`}
             >
               <div

@@ -65,7 +65,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
   return (
     <Wrapper name="Experience" showTitle setShowPDF={setShowPDF}>
       <motion.div
-        className="flex flex-col justify-between w-full items-center mt-8 md:flex-row"
+        className="flex flex-col justify-between w-full items-center my-8 h-full md:flex-row"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
@@ -146,7 +146,7 @@ export const Title = styled.h1`
 `;
 
 export const PageDiv = styled(Element)`
-  height: 40vh;
+  height: 60vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -193,10 +193,10 @@ const Wrapper: React.FunctionComponent<WrapperProps> = ({
       <Header>
         <Reveal from="left">
           {showTitle && (
-            <Title>
+            <h1 className="text-4xl leading-4 mb-6 md:text-6xl">
               {name}
               <PlusSign>+</PlusSign>
-            </Title>
+            </h1>
           )}
         </Reveal>
 
