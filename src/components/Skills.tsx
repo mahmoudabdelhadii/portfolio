@@ -6,16 +6,16 @@ import Reveal from "./Reveal";
 const Skills: React.FunctionComponent<any> = () => {
   return (
     <Wrapper name="Skills">
-      <CardHead>
+      <div className="flex w-full flex-row justify-center items-center md:items-start md:justify-start">
         <Reveal>
-          <Subtitle>MY SKILLSET</Subtitle>
+          <h3 className="text-blue-400 font-bold text-left m-0">MY SKILLSET</h3>
         </Reveal>
-      </CardHead>
+      </div>
 
       <div className="flex w-full flex-col items-between justify-center md:flex md:w-full md:flex-row md:items-start md:justify-between">
-        <CardBodyLeft>
+        <div className="flex basis-[30%] flex-row justify-center items-center md:items-start md:justify-start">
           <Reveal width="100%" from="left" delay={0.75}>
-            <h2 className="font-bold text-2xl leading-10 mt-6 md:tex-4xl">
+            <h2 className="font-bold text-2xl leading-10 mt-6 text-center md:tex-4xl md:text-left">
               Full Stack Development,
               <br />
               Data Engineering &
@@ -23,7 +23,7 @@ const Skills: React.FunctionComponent<any> = () => {
               Machine Learning
             </h2>
           </Reveal>
-        </CardBodyLeft>
+        </div>
         <CardBodyRight>
           <Reveal from="right" width="100%">
             <ChipTabs />

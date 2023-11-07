@@ -175,6 +175,10 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 interface WrapperProps {
   name: string;

@@ -1,23 +1,28 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { StyledButton } from "./StyledButton";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="relative flex flex-row justify-between items-between w-[90vw] md:w-[80vw]">
+    <motion.div className="relative flex flex-row justify-between items-between w-[80vw] md:w-[90vw]">
       <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
-        <div className="w-1/2 h-full basis-1/3">
-          <div className="flex flex-col justify-between items-center w-full h-full">
+        <div className="w-full h-full">
+          <div className="flex flex-col  justify-center items-center gap-2 md:justify-between md:items-start w-full h-full">
             <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
-            <h3 className="z-0 text-2xl font-bold md:text-4xl">
+            <h3 className="z-0 text-2xl font-bold md:text-4xl text-center">
               {" "}
               Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
             </h3>
-            <div className="flex flex-row">
+            <div className="flex flex-col md:flex-row gap-2">
               <div className="w-2/5">
-                <StyledButton>Github</StyledButton>
+                <StyledButton>
+                  Github <BsGithub />
+                </StyledButton>
               </div>
               <div className="w-2/5">
-                <StyledButton>LinkedIn</StyledButton>
+                <StyledButton>
+                  LinkedIn <BsLinkedin />
+                </StyledButton>
               </div>
               <div className="w-2/5">
                 <StyledButton>Email</StyledButton>
@@ -40,15 +45,6 @@ const AboutMe: React.FunctionComponent<any> = () => {
           dolorum deleniti impedit ipsam perferendis quidem soluta mollitia
           repellendus, repudiandae iure rem blanditiis. Enim illo incidunt ipsa
           dolor nobis repellendus aut, explicabo, eligendi fugiat error nemo
-          nostrum nesciunt expedita! Amet perferendis reprehenderit eligendi a
-          praesentium, dicta ducimus ad fugit corrupti obcaecati quis corporis
-          aliquid facilis sequi expedita numquam vero ullam laboriosam possimus
-          aliquam non consequuntur? Culpa animi aut asperiores a cum quis unde
-          cumque numquam, illo doloribus exercitationem vero odio corporis ab,
-          suscipit, quos dicta dolore debitis modi reiciendis dolorum. Similique
-          quia ad debitis, quos cum quo velit inventore. Eum asperiores
-          laboriosam consectetur nulla nostrum rem aliquid perspiciatis
-          obcaecati vero iste.
         </p>
       </div>
     </motion.div>

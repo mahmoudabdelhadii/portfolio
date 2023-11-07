@@ -29,8 +29,16 @@ export const StyledButton = styled(motion.button)`
     border-left: 2px solid #689af8;
   }
 
-  @media screen and (max-width: 600px) {
-    display: none;
+  @media (max-width: 768px) {
+    background-color: ${(props) => props.theme.background};
+    border: none;
+    width: 70vw;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #689af8;
+    margin-bottom: 0.5rem;
   }
 `;
 

@@ -53,7 +53,7 @@ const MiddleGroup = styled.div`
   flex-basis: 70%;
   height: 100%;
   gap: 2rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
