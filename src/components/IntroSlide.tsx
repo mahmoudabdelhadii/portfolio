@@ -12,7 +12,10 @@ const ResumeButton = styled(LinkStyle)`
 
 const IntroSlide: React.FunctionComponent<any> = () => {
   return (
-    <Wrapper name="About">
+    <Wrapper
+      name="About"
+      ParentClass="h-[80vh] flex items-center justify-center"
+    >
       <IntroContainer>
         <Textbox>
           <Reveal from="left">
@@ -62,6 +65,7 @@ const IntroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const ProfileImage = styled(motion.img)`

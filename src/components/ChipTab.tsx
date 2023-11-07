@@ -165,7 +165,7 @@ const ChipTabs = () => {
   return (
     <Reveal width="100%">
       <div className="flex-column justify-center w-full">
-        <TabContainer>
+        <motion.div className="hidden md:flex md:gap-2 md:flex-wrap">
           {tabs.map((tab) => (
             <Chip
               text={tab}
@@ -176,7 +176,7 @@ const ChipTabs = () => {
               key={tab}
             />
           ))}
-        </TabContainer>
+        </motion.div>
 
         {FilteredTabs.map((tab, index) => {
           const { name, group, logo, rating } = tab;

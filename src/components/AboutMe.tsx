@@ -4,16 +4,16 @@ import { StyledButton } from "./StyledButton";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="relative flex flex-row justify-between items-between w-[80vw] md:w-[90vw]">
+    <motion.div className="relative flex flex-row justify-between items-between w-[80vw] md:w-full">
       <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
         <div className="w-full h-full">
           <div className="flex flex-col  justify-center items-center gap-2 md:justify-between md:items-start w-full h-full">
             <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
-            <h3 className="z-0 text-2xl font-bold md:text-4xl text-center">
+            <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
               {" "}
               Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
             </h3>
-            <div className="flex flex-col md:flex-row gap-2">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center md:w-full gap-2">
               <div className="w-2/5">
                 <StyledButton>
                   Github <BsGithub />

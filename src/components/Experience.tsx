@@ -12,6 +12,7 @@ import { BsFacebook, BsWhatsapp, BsPrinter, BsMessenger } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { useTheme } from "styled-components";
+import { Wrapper } from "./PageComponents";
 const Experience: React.FunctionComponent<any | false> = () => {
   const cardData: ReactNode[] = [
     {
@@ -63,7 +64,18 @@ const Experience: React.FunctionComponent<any | false> = () => {
   const theme = useTheme();
   console.log("Current theme: ", theme);
   return (
-    <Wrapper name="Experience" showTitle setShowPDF={setShowPDF}>
+    <div className="w-full flex flex-col justify-center items-center">
+      <Wrapper
+        name="Experience"
+        showTitle
+        ParentClass="flex flex-col md:flex-row justify-between w-full items-center"
+      >
+        <Reveal from="right" width="fit-content">
+          <StyledButton onClick={() => setShowPDF(true)}>
+            Download Resume
+          </StyledButton>
+        </Reveal>
+      </Wrapper>
       <motion.div
         className="flex flex-col justify-between w-full items-center my-8 h-full md:flex-row"
         initial={{ opacity: 0 }}
@@ -76,7 +88,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
       </motion.div>
 
       <SpringModal isOpen={showPDF} setIsOpen={setShowPDF} />
-    </Wrapper>
+    </div>
   );
 };
 
@@ -131,87 +143,4 @@ const SpringModal = ({
   );
 };
 
-const MainContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
-
-export const Title = styled.h1`
-  margin-bottom: 1.5rem;
-  font-size: 3.75rem;
-  line-height: 1rem;
-`;
-
-export const PageDiv = styled(Element)`
-  height: 60vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 2rem;
-`;
-
-export const PlusSign = styled.span`
-  color: rgb(104 154 248);
-  margin-left: 0.5rem;
-  margin-top: 1rem;
-  font-size: 3rem;
-  line-height: 2rem;
-  vertical-align: sub;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-interface WrapperProps {
-  name: string;
-  children: JSX.Element | JSX.Element[];
-  showTitle?: boolean;
-  setShowPDF: any;
-}
-const Wrapper: React.FunctionComponent<WrapperProps> = ({
-  children,
-  name,
-  showTitle,
-  setShowPDF,
-}) => {
-  return (
-    <PageDiv name={name}>
-      <Header>
-        <Reveal from="left">
-          {showTitle && (
-            <h1 className="text-4xl leading-4 mb-6 md:text-6xl">
-              {name}
-              <PlusSign>+</PlusSign>
-            </h1>
-          )}
-        </Reveal>
-
-        <Reveal from="right" width="fit-content">
-          <StyledButton onClick={() => setShowPDF(true)}>
-            Download Resume
-          </StyledButton>
-        </Reveal>
-      </Header>
-      <Container>{children}</Container>
-    </PageDiv>
-  );
-};
 export default Experience;

@@ -39,33 +39,51 @@ interface WrapperProps {
   name: string;
   children: JSX.Element | JSX.Element[];
   showTitle?: boolean;
-  size?: "fit-content" | number;
-  justify?:
-    | "flex-start"
-    | "flex-end"
-    | "space-between"
-    | "center"
-    | "space-aroud"
-    | "space-evenly";
+  ParentClass?: string;
+  HeaderClass?: string;
+  ChildrenClass?: string;
+  SubParentClass?: string;
 }
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
   children,
   name,
   showTitle,
-  size,
-  justify,
+  ParentClass,
+  HeaderClass,
+  ChildrenClass,
+  SubParentClass,
 }) => {
   return (
-    <Page name={name} size={size} justify={justify}>
-      <Header>
-        {showTitle && (
-          <h1 className="mb-6 text-4xl leading-4 md:text-6xl">
+    <div className={`${ParentClass ? ParentClass : "w-[80vw]"}`}>
+      {showTitle && (
+        <div
+          className={`${
+            "flex flex-row justify-start items-center " + SubParentClass
+              ? SubParentClass
+              : ""
+          }`}
+        >
+          <h1
+            className={`${
+              "mb-6 text-4xl leading-4 md:text-6xl " + HeaderClass
+                ? HeaderClass
+                : ""
+            }`}
+          >
             {name}
             <PlusSign>+</PlusSign>
           </h1>
-        )}
-      </Header>
-      <Container>{children}</Container>
-    </Page>
+        </div>
+      )}
+      <div
+        className={`${
+          ChildrenClass
+            ? "flex flex-row justify-start items-center " + ChildrenClass
+            : "flex flex-row justify-start items-center"
+        }`}
+      >
+        {children}
+      </div>
+    </div>
   );
 };

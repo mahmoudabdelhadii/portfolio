@@ -5,7 +5,11 @@ import ChipTabs from "./ChipTab";
 import Reveal from "./Reveal";
 const Skills: React.FunctionComponent<any> = () => {
   return (
-    <Wrapper name="Skills">
+    <Wrapper
+      name="Skills"
+      ParentClass="h-screen w-full items-between"
+      ChildrenClass="flex flex-col justify-center items-center w-full"
+    >
       <div className="flex w-full flex-row justify-center items-center md:items-start md:justify-start">
         <Reveal>
           <h3 className="text-blue-400 font-bold text-left m-0">MY SKILLSET</h3>

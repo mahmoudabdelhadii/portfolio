@@ -5,8 +5,11 @@ import { Wrapper } from "./PageComponents";
 import { MdOutlineEmail } from "react-icons/md";
 const Contact: React.FunctionComponent<any> = () => {
   return (
-    <Wrapper name="Contact">
-      <div className="w-4/5 flex flex-col justify-center items-center h-screen gap-4 md:h-[30vh] md:justify-between">
+    <Wrapper
+      name="Contact"
+      ParentClass="h-[50vh] w-full flex flex-col justify-center items-center"
+    >
+      <div className="flex flex-col justify-center items-center h-screen gap-4 md:h-[30vh] md:justify-between">
         <p className="text-blue-400 font-bold">CONTACT ME</p>
         <h3 className="text-2xl font-bold md:text-4xl">
           Get in touch with me.

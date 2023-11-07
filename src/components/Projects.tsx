@@ -8,13 +8,12 @@ import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 const Projects: React.FunctionComponent<any> = () => {
   const [page, setPage] = React.useState(0);
   return (
-    <div className="flex justify-center flex-col align-start w-full">
-      <div className="flex justify-start align-start">
-        <h1 className="mb-6 text-4xl leading-4 md:text-6xl">
-          Recent Projects
-          <PlusSign>+</PlusSign>
-        </h1>
-      </div>
+    <Wrapper
+      name="Recent Projects"
+      showTitle
+      ParentClass="flex justify-center flex-col align-start w-full h-screen"
+      SubParentClass="flex justify-center items-center md:justify-start md:items-start"
+    >
       <div className="flex w-full justify-between items-center">
         <div className="h-full w-1/12 flex justify-start">
           <motion.div whileHover={{ scale: 1.8 }} whileTap={{ scale: 0.9 }}>
@@ -40,7 +39,7 @@ const Projects: React.FunctionComponent<any> = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
