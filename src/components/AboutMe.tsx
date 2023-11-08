@@ -4,10 +4,10 @@ import { StyledButton } from "./StyledButton";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="relative flex flex-row justify-between items-between w-[80vw] md:w-full">
-      <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
-        <div className="w-full h-full">
-          <div className="flex flex-col  justify-center items-center gap-2 md:justify-between md:items-start w-full h-full">
+    <motion.div className="flex flex-row justify-between items-between md:w-full">
+      <div className="w-full flex flex-col justify-center  h-[150vh] items-center gap-4 md:flex-row md:justify-between md:items-center">
+        <div className="w-full ">
+          <div className="flex flex-col justify-center items-center gap-2 md:justify-between md:items-start w-full">
             <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
             <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
               {" "}
@@ -30,7 +30,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
             </div>
           </div>
         </div>
-        <p className="w-5/6 text-slate-400 h-full text-justify md:w-1/2">
+        <p className="w-5/6 text-slate-400 text-justify md:w-1/2 overflow-auto">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
           deleniti esse necessitatibus pariatur! Nesciunt totam suscipit
           inventore maiores esse eum odio nisi nulla explicabo aut, praesentium
