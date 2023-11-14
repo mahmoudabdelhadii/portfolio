@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { FiMousePointer } from "react-icons/fi";
+
 import styled from "styled-components";
 type CardType = {
   url: string;

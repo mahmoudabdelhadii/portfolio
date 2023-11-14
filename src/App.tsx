@@ -1,5 +1,5 @@
 import Nav from "./components/Nav";
-import { createContext, useState } from "react";
+import { useState } from "react";
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import AOS from "aos";
@@ -10,9 +10,7 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
-import { Element } from "react-scroll";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-export const ThemeContext = createContext(null as any);
 
 const baseTheme = {
   background: "#F5F5F5",

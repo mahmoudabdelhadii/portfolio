@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
 import { StyledButton } from "./StyledButton";
@@ -154,12 +154,6 @@ const CardWrapper = styled(motion.div)`
 
   width: 100%;
 `;
-const CardHeadText = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const JobTitle = styled(motion.p)`
   margin: 0;
@@ -204,27 +198,6 @@ const CardHead = styled(motion.div)<CardHeadProps>`
     `}
 `;
 
-interface CardHeaderProps {
-  isCardOpened: boolean;
-}
-const CardHeader = styled(motion.h2)<CardHeaderProps>`
-  margin: 0.5rem 0;
-  font-size: 1.5em;
-  font-weight: 700;
-  color: ${(props: any) =>
-    props.isCardOpened ? props.theme.secondary : props.theme.secondary};
-`;
-interface CardSubtitleProps {
-  isCardOpened: boolean;
-}
-const CardSubtitle = styled(motion.p)<CardSubtitleProps>`
-  font-weight: 700;
-  font-size: 1em;
-  margin: 0 0 1rem;
-  color: ${(props: any) =>
-    props.isCardOpened ? props.theme.subtitle : props.theme.subtitle};
-`;
-
 const CardDescription = styled(motion.p)`
   font-weight: 100;
   font-size: 0.7em;
@@ -261,9 +234,4 @@ const CardBackground = styled(motion.div)`
   opacity: 0.5;
 `;
 
-const AbsoluteCardContainer = styled.div`
-  width: min(50rem, 90vw);
-  padding: 1rem;
-  position: relative;
-`;
 export default Card;

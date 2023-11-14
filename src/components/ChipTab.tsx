@@ -1,11 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useState,
-  useEffect,
-  useRef,
-  useContext,
-} from "react";
+import { Dispatch, SetStateAction, useState, useEffect, useRef } from "react";
 import { StyledButton } from "./StyledButton";
 import { motion, useAnimation, useInView } from "framer-motion";
 
@@ -39,12 +32,6 @@ interface tabratingType {
   logo: string;
   rating: number;
 }
-interface Props {
-  children: JSX.Element;
-  width?: "fit-content" | "100%";
-  delay?: number;
-  from?: "top" | "bottom" | "left" | "right";
-}
 
 const tabrating: tabratingType[] = [
   { name: "JavaScript", group: "Languages", logo: jslogo, rating: 100 },
@@ -76,13 +63,7 @@ const tabrating: tabratingType[] = [
 
 const BarLogo = styled(motion.img)`
   height: 2rem;
-  flex-basis: 5%;
-`;
-const BarDiv = styled(motion.div)`
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  margin: 1rem 0 1rem 2rem;
+  width: 2rem;
 `;
 
 const BarMax = styled(motion.div)`
@@ -131,7 +112,7 @@ const ChipTabs = () => {
         setFilteredTabs(tabrating.filter((tab) => tab.group === tabs[current]));
       } else {
         resetTimeout();
-        setCurrent(tabs.findIndex((x) => x == selected));
+        setCurrent(tabs.findIndex((x) => x === selected));
 
         timeoutRef.current = setTimeout(() => {
           setClicked(false);
@@ -163,8 +144,11 @@ const ChipTabs = () => {
   }, [isInView]);
   const themeContext = useTheme();
   return (
-    <div data-aos="fade-up" className="flex-column justify-center w-full">
-      <motion.div className="hidden md:flex md:gap-2 md:flex-wrap">
+    <div
+      data-aos="fade-up"
+      className="flex flex-column justify-start items-center w-full"
+    >
+      <motion.div className="hidden w-full md:flex md:gap-2 flex-wrap md:justify-evenly mb-8">
         {tabs.map((tab) => (
           <Chip
             text={tab}
@@ -177,58 +161,60 @@ const ChipTabs = () => {
         ))}
       </motion.div>
 
-      {FilteredTabs.map((tab, index) => {
-        const { name, group, logo, rating } = tab;
+      <motion.div className=" w-11/12 mb-16 border-l border-blue-400">
+        {FilteredTabs.map((tab, index) => {
+          const { name, group, logo, rating } = tab;
 
-        const transition = {
-          duration: 1,
-          delay: index * 0.2,
-          ease: "easeInOut",
-        };
+          const transition = {
+            duration: 1,
+            delay: index * 0.2,
+            ease: "easeInOut",
+          };
 
-        const variants = {
-          enter: {
-            opacity: 0,
-            width: "0%",
-          },
-          animate: {
-            opacity: 1,
-            width: ["0%", rating.toString() + "%"],
-            transition,
-          },
-        };
-        return (
-          <BarDiv
-            key={index}
-            className="w-11/12"
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            <BarLogo
-              data-aos="fade-right"
-              data-aos-once="false"
-              src={logo}
+          const variants = {
+            enter: {
+              opacity: 0,
+              width: "0%",
+            },
+            animate: {
+              opacity: 1,
+              width: ["0%", rating.toString() + "%"],
+              transition,
+            },
+          };
+          return (
+            <motion.div
               key={index}
-              className={
-                logo.includes("hasura") && themeContext.color === "#fff"
-                  ? "invert"
-                  : ""
-              }
-            />
-
-            <BarMax>
-              <Bar
-                variants={variants}
-                initial="enter"
-                animate="animate"
-                exit="enter"
-                rating={rating}
-                className="z-0 bg-gradient-to-br from-blue-300 to-violet-300"
+              className="flex justify-between items-center my-4 ml-8"
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}
+            >
+              <BarLogo
+                data-aos="fade-right"
+                data-aos-once="false"
+                src={logo}
+                key={index}
+                className={
+                  logo.includes("hasura") && themeContext.color === "#fff"
+                    ? "invert"
+                    : ""
+                }
               />
-            </BarMax>
-          </BarDiv>
-        );
-      })}
+
+              <BarMax>
+                <Bar
+                  variants={variants}
+                  initial="enter"
+                  animate="animate"
+                  exit="enter"
+                  rating={rating}
+                  className="z-0 bg-gradient-to-br from-blue-300 to-violet-300"
+                />
+              </BarMax>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </div>
   );
 };
@@ -275,9 +261,4 @@ const TabButton = styled(StyledButton)`
   flex-direction: row;
 `;
 
-const TabContainer = styled(motion.div)`
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-`;
 export default ChipTabs;

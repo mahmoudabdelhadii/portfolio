@@ -1,9 +1,8 @@
-import styled from "styled-components";
 import Card from "./Card";
 import Reveal from "./Reveal";
 import RBClogo from "../assets/RBClogo.png";
 import TUTfclogo from "../assets/TUTfclogo.png";
-import { Element } from "react-scroll";
+
 import { StyledButton } from "./StyledButton";
 import PdfViewer from "./PdfViewer";
 import { GrInstallOption } from "react-icons/gr";

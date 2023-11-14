@@ -22,19 +22,6 @@ export const PlusSign = styled.span`
   vertical-align: sub;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`;
 interface WrapperProps {
   name: string;
   children: JSX.Element | JSX.Element[];

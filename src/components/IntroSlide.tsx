@@ -1,11 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
 import pic2 from "../assets/pic2.png";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { LinkStyle } from "./StyledButton";
-import { FadeIn } from "./FadeIn";
 import { Wrapper } from "./PageComponents";
-import Reveal from "./Reveal";
+
 const ResumeButton = styled(LinkStyle)`
   width: 5rem;
 `;
@@ -14,7 +13,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="About"
-      ParentClass="h-[90vh] flex items-center justify-center"
+      ParentClass="h-[90vh] w-full flex items-center justify-center"
     >
       <IntroContainer>
         <div className="flex flex-col basis-3/5 ">

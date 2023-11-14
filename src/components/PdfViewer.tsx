@@ -20,10 +20,8 @@ const resizeObserverOptions = {};
 
 const maxWidth = 800;
 
-type PDFFile = string | File | null;
-
 export default function Sample() {
-  const [file, setFile] = useState<PDFFile>("./Mahmoud_Abdelhadi_Resume.pdf");
+  const file = "./Mahmoud_Abdelhadi_Resume.pdf";
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();

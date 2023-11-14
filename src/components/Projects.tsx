@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Wrapper } from "./PageComponents";
-import Carousel from "./Carousel";
 import HoverCards from "./HoverCards";
 import { motion } from "framer-motion";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
@@ -17,7 +16,6 @@ const Projects: React.FunctionComponent<any> = () => {
         data-aos="zoom-in"
         data-aos-duration="2000"
         data-aos-offset="300"
-        data-aos-once="false"
         className="flex w-full justify-between items-center"
       >
         <div className="h-full w-1/12 flex justify-start">

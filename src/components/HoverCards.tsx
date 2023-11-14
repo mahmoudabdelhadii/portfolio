@@ -1,6 +1,4 @@
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
-
+import { motion } from "framer-motion";
 import f1gif from "../assets/ezgif-1-a134de1717.gif";
 import pcagif from "../assets/PCA.gif";
 import HoverCard from "./HoverCard";
