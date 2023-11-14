@@ -64,11 +64,11 @@ const Experience: React.FunctionComponent<any | false> = () => {
   const theme = useTheme();
   console.log("Current theme: ", theme);
   return (
-    <div className="w-full flex flex-col justify-center items-center">
+    <div className="w-full flex flex-col justify-center items-center h-screen md:h-[40vh]">
       <Wrapper
         name="Experience"
         showTitle
-        ParentClass="flex flex-col md:flex-row justify-between w-full items-center"
+        ParentClass="flex h-[30vh] flex-col justify-evenly items-center md:flex-row  md:h-1/8 md:justify-between w-full items-center"
       >
         <Reveal from="right" width="fit-content">
           <StyledButton onClick={() => setShowPDF(true)}>
@@ -76,17 +76,18 @@ const Experience: React.FunctionComponent<any | false> = () => {
           </StyledButton>
         </Reveal>
       </Wrapper>
-      <motion.div
-        className="flex flex-col justify-between w-full items-center my-8 h-full md:flex-row"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: 1,
-        }}
-      >
-        {cardData}
-      </motion.div>
-
+      <div className="w-2/3 h-full flex justify-center align-center">
+        <motion.div
+          className="flex flex-col justify-between w-full items-start my-8 h-2/3 md:flex-row"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 1,
+          }}
+        >
+          {cardData}
+        </motion.div>
+      </div>
       <SpringModal isOpen={showPDF} setIsOpen={setShowPDF} />
     </div>
   );
@@ -117,7 +118,7 @@ const SpringModal = ({
             onClick={(e) => e.stopPropagation()}
             className={`${
               theme.color === "#fff" ? "bg-transparent" : "bg-white"
-            } bg-transparent text-white p-6 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
+            }  text-white p-6 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
           >
             <div className="flex flex-col gap-2 z-10 w-full p-8">
               <PdfViewer />
@@ -135,6 +136,15 @@ const SpringModal = ({
                   <BsWhatsapp className="h-10 w-10 cursor-pointer" />
                 </motion.div>
               </div>
+            </div>
+            <div className="md:hidden">
+              <StyledButton
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                close
+              </StyledButton>
             </div>
           </motion.div>
         </motion.div>

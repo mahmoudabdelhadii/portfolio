@@ -14,48 +14,75 @@ const IntroSlide: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="About"
-      ParentClass="h-[80vh] flex items-center justify-center"
+      ParentClass="h-[90vh] flex items-center justify-center"
     >
       <IntroContainer>
-        <Textbox>
-          <Reveal from="left">
-            <Subtitle> Hi, I am</Subtitle>
-          </Reveal>
-          <Reveal from="left">
-            <h1 className="text-4xl font-bold md:text-7xl z-20">
-              Mahmoud
-              <span className="align-baseline inline-block pl-2 md:z-20">
-                <svg height="10" width="10">
-                  <circle
-                    cx="5"
-                    cy="5"
-                    r="4"
-                    stroke="#689af8"
-                    strokeWidth={1}
-                    fill="#689af8"
-                  />
-                </svg>
-              </span>
-            </h1>
-          </Reveal>
-          <Reveal from="left">
-            <p className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg">
-              I love everything software, from application development and
-              deployment, to data and model training
-            </p>
-          </Reveal>
-          <Reveal>
-            <ResumeButton to="Resume">Scroll to Resume</ResumeButton>
-          </Reveal>
-        </Textbox>
+        <div className="flex flex-col basis-3/5 ">
+          <h2
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-once="false"
+            className="text-xl leading-9 font-bold m-0"
+          >
+            {" "}
+            Hi, I am
+          </h2>
 
-        <FadeIn>
-          <div className="hidden md:block">
-            <FadeImage>
-              <ProfileImage src={pic2} alt="" />
-            </FadeImage>
-          </div>
-        </FadeIn>
+          <h1
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-once="false"
+            className="text-4xl font-bold md:text-7xl z-20"
+          >
+            Mahmoud
+            <span
+              data-aos="fade-up-right"
+              data-aos-duration="2000"
+              className="align-baseline inline-block pl-2 md:z-20"
+            >
+              <svg height="10" width="10">
+                <circle
+                  cx="5"
+                  cy="5"
+                  r="4"
+                  stroke="#689af8"
+                  strokeWidth={1}
+                  fill="#689af8"
+                />
+              </svg>
+            </span>
+          </h1>
+
+          <p
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-once="false"
+            className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg"
+          >
+            I love everything software, from application development and
+            deployment, to data and model training
+          </p>
+
+          <ResumeButton
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-once="false"
+            to="Resume"
+          >
+            Scroll to Resume
+          </ResumeButton>
+        </div>
+
+        <div
+          data-aos="zoom-in-left"
+          data-aos-duration="2000"
+          data-aos-once="false"
+          className="hidden md:block"
+        >
+          <FadeImage>
+            <ProfileImage src={pic2} alt="" />
+          </FadeImage>
+        </div>
       </IntroContainer>
     </Wrapper>
   );
@@ -95,39 +122,4 @@ const FadeImage = styled.div`
   );
 `;
 
-const Title = styled(motion.h1)`
-  font-size: 3.5rem;
-  line-height: 1;
-  font-weight: 700;
-  margin: 0;
-  margin-top: 1.5rem;
-  display: flex;
-  align-items: flex-end;
-`;
-const Textbox = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  flex-basis: 60%;
-  font-family: "Regular";
-
-  @media screen and (max-width: 600px) {
-    z-index: 1;
-    position: relative;
-  }
-`;
-const Subtitle = styled(motion.h2)`
-  font-size: 1.25rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  margin: 0;
-`;
-
-const Description = styled(motion.p)`
-  font-size: 1rem;
-  line-height: 1.5rem;
-  text-align: justify;
-  color: rgb(153 153 153);
-  margin: 1.5rem 0 1.5rem 0;
-  width: 85%;
-`;
 export default IntroSlide;

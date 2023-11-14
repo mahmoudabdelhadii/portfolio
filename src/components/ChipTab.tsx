@@ -30,7 +30,7 @@ import hasuralogo from "../assets/hasuralogo.png";
 import htmlogo from "../assets/html.webp";
 import cpplogo from "../assets/cpplogo-removebg-preview.png";
 import pytorchlogo from "../assets/PyTorchlogo.png";
-import Reveal from "./Reveal";
+
 import { useTheme } from "styled-components";
 const tabs = ["Languages", "Frontend", "Backend", "Frameworks", "Cloud"];
 interface tabratingType {
@@ -163,73 +163,73 @@ const ChipTabs = () => {
   }, [isInView]);
   const themeContext = useTheme();
   return (
-    <Reveal width="100%">
-      <div className="flex-column justify-center w-full">
-        <motion.div className="hidden md:flex md:gap-2 md:flex-wrap">
-          {tabs.map((tab) => (
-            <Chip
-              text={tab}
-              selected={selected === tab}
-              setSelected={setSelected}
-              setFilteredTabs={setFilteredTabs}
-              setClicked={setClicked}
-              key={tab}
-            />
-          ))}
-        </motion.div>
+    <div data-aos="fade-up" className="flex-column justify-center w-full">
+      <motion.div className="hidden md:flex md:gap-2 md:flex-wrap">
+        {tabs.map((tab) => (
+          <Chip
+            text={tab}
+            selected={selected === tab}
+            setSelected={setSelected}
+            setFilteredTabs={setFilteredTabs}
+            setClicked={setClicked}
+            key={tab}
+          />
+        ))}
+      </motion.div>
 
-        {FilteredTabs.map((tab, index) => {
-          const { name, group, logo, rating } = tab;
+      {FilteredTabs.map((tab, index) => {
+        const { name, group, logo, rating } = tab;
 
-          const transition = {
-            duration: 1,
-            delay: index * 0.2,
-            ease: "easeInOut",
-          };
+        const transition = {
+          duration: 1,
+          delay: index * 0.2,
+          ease: "easeInOut",
+        };
 
-          const variants = {
-            enter: {
-              opacity: 0,
-              width: "0%",
-            },
-            animate: {
-              opacity: 1,
-              width: ["0%", rating.toString() + "%"],
-              transition,
-            },
-          };
-          return (
-            <BarDiv
+        const variants = {
+          enter: {
+            opacity: 0,
+            width: "0%",
+          },
+          animate: {
+            opacity: 1,
+            width: ["0%", rating.toString() + "%"],
+            transition,
+          },
+        };
+        return (
+          <BarDiv
+            key={index}
+            className="w-11/12"
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          >
+            <BarLogo
+              data-aos="fade-right"
+              data-aos-once="false"
+              src={logo}
               key={index}
-              className="w-11/12"
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-            >
-              <Reveal from="left" delay={index * 0.2} once={false}>
-                <BarLogo
-                  src={logo}
-                  className={
-                    logo.includes("hasura") && themeContext.color === "#fff"
-                      ? "invert"
-                      : ""
-                  }
-                />
-              </Reveal>
-              <BarMax>
-                <Bar
-                  variants={variants}
-                  initial="enter"
-                  animate="animate"
-                  exit="enter"
-                  rating={rating}
-                  className="z-0 bg-gradient-to-br from-blue-300 to-violet-300"
-                />
-              </BarMax>
-            </BarDiv>
-          );
-        })}
-      </div>
-    </Reveal>
+              className={
+                logo.includes("hasura") && themeContext.color === "#fff"
+                  ? "invert"
+                  : ""
+              }
+            />
+
+            <BarMax>
+              <Bar
+                variants={variants}
+                initial="enter"
+                animate="animate"
+                exit="enter"
+                rating={rating}
+                className="z-0 bg-gradient-to-br from-blue-300 to-violet-300"
+              />
+            </BarMax>
+          </BarDiv>
+        );
+      })}
+    </div>
   );
 };
 

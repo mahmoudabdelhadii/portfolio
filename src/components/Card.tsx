@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
+import { StyledButton } from "./StyledButton";
 type CardProps = {
   index: number;
   title: string;
@@ -33,7 +34,8 @@ const Card: React.FunctionComponent<CardProps> = ({
         isCardOpened={isCardOpened}
         layout
         onClick={() => {
-          setIsCardOpened(true);
+          if (!isCardOpened) setIsCardOpened(true);
+
           if (!isCardOpened) {
             setCardDimensions({
               // @ts-ignore
@@ -66,6 +68,19 @@ const Card: React.FunctionComponent<CardProps> = ({
           <CardDescription initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             {description}
           </CardDescription>
+        )}
+
+        {isCardOpened && (
+          <div className="md:hidden">
+            <StyledButton
+              onClick={() => {
+                setIsCardOpened(false);
+                console.log("clicked ", isCardOpened);
+              }}
+            >
+              close
+            </StyledButton>
+          </div>
         )}
       </CardLink>
 
@@ -103,7 +118,7 @@ const CardLink = styled(motion.div)<CardLinkProps>`
   height: 10rem;
   width: auto;
   border-radius: 1rem;
-  cursor: pointer;
+  cursor: ${(props: any) => (props.isCardOpened ? "default" : "pointer")};
   border: ${(props: any) =>
     props.isCardOpened ? "2px solid #689af8" : "none"};
 
@@ -112,7 +127,7 @@ const CardLink = styled(motion.div)<CardLinkProps>`
     css`
       pointer: none;
       width: min(30rem, 95%);
-      height: calc(80% - 10rem);
+      height: calc(100% - 8rem);
       overflow-y: auto;
       overflow-x: hidden;
       position: fixed;

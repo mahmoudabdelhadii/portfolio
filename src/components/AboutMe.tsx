@@ -2,35 +2,25 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { StyledButton } from "./StyledButton";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="flex flex-row justify-between items-between md:w-full">
-      <div className="w-full flex flex-col justify-center  h-[150vh] items-center gap-4 md:flex-row md:justify-between md:items-center">
-        <div className="w-full ">
-          <div className="flex flex-col justify-center items-center gap-2 md:justify-between md:items-start w-full">
-            <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
-            <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
-              {" "}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
-            </h3>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center md:w-full gap-2">
-              <div className="w-2/5">
-                <StyledButton>
-                  Github <BsGithub />
-                </StyledButton>
-              </div>
-              <div className="w-2/5">
-                <StyledButton>
-                  LinkedIn <BsLinkedin />
-                </StyledButton>
-              </div>
-              <div className="w-2/5">
-                <StyledButton>Email</StyledButton>
-              </div>
-            </div>
-          </div>
+    <motion.div className="flex flex-col justify-around h-screen items-between md:flex-col md:justify-center md:h-[50vh] md:w-full">
+      <div className="w-full flex flex-col justify-center  items-center gap-4 md:flex-row md:justify-between md:items-center">
+        <div
+          data-aos="fade-right"
+          className="flex md:basis-1/4 h-auto md:h-full flex-col justify-center items-center gap-2 md:justify-evenly md:items-start w-full md:h-full"
+        >
+          <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
+          <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+          </h3>
         </div>
-        <p className="w-5/6 text-slate-400 text-justify md:w-1/2 overflow-auto">
+        <p
+          data-aos="fade-left"
+          className="w-5/6 text-slate-400 text-justify md:basis-3/4 overflow-auto"
+        >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
           deleniti esse necessitatibus pariatur! Nesciunt totam suscipit
           inventore maiores esse eum odio nisi nulla explicabo aut, praesentium
@@ -46,6 +36,37 @@ const AboutMe: React.FunctionComponent<any> = () => {
           repellendus, repudiandae iure rem blanditiis. Enim illo incidunt ipsa
           dolor nobis repellendus aut, explicabo, eligendi fugiat error nemo
         </p>
+      </div>
+      <div
+        data-aos="fade-up"
+        className="flex flex-col md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
+      >
+        <div className="basis-1/3">
+          <StyledButton
+            onClick={() => {
+              window.open("https://github.com/melsafi1", "_blank");
+            }}
+          >
+            Github <BsGithub />
+          </StyledButton>
+        </div>
+        <div className="basis-1/3">
+          <StyledButton
+            onClick={() => {
+              window.open(
+                "https://www.linkedin.com/in/mahmoudabdelhadii/",
+                "_blank"
+              );
+            }}
+          >
+            LinkedIn <BsLinkedin />
+          </StyledButton>
+        </div>
+        <div className="basis-1/3">
+          <StyledButton>
+            Email <AiOutlineMail />
+          </StyledButton>
+        </div>
       </div>
     </motion.div>
   );

@@ -94,8 +94,8 @@ const TiltCard = ({ card }: { card: CardType }) => {
           }}
           className={`${
             isOpen
-              ? "grid h-[50vh] w-[50vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
-              : "relative h-[23vw] w-[25vw] rounded-xl bg-blue-300"
+              ? "grid h-[80vh] w-[80vw] md:h-[60vh] md:w-[65vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
+              : "relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300 cursor-pointer"
           } `}
         >
           <div
@@ -109,8 +109,8 @@ const TiltCard = ({ card }: { card: CardType }) => {
               key={card.id}
               className={`${
                 isOpen
-                  ? "hidden"
-                  : "group relative h-[22vw] w-[24vw] overflow-hidden bg-neutral-200"
+                  ? "group relative h-[78vh] w-[78vw] md:h-[59vh] md:w-[64vw] md:overflow-hidden bg-neutral-200"
+                  : "group relative h-[18vh] w-[55vw] md:h-[18vw] md:w-[29vw] md:overflow-hidden bg-neutral-200"
               }`}
             >
               <div
@@ -119,7 +119,11 @@ const TiltCard = ({ card }: { card: CardType }) => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="absolute inset-0 z-0 transition-transform rounded-xl duration-300 group-hover:scale-110"
+                className={`${
+                  isOpen
+                    ? "w-1/4 h-1/4"
+                    : "absolute inset-0 z-0 transition-transform rounded-xl duration-300 group-hover:scale-110"
+                }`}
               ></div>
               <div className="absolute inset-0 z-10 grid place-content-end">
                 <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl font-black uppercase text-black ">
@@ -130,19 +134,11 @@ const TiltCard = ({ card }: { card: CardType }) => {
           </div>
         </motion.div>
         {isOpen && (
-          <>
-            <div
-              style={{
-                width: cardDimensions.width,
-                height: cardDimensions.height,
-              }}
-            ></div>
-            <CardBackground
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              onClick={() => setIsOpen(false)}
-            />
-          </>
+          <CardBackground
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            onClick={() => setIsOpen(false)}
+          />
         )}
       </>
     </AnimatePresence>

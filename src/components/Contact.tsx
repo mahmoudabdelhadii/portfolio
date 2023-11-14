@@ -7,9 +7,12 @@ const Contact: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="Contact"
-      ParentClass=" w-full flex flex-col justify-center items-center"
+      ParentClass="h-screen md:h-[50vh] w-full flex flex-col justify-center items-center"
     >
-      <div className="flex flex-col justify-center items-center h-screen gap-4 md:h-[30vh] md:justify-between">
+      <div
+        data-aos="fade-up"
+        className="flex flex-col justify-center items-center h-screen gap-4 md:h-[30vh] md:justify-between"
+      >
         <p className="text-blue-400 font-bold">CONTACT ME</p>
         <h3 className="text-2xl font-bold md:text-4xl">
           Get in touch with me.

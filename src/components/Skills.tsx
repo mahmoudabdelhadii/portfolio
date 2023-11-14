@@ -7,7 +7,7 @@ const Skills: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="Skills"
-      ParentClass="h-screen w-full items-between"
+      ParentClass="md:h-[50vh]h-screen w-full items-between"
       ChildrenClass="flex flex-col justify-center items-center w-full"
     >
       <div className="flex w-full flex-row justify-center items-center md:items-start md:justify-start">

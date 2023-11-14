@@ -4,6 +4,7 @@ import { useRef } from "react";
 import f1gif from "../assets/ezgif-1-a134de1717.gif";
 import pcagif from "../assets/PCA.gif";
 import HoverCard from "./HoverCard";
+import amaaz from "../assets/amaaz.gif";
 const HoverCards = ({
   page,
   className,
@@ -83,17 +84,17 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: pcagif,
+    url: amaaz,
     title: "Title 1",
     id: 1,
   },
   {
-    url: pcagif,
+    url: amaaz,
     title: "Title 2",
     id: 2,
   },
   {
-    url: pcagif,
+    url: amaaz,
     title: "Title 3",
     id: 3,
   },

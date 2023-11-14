@@ -2,7 +2,8 @@ import Nav from "./components/Nav";
 import { createContext, useState } from "react";
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import IntroSlide from "./components/IntroSlide";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
@@ -57,7 +58,12 @@ const Center = styled.div`
 `;
 function App() {
   const [theme, setTheme] = useState(prefersDark ? "dark" : "light");
-
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      mirror: true,
+    });
+  }, []);
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
