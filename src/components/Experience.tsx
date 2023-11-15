@@ -75,7 +75,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
           </StyledButton>
         </Reveal>
       </Wrapper>
-      <div className="w-2/3 h-full flex justify-center align-center">
+      <div className="w-2/3 h-full md:w-full flex justify-center align-center">
         <motion.div
           className="flex flex-col justify-between w-full items-start my-8 h-2/3 md:flex-row"
           initial={{ opacity: 0 }}
@@ -117,22 +117,22 @@ const SpringModal = ({
             onClick={(e) => e.stopPropagation()}
             className={`${
               theme.color === "#fff" ? "bg-transparent" : "bg-white"
-            }  text-white p-6 rounded-lg w-full max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
+            }  text-white p-6 rounded-lg h-[80vh] w-[80vw] md:w-full md:max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
           >
-            <div className="flex flex-col gap-2 z-10 w-full p-8">
+            <div className="flex flex-col gap-2 z-10 w-full md:p-8">
               <PdfViewer />
               <div
                 className={`${
                   theme.color === "#fff" ? "" : "invert"
                 } h-48 w-full`}
               >
-                <motion.div className="w-full h-full flex gap-12 justify-center items-center">
-                  <GrInstallOption className="h-10 w-10 invert cursor-pointer" />
-                  <AiOutlineMail className="h-10 w-10 cursor-pointer" />
-                  <BsPrinter className="h-10 w-10 cursor-pointer" />
-                  <BsFacebook className="h-10 w-10 cursor-pointer" />
-                  <BsMessenger className="h-10 w-10 cursor-pointer" />
-                  <BsWhatsapp className="h-10 w-10 cursor-pointer" />
+                <motion.div className="w-full h-full flex gap-2 md:gap-12 justify-center items-center">
+                  <GrInstallOption className="h-20 w-20 invert cursor-pointer" />
+                  <AiOutlineMail className="h-20 w-20 cursor-pointer" />
+                  <BsPrinter className="h-20 w-20 cursor-pointer" />
+                  <BsFacebook className="h-20 w-20 cursor-pointer" />
+                  <BsMessenger className="h-20 w-20 cursor-pointer" />
+                  <BsWhatsapp className="h-20 w-20 cursor-pointer" />
                 </motion.div>
               </div>
             </div>

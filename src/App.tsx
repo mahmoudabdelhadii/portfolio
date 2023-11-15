@@ -10,6 +10,7 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
+import { Element } from "react-scroll";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 const baseTheme = {
@@ -38,8 +39,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 5rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     padding-top: 8rem;
+    overflow-x: clip;
   }
 `;
 
@@ -50,8 +52,9 @@ const Center = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     width: 90%;
+    overflow-x: clip;
   }
 `;
 function App() {
@@ -71,13 +74,19 @@ function App() {
         <Nav onChange={toggleTheme} checked={theme === "dark"} />
         <Center>
           <IntroSlide />
+          <Element name="Skills" />
           <Skills />
+
+          <Element name="Projects" />
           <Projects />
 
+          <Element name="Experience" />
           <Experience />
 
+          <Element name="About Me" />
           <AboutMe />
 
+          <Element name="Contact" />
           <Contact />
         </Center>
       </Container>

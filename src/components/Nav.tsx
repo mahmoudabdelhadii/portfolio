@@ -18,7 +18,7 @@ const NavContainer = styled.div<{ checked: boolean }>`
   align-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
   background-image: ${(props) =>
     props.checked
@@ -75,7 +75,7 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
   return (
     <NavContainer checked={checked}>
       <LeftGroup>
-        <LogoButton checked={checked}>
+        <LogoButton checked={checked} onClick={() => scroll.scrollToTop()}>
           <img
             src={logo}
             alt="logo"
@@ -97,7 +97,7 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
           <LinkStyle to="About">About Me</LinkStyle>
           <LinkStyle to="Experience">Experience</LinkStyle>
           {/* <LinkStyle name="Projects" to="Projects" /> */}
-          <LinkStyle to="My Resume">Resume</LinkStyle>
+          <LinkStyle to="Contact">Contact</LinkStyle>
           {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
         </MiddleGroup>

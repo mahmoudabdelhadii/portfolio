@@ -5,7 +5,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="flex flex-col justify-around h-screen items-between md:flex-col md:justify-center md:h-[50vh] md:w-full">
+    <motion.div className="flex flex-col items-center justify-around h-screen items-between md:flex-col md:justify-center md:h-[50vh] md:w-full">
       <div className="w-full flex flex-col justify-center  items-center gap-4 md:flex-row md:justify-between md:items-center">
         <div
           data-aos="fade-right"
@@ -41,7 +41,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
         data-aos="fade-up"
         className="flex flex-col md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
       >
-        <div className="basis-1/3">
+        <div className="basis-1/2">
           <StyledButton
             onClick={() => {
               window.open("https://github.com/melsafi1", "_blank");
@@ -50,7 +50,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
             Github <BsGithub />
           </StyledButton>
         </div>
-        <div className="basis-1/3">
+        <div className="basis-1/2">
           <StyledButton
             onClick={() => {
               window.open(
@@ -60,11 +60,6 @@ const AboutMe: React.FunctionComponent<any> = () => {
             }}
           >
             LinkedIn <BsLinkedin />
-          </StyledButton>
-        </div>
-        <div className="basis-1/3">
-          <StyledButton>
-            Email <AiOutlineMail />
           </StyledButton>
         </div>
       </div>

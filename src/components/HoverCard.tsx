@@ -15,15 +15,23 @@ type CardType = {
 };
 
 const HoverCard = ({ card }: { card: CardType }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div className="grid place-content-center text-slate-900">
-      <TiltCard card={card} />
+      <TiltCard card={card} isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
 
-const TiltCard = ({ card }: { card: CardType }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const TiltCard = ({
+  card,
+  isOpen,
+  setIsOpen,
+}: {
+  card: CardType;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [cardDimensions, setCardDimensions] = useState({ width: 0, height: 0 });
   const cardr = useRef(null);
   const x = useMotionValue(0);
@@ -133,13 +141,6 @@ const TiltCard = ({ card }: { card: CardType }) => {
             </div>
           </div>
         </motion.div>
-        {isOpen && (
-          <CardBackground
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8 }}
-            onClick={() => setIsOpen(false)}
-          />
-        )}
       </>
     </AnimatePresence>
   );
@@ -152,7 +153,7 @@ const CardBackground = styled(motion.div)`
   z-index: 9;
   top: 0;
   right: 0;
-  left: 0;
+  left: -100;
   bottom: 0;
   background: ${(props: any) => props.theme.background};
   opacity: 0.5;

@@ -66,9 +66,10 @@ const IntroSlide: React.FunctionComponent<any> = () => {
             data-aos="fade-up"
             data-aos-duration="2000"
             data-aos-once="false"
-            to="Resume"
+            to="Skills"
+            offset={-100}
           >
-            Scroll to Resume
+            Scroll to see my skillset
           </ResumeButton>
         </div>
 

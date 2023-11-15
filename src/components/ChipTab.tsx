@@ -146,7 +146,7 @@ const ChipTabs = () => {
   return (
     <div
       data-aos="fade-up"
-      className="flex flex-column justify-start items-center w-full"
+      className="flex flex-col justify-start items-center w-full"
     >
       <motion.div className="hidden w-full md:flex md:gap-2 flex-wrap md:justify-evenly mb-8">
         {tabs.map((tab) => (

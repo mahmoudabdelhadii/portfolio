@@ -125,9 +125,9 @@ const CardLink = styled(motion.div)<CardLinkProps>`
   ${(props: any) =>
     props.isCardOpened &&
     css`
-      pointer: none;
+      cursor: pointer;
       width: min(30rem, 95%);
-      height: calc(100% - 8rem);
+      height: calc(100% - 20rem);
       overflow-y: auto;
       overflow-x: hidden;
       position: fixed;
@@ -144,6 +144,10 @@ const CardLink = styled(motion.div)<CardLinkProps>`
 
       color: ${props.theme.color};
       background: ${props.theme.background};
+      @media (max-width: 768px) {
+        width: 80vw;
+        height: 80vh;
+      }
     `}
 `;
 

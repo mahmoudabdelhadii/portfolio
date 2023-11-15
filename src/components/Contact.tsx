@@ -119,7 +119,7 @@ const SpringModal = ({
                       Message
                     </label>
                     <textarea
-                      className="appearance-none block h-[20rem] w-full bg-white-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      className="appearance-none block h-[10rem] md:h-[20rem] w-full bg-white-200 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       id="grid-message"
                       rows={5}
                       placeholder="Write your message here"

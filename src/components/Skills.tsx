@@ -7,7 +7,7 @@ const Skills: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="Skills"
-      ParentClass="md:h-[50vh]h-screen w-full items-between"
+      ParentClass="h-screen md:h-[50vh] w-full items-between"
       ChildrenClass="flex flex-col justify-center items-center w-full"
     >
       <div className="flex w-full flex-row justify-center items-center md:items-start md:justify-start">
@@ -44,10 +44,13 @@ const Skills: React.FunctionComponent<any> = () => {
 const CardBodyRight = styled.div`
   display: flex;
   height: 45rem;
-  flex-direction: row;
-  align-items: flex-center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   flex-basis: 60%;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export default Skills;
