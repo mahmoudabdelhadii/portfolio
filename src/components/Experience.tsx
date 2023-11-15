@@ -12,6 +12,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { useTheme } from "styled-components";
 import { Wrapper } from "./PageComponents";
+import whatsapp from "../assets/icons8-whatsapp.svg";
+import messenger from "../assets/icons8-messenger-48.png";
 const Experience: React.FunctionComponent<any | false> = () => {
   const cardData: ReactNode[] = [
     {
@@ -100,6 +102,16 @@ const SpringModal = ({
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const theme = useTheme();
+
+  const onDownload = () => {
+    const pdfUrl = "Mahmoud_Abdelhadi_Resume.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Abdelhadi_Mahmoud_Resume.pdf"; // specify the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <AnimatePresence>
       {isOpen && (
@@ -121,18 +133,31 @@ const SpringModal = ({
           >
             <div className="flex flex-col gap-2 z-10 w-full md:p-8">
               <PdfViewer />
-              <div
-                className={`${
-                  theme.color === "#fff" ? "" : "invert"
-                } h-48 w-full`}
-              >
+              <div className="h-48 w-full">
                 <motion.div className="w-full h-full flex gap-2 md:gap-12 justify-center items-center">
-                  <GrInstallOption className="h-20 w-20 invert cursor-pointer" />
-                  <AiOutlineMail className="h-20 w-20 cursor-pointer" />
-                  <BsPrinter className="h-20 w-20 cursor-pointer" />
-                  <BsFacebook className="h-20 w-20 cursor-pointer" />
-                  <BsMessenger className="h-20 w-20 cursor-pointer" />
-                  <BsWhatsapp className="h-20 w-20 cursor-pointer" />
+                  <GrInstallOption
+                    className={`${
+                      theme.color === "#fff" ? "invert" : ""
+                    } h-20 w-20 cursor-pointer`}
+                    onClick={onDownload}
+                  />
+                  <AiOutlineMail
+                    className={`${
+                      theme.color === "#fff" ? "" : "invert"
+                    } h-20 w-20 cursor-pointer`}
+                    onClick={() =>
+                      window.open(
+                        "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
+                      )
+                    }
+                  />
+                  <BsPrinter
+                    className={`${
+                      theme.color === "#fff" ? "" : "invert"
+                    } h-20 w-20 cursor-pointer`}
+                  />
+                  <img src={whatsapp} className="h-20 w-20 cursor-pointer" />
+                  <img src={messenger} className="h-20 w-20 cursor-pointer" />
                 </motion.div>
               </div>
             </div>
