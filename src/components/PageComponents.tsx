@@ -51,7 +51,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
         >
           <h1
             className={`${
-              "mb-6 leading-8 text-6xl h-content" +
+              "mb-6 leading-12 text-6xl h-content" +
               (HeaderClass ? HeaderClass : "")
             }`}
           >
