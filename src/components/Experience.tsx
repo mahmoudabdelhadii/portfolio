@@ -65,11 +65,11 @@ const Experience: React.FunctionComponent<any | false> = () => {
   const theme = useTheme();
   console.log("Current theme: ", theme);
   return (
-    <div className="w-full flex flex-col justify-center items-center h-screen md:h-[40vh]">
+    <div className="w-full h-max flex flex-col justify-center items-center min-h-screen">
       <Wrapper
         name="Experience"
         showTitle
-        ParentClass="flex h-[30vh] flex-col justify-evenly items-center md:flex-row  md:h-1/8 md:justify-between w-full items-center"
+        ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row  md:h-1/8 md:justify-between w-full items-center"
       >
         <Reveal from="right" width="fit-content">
           <StyledButton onClick={() => setShowPDF(true)}>

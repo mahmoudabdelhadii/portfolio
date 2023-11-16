@@ -13,7 +13,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="About"
-      ParentClass="h-[90vh] w-full flex items-center justify-center"
+      ParentClass="min-h-[90vh] h-max w-full flex items-center justify-center"
     >
       <IntroContainer>
         <div className="flex flex-col basis-3/5 ">

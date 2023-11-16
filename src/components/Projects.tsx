@@ -9,7 +9,7 @@ const Projects: React.FunctionComponent<any> = () => {
     <Wrapper
       name="Recent Projects"
       showTitle
-      ParentClass="flex justify-around flex-col align-start w-full h-screen md:justify-center md:h-[80vh]"
+      ParentClass="flex justify-around flex-col align-start w-full h-content md:justify-center"
       SubParentClass="flex justify-center items-center md:justify-start md:items-start"
     >
       <div
