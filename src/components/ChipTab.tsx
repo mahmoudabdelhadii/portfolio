@@ -161,7 +161,7 @@ const ChipTabs = () => {
         ))}
       </motion.div>
 
-      <motion.div className=" w-11/12 mb-16 border-l border-blue-400">
+      <motion.div ref={ref} className=" w-11/12 mb-16 border-l border-blue-400">
         {FilteredTabs.map((tab, index) => {
           const { name, group, logo, rating } = tab;
 
@@ -185,6 +185,7 @@ const ChipTabs = () => {
           return (
             <motion.div
               key={index}
+              ref={ref}
               className="flex justify-between items-center my-4 ml-8"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
@@ -193,6 +194,7 @@ const ChipTabs = () => {
                 data-aos="fade-right"
                 data-aos-once="false"
                 src={logo}
+                ref={ref}
                 key={index}
                 className={
                   logo.includes("hasura") && themeContext.color === "#fff"

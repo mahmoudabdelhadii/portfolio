@@ -129,22 +129,22 @@ const SpringModal = ({
             onClick={(e) => e.stopPropagation()}
             className={`${
               theme.color === "#fff" ? "bg-transparent" : "bg-white"
-            }  text-white p-6 rounded-lg h-[80vh] w-[80vw] md:w-full md:max-w-4xl shadow-xl cursor-default relative overflow-hidden`}
+            }  text-white p-6 rounded-lg h-[80vh] w-[80vw] md:w-full md:max-w-4xl shadow-xl cursor-default md:h-full flex justify-between relative overflow-hidden`}
           >
-            <div className="flex flex-col gap-2 z-10 w-full md:p-8">
+            <div className="flex flex-col md:justify-between gap-2 z-10 w-full h-full md:p-8">
               <PdfViewer />
               <div className="h-48 w-full">
                 <motion.div className="w-full h-full flex gap-2 md:gap-12 justify-center items-center">
                   <GrInstallOption
                     className={`${
                       theme.color === "#fff" ? "invert" : ""
-                    } h-20 w-20 cursor-pointer`}
+                    } h-14 w-auto cursor-pointer`}
                     onClick={onDownload}
                   />
                   <AiOutlineMail
                     className={`${
                       theme.color === "#fff" ? "" : "invert"
-                    } h-20 w-20 cursor-pointer`}
+                    } h-14 w-auto cursor-pointer`}
                     onClick={() =>
                       window.open(
                         "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
@@ -154,7 +154,7 @@ const SpringModal = ({
                   <BsPrinter
                     className={`${
                       theme.color === "#fff" ? "" : "invert"
-                    } h-20 w-20 cursor-pointer`}
+                    } h-14 w-auto cursor-pointer`}
                   />
                   <img src={whatsapp} className="h-20 w-20 cursor-pointer" />
                   <img src={messenger} className="h-20 w-20 cursor-pointer" />

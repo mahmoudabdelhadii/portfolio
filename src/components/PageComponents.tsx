@@ -45,14 +45,13 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
       {showTitle && (
         <div
           className={`${
-            "flex flex-row justify-start items-center " + SubParentClass
-              ? SubParentClass
-              : ""
+            "flex flex-row justify-start items-center " +
+            (SubParentClass ? SubParentClass : "")
           }`}
         >
           <h1
             className={`${
-              "mb-6 leading-4 text-6xl " + HeaderClass ? HeaderClass : ""
+              "mb-6 leading-4 text-6xl " + (HeaderClass ? HeaderClass : "")
             }`}
           >
             {name}
