@@ -5,13 +5,13 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="flex flex-col items-center justify-around min-h-screen h-max items-between md:flex-col md:justify-center md:h-content md:w-full">
+    <motion.div className="flex flex-col items-center justify-around min-h-screen h-max items-between md:flex-col md:justify-center md:h-fit md:min-h-fit md:w-full">
       <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
         <div
           data-aos="fade-right"
-          className="flex md:basis-1/4 h-auto md:h-full flex-col justify-center items-center gap-2 md:justify-evenly md:items-start w-full md:h-full"
+          className="flex md:basis-1/4 h-max flex-col justify-center items-center gap-4  md:gap-4 md:justify-between md:items-start w-full"
         >
-          <p className="z-0 font-bold text-blue-400"> ABOUT ME</p>
+          <p className="z-0 font-bold text-blue-400 md:mb-4"> ABOUT ME</p>
           <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
             {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}

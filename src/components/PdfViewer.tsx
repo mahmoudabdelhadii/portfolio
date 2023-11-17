@@ -43,7 +43,7 @@ export default function Sample() {
   }
 
   return (
-    <div className="h-96 overflow-scroll" ref={setContainerRef}>
+    <div className="h-1/2 max-h-2/3 overflow-scroll" ref={setContainerRef}>
       <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}

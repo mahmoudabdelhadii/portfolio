@@ -65,7 +65,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
   const theme = useTheme();
   console.log("Current theme: ", theme);
   return (
-    <div className="w-full h-max flex flex-col justify-center items-center min-h-screen">
+    <div className="w-full h-max pb-9 flex flex-col justify-center items-center min-h-screen md:h-min md:max-h-max md:min-h-fit">
       <Wrapper
         name="Experience"
         showTitle
@@ -120,7 +120,7 @@ const SpringModal = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsOpen(false)}
-          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-end md:place-items-center overflow-y-scroll cursor-pointer"
         >
           <motion.div
             initial={{ scale: 0, rotate: "12.5deg" }}
@@ -129,22 +129,23 @@ const SpringModal = ({
             onClick={(e) => e.stopPropagation()}
             className={`${
               theme.color === "#fff" ? "bg-transparent" : "bg-white"
-            }  text-white p-6 rounded-lg h-[80vh] w-[80vw] md:w-full md:max-w-4xl shadow-xl cursor-default md:h-full flex justify-between relative overflow-hidden`}
+            }  text-white p-6 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden`}
           >
-            <div className="flex flex-col md:justify-between gap-2 z-10 w-full h-full md:p-8">
+            <div className="flex flex-col md:justify-between gap-4 z-10 w-full h-full md:p-8">
               <PdfViewer />
-              <div className="h-48 w-full">
-                <motion.div className="w-full h-full flex gap-2 md:gap-12 justify-center items-center">
+
+              <div className="h-1/4 w-full">
+                <motion.div className="w-full h-full flex justify-between gap-2 md:gap-12 md:justify-center items-center">
                   <GrInstallOption
                     className={`${
                       theme.color === "#fff" ? "invert" : ""
-                    } h-14 w-auto cursor-pointer`}
+                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
                     onClick={onDownload}
                   />
                   <AiOutlineMail
                     className={`${
                       theme.color === "#fff" ? "" : "invert"
-                    } h-14 w-auto cursor-pointer`}
+                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
                     onClick={() =>
                       window.open(
                         "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
@@ -154,21 +155,27 @@ const SpringModal = ({
                   <BsPrinter
                     className={`${
                       theme.color === "#fff" ? "" : "invert"
-                    } h-14 w-auto cursor-pointer`}
+                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
                   />
-                  <img src={whatsapp} className="h-20 w-20 cursor-pointer" />
-                  <img src={messenger} className="h-20 w-20 cursor-pointer" />
+                  <img
+                    src={whatsapp}
+                    className="h-[7vh] w-[8vw] max-h-20 max-w-20 cursor-pointer"
+                  />
+                  <img
+                    src={messenger}
+                    className="h-[3vh] w-[6vw] md:h-16 md:w-16 cursor-pointer"
+                  />
                 </motion.div>
               </div>
-            </div>
-            <div className="md:hidden">
-              <StyledButton
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                close
-              </StyledButton>
+              <div className="w-full flex justify-end">
+                <StyledButton
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                >
+                  close
+                </StyledButton>
+              </div>
             </div>
           </motion.div>
         </motion.div>

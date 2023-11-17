@@ -63,6 +63,7 @@ function App() {
     AOS.init({
       duration: 1000,
       mirror: true,
+      once: true,
     });
   }, []);
   const toggleTheme = () => {
@@ -77,11 +78,11 @@ function App() {
           <Element name="Skills" />
           <Skills />
 
-          <Element name="Projects" />
-          <Projects />
-
           <Element name="Experience" />
           <Experience />
+
+          <Element name="Projects" />
+          <Projects />
 
           <Element name="About Me" />
           <AboutMe />

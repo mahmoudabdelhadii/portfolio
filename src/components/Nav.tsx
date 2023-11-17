@@ -94,8 +94,8 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
         animate={hidden ? "hidden" : "visible"}
       >
         <MiddleGroup>
-          <LinkStyle to="About">About Me</LinkStyle>
           <LinkStyle to="Experience">Experience</LinkStyle>
+          <LinkStyle to="About Me">About Me</LinkStyle>
           {/* <LinkStyle name="Projects" to="Projects" /> */}
           <LinkStyle to="Contact">Contact</LinkStyle>
           {/* <LinkStyle name="Skills" to="Skills" />

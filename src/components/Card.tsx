@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Reveal from "./Reveal";
 import { StyledButton } from "./StyledButton";
 type CardProps = {
@@ -25,6 +25,11 @@ const Card: React.FunctionComponent<CardProps> = ({
   const [isCardOpened, setIsCardOpened] = useState(false);
   const [cardDimensions, setCardDimensions] = useState({ width: 0, height: 0 });
   const card = useRef(null);
+  useEffect(() => {
+    isCardOpened
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isCardOpened]);
   // const theme = useTheme();
   return (
     <>
@@ -125,7 +130,6 @@ const CardLink = styled(motion.div)<CardLinkProps>`
   ${(props: any) =>
     props.isCardOpened &&
     css`
-      cursor: pointer;
       width: min(30rem, 95%);
       height: calc(100% - 20rem);
       overflow-y: auto;

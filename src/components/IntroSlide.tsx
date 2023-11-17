@@ -4,7 +4,7 @@ import pic2 from "../assets/pic2.png";
 import { motion } from "framer-motion";
 import { LinkStyle } from "./StyledButton";
 import { Wrapper } from "./PageComponents";
-
+import { TypeAnimation } from "react-type-animation";
 const ResumeButton = styled(LinkStyle)`
   width: 5rem;
 `;
@@ -16,67 +16,56 @@ const IntroSlide: React.FunctionComponent<any> = () => {
       ParentClass="min-h-[90vh] h-max w-full flex items-center justify-center"
     >
       <IntroContainer>
-        <div className="flex flex-col basis-3/5 ">
+        <div className="flex flex-col md:w-1/3 md:max-w-fit ">
           <h2
             data-aos="fade-right"
             data-aos-duration="2000"
-            data-aos-once="false"
             className="text-xl leading-9 font-bold m-0"
           >
-            {" "}
             Hi, I am
           </h2>
 
-          <h1
-            data-aos="fade-right"
-            data-aos-duration="2000"
-            data-aos-once="false"
-            className="text-4xl font-bold md:text-7xl z-20"
-          >
-            Mahmoud
-            <span
-              data-aos="fade-up-right"
-              data-aos-duration="2000"
-              className="align-baseline inline-block pl-2 md:z-20"
-            >
-              <svg height="10" width="10">
-                <circle
-                  cx="5"
-                  cy="5"
-                  r="4"
-                  stroke="#689af8"
-                  strokeWidth={1}
-                  fill="#689af8"
-                />
-              </svg>
-            </span>
-          </h1>
-
+          <div className="flex">
+            <TypeAnimation
+              sequence={[2000, "Mahmoud"]}
+              wrapper="h1"
+              speed={1}
+              className="text-4xl font-bold md:text-6xl z-20"
+              cursor={false}
+            />
+            <TypeAnimation
+              sequence={[2500, "."]}
+              className="text-blue-400 text-4xl font-bold md:text-6xl z-20"
+              cursor={true}
+              wrapper="span"
+            />
+          </div>
           <p
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-duration="2000"
-            data-aos-once="false"
+            data-aos-delay="2000"
             className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg"
           >
             I love everything software, from application development and
             deployment, to data and model training
           </p>
+          {/* <TypeAnimation
+            sequence={[
+              3500,
+              " I love everything software, from application development and\
+            deployment, to data and model training",
+            ]}
+            wrapper="h1"
+            speed={55}
+            className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg"
+          /> */}
 
-          <ResumeButton
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            data-aos-once="false"
-            to="Skills"
-            offset={-100}
-          >
-            Scroll to see my skillset
-          </ResumeButton>
+          <ResumeButton to="Skills">Scroll to see my skillset</ResumeButton>
         </div>
 
         <div
           data-aos="zoom-in-left"
           data-aos-duration="2000"
-          data-aos-once="false"
           className="hidden md:block"
         >
           <FadeImage>
@@ -98,11 +87,11 @@ const IntroContainer = styled.div`
 const ProfileImage = styled(motion.img)`
   z-index: 0;
   display: flex;
-  flex-basis: 40%;
+  flex-basis: 50%;
   width: 100%;
   height: auto;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     position: absolute;
     top: 20%;
     left: 0;

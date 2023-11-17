@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction, useState, useEffect, useRef } from "react";
 import { StyledButton } from "./StyledButton";
 import { motion, useAnimation, useInView } from "framer-motion";
 
+import "rsuite/dist/rsuite.min.css";
+import { Button, Popover, Whisper } from "rsuite";
 import styled from "styled-components";
 import jslogo from "../assets/JavaScriptlogo.png";
 import ocp from "../assets/OpenShift-LogoType.svg.png";
@@ -94,7 +96,7 @@ const ChipTabs = () => {
   const [FilteredTabs, setFilteredTabs] = useState(
     tabrating.filter((tab) => tab.group === tabs[current])
   );
-  const [isHovering, setIsHovering] = useState(false);
+  const [currentHovering, setCurrentHovering] = useState<string | false>(false);
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -125,12 +127,12 @@ const ChipTabs = () => {
     };
   }, [current, clicked]);
 
-  const handleMouseOver = () => {
-    setIsHovering(true);
+  const handleMouseOver = (name: string) => {
+    setCurrentHovering(name);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    setCurrentHovering(false);
   };
 
   const ref = useRef(null);
@@ -163,7 +165,13 @@ const ChipTabs = () => {
 
       <motion.div
         ref={ref}
-        className=" w-11/12 h-full min-h-max mb-16 border-l border-blue-400"
+        layout
+        animate={{ borderLeft: "1px solid blue" }}
+        transition={{
+          borderLeft: { ease: "linear" },
+          layout: { duration: 1 },
+        }}
+        className=" w-11/12 h-full mb-4 min-h-max border-blue-400"
       >
         {FilteredTabs.map((tab, index) => {
           const { name, group, logo, rating } = tab;
@@ -190,21 +198,29 @@ const ChipTabs = () => {
               key={index}
               ref={ref}
               className="flex justify-between items-center my-4 ml-8"
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
+              data-aos="fade-up"
             >
-              <BarLogo
-                data-aos="fade-right"
-                data-aos-once="false"
-                src={logo}
-                ref={ref}
-                key={index}
-                className={
-                  logo.includes("hasura") && themeContext.color === "#fff"
-                    ? "invert"
-                    : ""
-                }
-              />
+              <Whisper
+                followCursor
+                placement="top"
+                speaker={<Popover arrow={false}>{name}</Popover>}
+              >
+                <BarLogo
+                  data-aos="fade-right"
+                  src={logo}
+                  onMouseOver={() => {
+                    setCurrentHovering(name);
+                  }}
+                  onMouseOut={handleMouseOut}
+                  ref={ref}
+                  key={index}
+                  className={
+                    logo.includes("hasura") && themeContext.color === "#fff"
+                      ? "invert"
+                      : ""
+                  }
+                />
+              </Whisper>
 
               <BarMax>
                 <Bar
