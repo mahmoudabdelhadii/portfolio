@@ -65,17 +65,18 @@ const Experience: React.FunctionComponent<any | false> = () => {
   const theme = useTheme();
   console.log("Current theme: ", theme);
   return (
-    <div className="w-full h-max pb-9 flex flex-col justify-center items-center min-h-screen md:h-min md:max-h-max md:min-h-fit">
+    <div className="w-full h-max flex flex-col justify-center items-center min-h-screen md:h-min md:max-h-max md:min-h-fit">
       <Wrapper
         name="Experience"
         showTitle
-        ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row  md:h-1/8 md:justify-between w-full items-center"
+        ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row md:flex md:h-1/8 md:justify-between w-full items-center"
+        SubParentClass="justify-center items-center"
       >
-        <Reveal from="right" width="fit-content">
+        <div data-aos="left" className="w-full">
           <StyledButton onClick={() => setShowPDF(true)}>
             Download Resume
           </StyledButton>
-        </Reveal>
+        </div>
       </Wrapper>
       <div className="w-2/3 h-full md:w-full flex justify-center align-center">
         <motion.div

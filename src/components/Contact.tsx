@@ -8,28 +8,26 @@ import typewritter from "../assets/typewriter.png";
 const Contact: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Wrapper
-      name="Contact"
-      ParentClass="h-fit w-full flex flex-col justify-center items-center"
-    >
-      <div className="flex flex-row justify-start items-center">
-        <motion.img src={typewritter} className="w-1/3 h-1/2" />
-
-        <div
+    <div className="mb-20 text-center md:mb-0 w-full">
+      <div className="flex justify-center items-center h-[600px] m-full w-[calc(100vw-5rem)] absolute z-20 mx-10 text-center align-middle left-0">
+        {/* <div
           data-aos="fade-up"
-          className="flex flex-col justify-center items-center h-screen gap-4 md:h-[50vh] md:min-h-fit md:max-h-screen md:justify-center"
-        >
+          className="flex flex-col justify-center items-center h-screen gap-4 md:h-[50vh] md:min-h-fit md:max-h-screen md:justify-center z-10"
+        > */}
+        <div className="space-y-4">
           <p className="text-blue-400 font-bold">CONTACT ME</p>
           <h3 className="text-2xl font-bold md:text-4xl">
             Get in touch with me.
           </h3>
-          <p className="w-1/2 text-justify text-slate-400">
+          <p className="text-slate-400">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+            <br />
             tempore est delectus saepe accusamus non architecto, incidunt
+            <br />
             debitis reiciendis dicta?
           </p>
-          <div className="flex flex-row">
-            <div className="w-full">
+          <div className="flex flex-row justify-center">
+            <div className="">
               <StyledButton onClick={() => setIsOpen(true)}>
                 Write me an Email <MdOutlineEmail className="h-10" />
               </StyledButton>
@@ -37,8 +35,12 @@ const Contact: React.FunctionComponent<any> = () => {
           </div>
         </div>
       </div>
+      <div className="z-10 opacity-75 ">
+        <motion.img src={typewritter} width={800} height={600} />
+      </div>
       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
-    </Wrapper>
+      {/* </Wrapper> */}
+    </div>
   );
 };
 

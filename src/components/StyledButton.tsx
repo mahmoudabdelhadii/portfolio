@@ -32,7 +32,7 @@ export const StyledButton = styled(motion.button)`
   @media (max-width: 768px) {
     background-color: ${(props) => props.theme.background};
     border: none;
-    width: 100%;
+    width: 80vw;
     height: 4rem;
     display: flex;
     align-items: center;

@@ -30,6 +30,7 @@ interface WrapperProps {
   HeaderClass?: string;
   ChildrenClass?: string;
   SubParentClass?: string;
+  disableCenter?: boolean;
 }
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
   children,
@@ -39,9 +40,10 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
   HeaderClass,
   ChildrenClass,
   SubParentClass,
+  disableCenter,
 }) => {
   return (
-    <div className={`${ParentClass ? ParentClass : "w-[80vw]"}`}>
+    <div className={`${"w-full " + (ParentClass ? ParentClass : "")}`}>
       {showTitle && (
         <div
           className={`${
@@ -51,7 +53,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
         >
           <h1
             className={`${
-              "mb-6 leading-12 text-6xl h-fit" +
+              "mb-6 leading-12 text-6xl h-fit " +
               (HeaderClass ? HeaderClass : "")
             }`}
           >
@@ -62,9 +64,8 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
       )}
       <div
         className={`${
-          ChildrenClass
-            ? "flex flex-row justify-start items-center " + ChildrenClass
-            : "flex flex-row justify-start items-center"
+          "flex flex-row justify-start items-center " +
+          (ChildrenClass ? ChildrenClass : "")
         }`}
       >
         {children}

@@ -32,7 +32,7 @@ const darkTheme = {
 const Container = styled.div`
   color: ${(props) => props.theme.color};
   background-color: ${(props) => props.theme.background};
-  width: 100vw;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ const Container = styled.div`
 `;
 
 const Center = styled.div`
-  width: 75%;
+  width: 80%;
   gap: 2rem;
   display: flex;
   flex-direction: column;
@@ -78,12 +78,10 @@ function App() {
           <Element name="Skills" />
           <Skills />
 
-          <Element name="Experience" />
-          <Experience />
-
           <Element name="Projects" />
           <Projects />
-
+          <Element name="Experience" />
+          <Experience />
           <Element name="About Me" />
           <AboutMe />
 

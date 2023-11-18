@@ -10,8 +10,9 @@ const Projects: React.FunctionComponent<any> = () => {
     <Wrapper
       name="Recent Projects"
       showTitle
-      ParentClass="flex justify-around flex-col align-start w-full h-fit md:justify-center"
+      ParentClass="flex justify-around flex-col w-full h-fit md:h-screen md:justify-center"
       SubParentClass="flex justify-center items-center md:justify-start md:items-start"
+      HeaderClass="text-center"
     >
       <div
         data-aos="zoom-in"

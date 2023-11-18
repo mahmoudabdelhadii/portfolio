@@ -14,9 +14,10 @@ const IntroSlide: React.FunctionComponent<any> = () => {
     <Wrapper
       name="About"
       ParentClass="min-h-[90vh] h-max w-full flex items-center justify-center"
+      ChildrenClass="justify-center items-center md:justify-between"
     >
       <IntroContainer>
-        <div className="flex flex-col md:w-1/3 md:max-w-fit ">
+        <div className="flex flex-col justify-center items-center md:w-1/3 md:max-w-fit ">
           <h2
             data-aos="fade-right"
             data-aos-duration="2000"
@@ -44,7 +45,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
             data-aos="fade-up"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg"
+            className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-1/2 max-w-1/2 md:max-w-fit md:w-[85%] mx-0 my-6 z-20 md:text-lg"
           >
             I love everything software, from application development and
             deployment, to data and model training
@@ -79,7 +80,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
 
 const IntroContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
 `;

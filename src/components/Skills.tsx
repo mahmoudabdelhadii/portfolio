@@ -7,7 +7,7 @@ const Skills: React.FunctionComponent<any> = () => {
   return (
     <Wrapper
       name="Skills"
-      ParentClass="h-fit min-h-screen md:h-fit md:min-h-[35rem] w-full items-between"
+      ParentClass="h-fit min-h-[50vh] md:h-fit md:min-h-[40rem] w-full items-between"
       ChildrenClass="flex flex-col justify-center items-center w-full md:min-h-max"
     >
       <div className="flex w-full flex-row justify-center items-center md:items-start md:justify-start">
@@ -20,7 +20,7 @@ const Skills: React.FunctionComponent<any> = () => {
       </div>
 
       <div className="flex w-full flex-col items-between justify-center md:flex md:w-full md:flex-row md:items-start md:justify-between">
-        <div className="flex basis-[30%] flex-row justify-center items-center md:items-start md:justify-start">
+        <div className="flex basis-1/3 flex-row justify-center items-center md:items-start md:justify-start">
           <h2
             data-aos="fade-right"
             data-aos-delay="750"
@@ -43,13 +43,14 @@ const Skills: React.FunctionComponent<any> = () => {
 
 const CardBodyRight = styled.div`
   display: flex;
-  min-height: 30rem;
+  flex-basis: 50%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   @media (max-width: 768px) {
     padding-top: 4rem;
     justify-content: flex-start;
+    min-height: 35rem;
   }
 `;
 

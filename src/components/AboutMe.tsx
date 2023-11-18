@@ -5,8 +5,8 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="flex flex-col items-center justify-around min-h-screen h-max items-between md:flex-col md:justify-center md:h-fit md:min-h-fit md:w-full">
-      <div className="w-full flex flex-col justify-center items-center gap-4 md:flex-row md:justify-between md:items-center">
+    <motion.div className="flex flex-col items-center justify-start min-h-screen h-max md:items-start md:justify-center md:h-fit md:min-h-fit md:w-4/5">
+      <div className="w-5/6 flex flex-col justify-center items-center gap-4 md:w-full md:flex-row md:justify-between md:items-center">
         <div
           data-aos="fade-right"
           className="flex md:basis-1/4 h-max flex-col justify-center items-center gap-4  md:gap-4 md:justify-between md:items-start w-full"
@@ -19,7 +19,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
         </div>
         <p
           data-aos="fade-left"
-          className="w-5/6 text-slate-400 text-justify md:basis-3/4 overflow-auto"
+          className="w-5/6 text-slate-400 text-justify md:basis-1/2 overflow-auto"
         >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
           deleniti esse necessitatibus pariatur! Nesciunt totam suscipit
@@ -39,9 +39,9 @@ const AboutMe: React.FunctionComponent<any> = () => {
       </div>
       <div
         data-aos="fade-up"
-        className="flex flex-col md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
+        className="flex w-full flex-col md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
       >
-        <div className="basis-1/2">
+        <div className="w-full md:basis-1/2">
           <StyledButton
             onClick={() => {
               window.open("https://github.com/melsafi1", "_blank");
@@ -50,7 +50,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
             Github <BsGithub />
           </StyledButton>
         </div>
-        <div className="basis-1/2">
+        <div className="w-full md:basis-1/2">
           <StyledButton
             onClick={() => {
               window.open(
