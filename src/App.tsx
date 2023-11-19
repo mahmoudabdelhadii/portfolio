@@ -1,4 +1,5 @@
 import Nav from "./components/Nav";
+import "./index.css";
 import { useState } from "react";
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
@@ -11,6 +12,7 @@ import Contact from "./components/Contact";
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
 import { Element } from "react-scroll";
+import Navbar from "./components/Dynamic-Island";
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 const baseTheme = {
@@ -72,7 +74,8 @@ function App() {
   return (
     <ThemeProvider theme={theme === "light" ? baseTheme : darkTheme}>
       <Container>
-        <Nav onChange={toggleTheme} checked={theme === "dark"} />
+        <Navbar onChange={toggleTheme} checked={theme === "dark"} />
+        {/* <Nav onChange={toggleTheme} checked={theme === "dark"} /> */}
         <Center>
           <IntroSlide />
           <Element name="Skills" />
