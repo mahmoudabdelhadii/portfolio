@@ -58,7 +58,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
             className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-[85%] mx-0 my-6 z-20 md:text-lg"
           /> */}
 
-          <LinkStyle className="w-8" to="Skills">
+          <LinkStyle className="w-full md:w-fit" to="Skills">
             Scroll for more
           </LinkStyle>
         </div>

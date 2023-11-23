@@ -5,11 +5,11 @@ import { Wrapper } from "./PageComponents";
 import { MdOutlineEmail } from "react-icons/md";
 
 import Image from "next/image";
-import typewritter from "../assets/typewriter.png";
+
 const Contact: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div className="mb-20 text-center md:mb-0 w-full">
+    <div className="mb-20 text-center md:mb-0 w-full h-screen">
       <div className="flex justify-center items-center h-[600px] m-full w-[calc(100vw-5rem)] absolute z-20 mx-10 text-center align-middle left-0">
         {/* <div
           data-aos="fade-up"
@@ -27,7 +27,7 @@ const Contact: React.FunctionComponent<any> = () => {
             <br />
             debitis reiciendis dicta?
           </p>
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-center w-full md:w-fit">
             <div className="">
               <StyledButton onClick={() => setIsOpen(true)}>
                 Write me an Email <MdOutlineEmail className="h-10" />
