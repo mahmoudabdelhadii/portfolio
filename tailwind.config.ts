@@ -46,8 +46,8 @@ const config: Config = {
         gradient: 'animatedgradient 6s ease infinite alternate',
       },
       colors: {
-        primary: '#1B1B1F',
-        secondary: '#3F96FE',
+        primary: '#0C0C0F',
+        secondary: '#F5F5F5',
         accent: '#6A52FF',
         white: '#F5F5F5',
         beige: '#F8F7F4',

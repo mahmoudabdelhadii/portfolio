@@ -67,8 +67,9 @@ const Experience: React.FunctionComponent<any | false> = () => {
       <Wrapper
         name="Experience"
         showTitle
-        ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row md:flex md:h-1/8 md:justify-between w-full items-center"
-        SubParentClass="justify-center items-center w-full h-full"
+        ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row md:flex md:h-1/8 md:justify-between w-full md:w-full items-center"
+        SubParentClass="justify-center items-center w- md:w-fit h-full"
+        ChildrenClass=" md:w-fit"
       >
         <div data-aos="left" className="w-full">
           <StyledButton onClick={() => setShowPDF(true)}>

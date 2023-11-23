@@ -1,8 +1,8 @@
-import { Button } from "../components/Button";
+import { Button } from "./Button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Toggle } from "../components/themeToggle";
+import { Toggle } from "./themeToggle";
 import { useDarkMode } from "./useDarkMode";
 import { Link } from "react-scroll";
 import Image from "next/image";
@@ -35,7 +35,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
   return (
     <motion.nav
       className={`${
-        checked ? " bg-blue-400 text-slate-50 " : "bg-black text-slate-50 "
+        checked ? " bg-blue-500 text-slate-50 " : "bg-black text-slate-50 "
       } z-[100] fixed inset-0 top-4 w-[95%] sm:w-[90%] mx-auto font-medium flex max-sm:justify-between gap-4 px-3 max-w-7xl items-center rounded-full font-mono h-14 p-5 overflow-hidden`}
       variants={{
         long: { maxWidth: 950 },
@@ -150,10 +150,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         animate={hidden ? "visible" : "hidden"}
       >
         <Link to="Contact" spy={true} smooth={true} duration={500}>
-          <Button
-            variant={darkMode ? "secondary" : "accent"}
-            className="w-full"
-          >
+          <Button variant={"accent"} className="w-full">
             Contact
           </Button>
         </Link>

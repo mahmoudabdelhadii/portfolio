@@ -24,3 +24,5 @@ yarn-error.log*
 src/assets/amazoom.gif
 
 .eslintcache
+
+.next

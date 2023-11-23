@@ -14,7 +14,7 @@ import Contact from "../components/Contact";
 import Skills from "../components/Skills";
 import AboutMe from "../components/AboutMe";
 import { Element } from "react-scroll";
-import Navbar from "../components/Dynamic-Island";
+import Navbar from "../components/DynamicIsland";
 import { useState, useCallback, useEffect } from "react";
 
 export default function Home() {

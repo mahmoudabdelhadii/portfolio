@@ -9,7 +9,7 @@ import Image from "next/image";
 const Contact: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div className="mb-20 text-center md:mb-0 w-full h-screen">
+    <div className="mb-10 text-center md:mb-0 w-full h-screen flex justify-center items-center">
       <div className="flex justify-center items-center h-[600px] m-full w-[calc(100vw-5rem)] absolute z-20 mx-10 text-center align-middle left-0">
         {/* <div
           data-aos="fade-up"
