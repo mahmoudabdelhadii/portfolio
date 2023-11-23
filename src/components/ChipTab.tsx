@@ -3,28 +3,7 @@ import { StyledButton } from "./StyledButton";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import "rsuite/dist/rsuite.min.css";
-import { Button, Popover, Whisper } from "rsuite";
-
-import jslogo from "/JavaScriptlogo.png";
-import ocp from "../assets/OpenShift-LogoType.svg.png";
-import python from "../assets/PyTorchlogo.png";
-import reacticon from "../assets/Reacticon.png";
-import vueicon from "../assets/VueLogo.png";
-import sqlicon from "../assets/sqllogo.svg";
-import nuxticon from "../assets/nuxticon.png";
-import nodejsicon from "../assets/nodejslogo.png";
-import tensor from "../assets/Tensorflowlogo.png";
-import docker from "../assets/dockerlogo.png";
-import typescriptlogo from "../assets/Typescriptlogo.png";
-import akslogo from "../assets/akslogo-removebg-preview.png";
-import awslogo from "../assets/awslogo.png";
-import clogo from "../assets/clogo-removebg-preview.png";
-import csharplogo from "../assets/csharplogo-removebg-preview.png";
-import csslogo from "../assets/css.webp";
-import hasuralogo from "../assets/hasuralogo.png";
-import htmlogo from "../assets/html.webp";
-import cpplogo from "../assets/cpplogo-removebg-preview.png";
-import pytorchlogo from "../assets/PyTorchlogo.png";
+import { Popover, Whisper } from "rsuite";
 
 const tabs = ["Languages", "Frontend", "Backend", "Frameworks", "Cloud"];
 interface tabratingType {
@@ -41,30 +20,95 @@ const tabrating: tabratingType[] = [
     logo: "/assets/JavaScriptlogo.png",
     rating: 100,
   },
-  { name: "Vue", group: "Frontend", logo: vueicon, rating: 70 },
-  { name: "React", group: "Frontend", logo: reacticon, rating: 80 },
-  { name: "Python", group: "Languages", logo: python, rating: 30 },
-  { name: "OCP", group: "Cloud", logo: ocp, rating: 50 },
-  { name: "SQL", group: "Languages", logo: sqlicon, rating: 40 },
-  { name: "Nuxt", group: "Frameworks", logo: nuxticon, rating: 45 },
-  { name: "NodeJS", group: "Backend", logo: nodejsicon, rating: 87 },
-  { name: "TensorFlow", group: "Frameworks", logo: tensor, rating: 79 },
-  { name: "Docker", group: "Cloud", logo: docker, rating: 10 },
-  { name: "TypeScript", group: "Languages", logo: typescriptlogo, rating: 20 },
+  { name: "Vue", group: "Frontend", logo: "/assets/VueLogo.png", rating: 70 },
+  {
+    name: "React",
+    group: "Frontend",
+    logo: "/assets/Reacticon.png",
+    rating: 80,
+  },
+  {
+    name: "Python",
+    group: "Languages",
+    logo: "/assets/PyTorchlogo.png",
+    rating: 30,
+  },
+  {
+    name: "OCP",
+    group: "Cloud",
+    logo: "/assets/OpenShift-LogoType.svg.png",
+    rating: 50,
+  },
+  { name: "SQL", group: "Languages", logo: "/assets/sqllogo.svg", rating: 40 },
+  {
+    name: "Nuxt",
+    group: "Frameworks",
+    logo: "/assets/nuxticon.png",
+    rating: 45,
+  },
+  {
+    name: "NodeJS",
+    group: "Backend",
+    logo: "/assets/nodejslogo.png",
+    rating: 87,
+  },
+  {
+    name: "TensorFlow",
+    group: "Frameworks",
+    logo: "/assets/Tensorflowlogo.png",
+    rating: 79,
+  },
+  {
+    name: "Docker",
+    group: "Cloud",
+    logo: "/assets/dockerlogo.png",
+    rating: 10,
+  },
+  {
+    name: "TypeScript",
+    group: "Languages",
+    logo: "/assets/Typescriptlogo.png",
+    rating: 20,
+  },
   {
     name: "Azure Kubernetes Service",
     group: "Cloud",
-    logo: akslogo,
+    logo: "/assets/akslogo-removebg-preview.png",
     rating: 30,
   },
-  { name: "AWS", group: "Cloud", logo: awslogo, rating: 50 },
-  { name: "C", group: "Languages", logo: clogo, rating: 70 },
-  { name: "C#", group: "Languages", logo: csharplogo, rating: 60 },
-  { name: "CSS", group: "Languages", logo: csslogo, rating: 30 },
-  { name: "Hasura GraphQL", group: "Backend", logo: hasuralogo, rating: 35 },
-  { name: "HTML", group: "Languages", logo: htmlogo, rating: 45 },
-  { name: "C++", group: "Languages", logo: cpplogo, rating: 55 },
-  { name: "PyTorch", group: "Frameworks", logo: pytorchlogo, rating: 65 },
+  { name: "AWS", group: "Cloud", logo: "/assets/awslogo.png", rating: 50 },
+  {
+    name: "C",
+    group: "Languages",
+    logo: "/assets/clogo-removebg-preview.png",
+    rating: 70,
+  },
+  {
+    name: "C#",
+    group: "Languages",
+    logo: "/assets/csharplogo-removebg-preview.png",
+    rating: 60,
+  },
+  { name: "CSS", group: "Languages", logo: "/assets/css.webp", rating: 30 },
+  {
+    name: "Hasura GraphQL",
+    group: "Backend",
+    logo: "/assets/hasuralogo.png",
+    rating: 35,
+  },
+  { name: "HTML", group: "Languages", logo: "/assets/html.webp", rating: 45 },
+  {
+    name: "C++",
+    group: "Languages",
+    logo: "/assets/cpplogo-removebg-preview.png",
+    rating: 55,
+  },
+  {
+    name: "PyTorch",
+    group: "Frameworks",
+    logo: "/assets/PyTorchlogo.png",
+    rating: 65,
+  },
 ];
 
 const delay = 4000;

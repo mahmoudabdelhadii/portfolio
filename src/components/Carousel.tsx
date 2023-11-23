@@ -1,7 +1,5 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
-import f1gif from "../assets/ezgif-1-a134de1717.gif";
-import pcagif from "../assets/PCA.gif";
 import HoverCard from "./HoverCard";
 import Reveal from "./Reveal";
 const Carousel = () => {
@@ -49,37 +47,37 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 1",
     id: 1,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 2",
     id: 2,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 3",
     id: 3,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 4",
     id: 4,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 5",
     id: 5,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 6",
     id: 6,
   },
   {
-    url: f1gif,
+    url: "/assets/ezgif-1-a134de1717.gif",
     title: "Formula One Predictor",
     id: 7,
   },
