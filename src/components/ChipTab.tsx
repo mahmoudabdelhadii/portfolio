@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction, useState, useEffect, useRef } from "react";
 import { StyledButton } from "./StyledButton";
 import { motion, useAnimation, useInView } from "framer-motion";
-
+import Image from "next/image";
 import "rsuite/dist/rsuite.min.css";
 import { Button, Popover, Whisper } from "rsuite";
-import styled from "styled-components";
-import jslogo from "../assets/JavaScriptlogo.png";
+
+import jslogo from "/JavaScriptlogo.png";
 import ocp from "../assets/OpenShift-LogoType.svg.png";
 import python from "../assets/PyTorchlogo.png";
 import reacticon from "../assets/Reacticon.png";
@@ -26,7 +26,6 @@ import htmlogo from "../assets/html.webp";
 import cpplogo from "../assets/cpplogo-removebg-preview.png";
 import pytorchlogo from "../assets/PyTorchlogo.png";
 
-import { useTheme } from "styled-components";
 const tabs = ["Languages", "Frontend", "Backend", "Frameworks", "Cloud"];
 interface tabratingType {
   name: string;
@@ -36,7 +35,12 @@ interface tabratingType {
 }
 
 const tabrating: tabratingType[] = [
-  { name: "JavaScript", group: "Languages", logo: jslogo, rating: 100 },
+  {
+    name: "JavaScript",
+    group: "Languages",
+    logo: "/assets/JavaScriptlogo.png",
+    rating: 100,
+  },
   { name: "Vue", group: "Frontend", logo: vueicon, rating: 70 },
   { name: "React", group: "Frontend", logo: reacticon, rating: 80 },
   { name: "Python", group: "Languages", logo: python, rating: 30 },
@@ -63,30 +67,6 @@ const tabrating: tabratingType[] = [
   { name: "PyTorch", group: "Frameworks", logo: pytorchlogo, rating: 65 },
 ];
 
-const BarLogo = styled(motion.img)`
-  height: 2rem;
-  width: 2rem;
-`;
-
-const BarMax = styled(motion.div)`
-  flex-basis: 80%;
-  height: 2rem;
-  display: flex;
-  width: 100%;
-`;
-const Bar = styled(motion.div)<any>`
-  height: 2rem;
-  width: ${(props: any) => props.rating + "%"};
-`;
-
-Bar.defaultProps = {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-};
-
 const delay = 4000;
 const ChipTabs = () => {
   const [current, setCurrent] = useState(0);
@@ -96,7 +76,6 @@ const ChipTabs = () => {
   const [FilteredTabs, setFilteredTabs] = useState(
     tabrating.filter((tab) => tab.group === tabs[current])
   );
-  const [currentHovering, setCurrentHovering] = useState<string | false>(false);
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -127,14 +106,6 @@ const ChipTabs = () => {
     };
   }, [current, clicked]);
 
-  const handleMouseOver = (name: string) => {
-    setCurrentHovering(name);
-  };
-
-  const handleMouseOut = () => {
-    setCurrentHovering(false);
-  };
-
   const ref = useRef(null);
 
   const isInView = useInView(ref, { once: true });
@@ -144,13 +115,10 @@ const ChipTabs = () => {
       mainControls.start("visible");
     }
   }, [isInView]);
-  const themeContext = useTheme();
+  // const themeContext = useTheme();
   return (
-    <div
-      data-aos="fade-up"
-      className="flex flex-col justify-start items-center w-full"
-    >
-      <motion.div className="hidden w-full md:flex md:gap-2 flex-wrap md:justify-evenly mb-8">
+    <div className="flex flex-col justify-start items-center w-full">
+      <motion.div className="hidden w-full md:flex md:gap-2 flex-wrap md:flex-row md:justify-evenly mb-8">
         {tabs.map((tab) => (
           <Chip
             text={tab}
@@ -205,33 +173,27 @@ const ChipTabs = () => {
                 placement="top"
                 speaker={<Popover arrow={false}>{name}</Popover>}
               >
-                <BarLogo
+                <motion.div
                   data-aos="fade-right"
-                  src={logo}
-                  onMouseOver={() => {
-                    setCurrentHovering(name);
-                  }}
-                  onMouseOut={handleMouseOut}
                   ref={ref}
                   key={index}
                   className={
-                    logo.includes("hasura") && themeContext.color === "#fff"
-                      ? "invert"
-                      : ""
+                    logo.toString().includes("hasura") ? "dark:invert" : ""
                   }
-                />
+                >
+                  <Image src={logo} alt={name} width={50} height={50} />
+                </motion.div>
               </Whisper>
 
-              <BarMax>
-                <Bar
+              <div className="basis-4/5 h-8 flex w-full">
+                <motion.div
                   variants={variants}
                   initial="enter"
                   animate="animate"
                   exit="enter"
-                  rating={rating}
-                  className="z-0 bg-gradient-to-br from-blue-300 to-violet-300"
+                  className={`h-8 w-[${rating}%] z-0 bg-gradient-to-br from-blue-300 to-violet-300`}
                 />
-              </BarMax>
+              </div>
             </motion.div>
           );
         })}
@@ -254,32 +216,30 @@ const Chip = ({
   setClicked: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <TabButton
-      onClick={() => {
-        setSelected(text);
-        setFilteredTabs(tabrating.filter((tab) => tab.group === text));
-        setClicked(true);
-      }}
-      className={`${
-        selected
-          ? "text-white"
-          : "text-slate-300 hover:text-slate-200 hover:bg-slate-300"
-      } text-sm transition-colors px-2.5 py-0.5 rounded-md relative`}
-    >
-      <span className="relative z-10">{text}</span>
-      {selected && (
-        <motion.span
-          layoutId="pill-tab"
-          transition={{ type: "spring", duration: 0.5 }}
-          className="absolute inset-0 z-0 border-blue-500 border-t border-r"
-        ></motion.span>
-      )}
-    </TabButton>
+    <div className="block">
+      <StyledButton
+        onClick={() => {
+          setSelected(text);
+          setFilteredTabs(tabrating.filter((tab) => tab.group === text));
+          setClicked(true);
+        }}
+        className={`${
+          selected
+            ? "text-white "
+            : "text-slate-300 hover:text-slate-200 hover:bg-slate-300 "
+        } text-sm transition-colors px-2.5 py-0.5 rounded-md flex flex-row`}
+      >
+        <span className="relative z-10">{text}</span>
+        {selected && (
+          <motion.span
+            layoutId="pill-tab"
+            transition={{ type: "spring", duration: 0.5 }}
+            className="absolute inset-0 z-0 border-blue-500 border-t border-r"
+          ></motion.span>
+        )}
+      </StyledButton>
+    </div>
   );
 };
-
-const TabButton = styled(StyledButton)`
-  flex-direction: row;
-`;
 
 export default ChipTabs;

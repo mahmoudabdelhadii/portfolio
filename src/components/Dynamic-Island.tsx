@@ -1,10 +1,12 @@
 import { Button } from "../components/Button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
-import logo from "../assets/logo.svg";
+import { useEffect, useState } from "react";
+import { Toggle } from "../components/themeToggle";
+import { useDarkMode } from "./useDarkMode";
 import { Link } from "react-scroll";
 import "./tailwind.css";
+import Image from "next/image";
 
 type NavProps = {
   checked: boolean;
@@ -30,15 +32,12 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
       setHidden(false);
     }
   });
-
+  const darkMode = useDarkMode();
   return (
     <motion.nav
       className={`${
-        checked
-          ? " bg-white text-slate-900 "
-          : "bg-black text-slate-50 " +
-            "z-[100] fixed inset-0 top-4 w-[95%] sm:w-[90%] mx-auto font-medium flex max-sm:justify-between gap-4 px-3 max-w-7xl items-center rounded-full font-mono h-14 p-5 overflow-hidden"
-      }`}
+        checked ? " bg-blue-400 text-slate-50 " : "bg-black text-slate-50 "
+      } z-[100] fixed inset-0 top-4 w-[95%] sm:w-[90%] mx-auto font-medium flex max-sm:justify-between gap-4 px-3 max-w-7xl items-center rounded-full font-mono h-14 p-5 overflow-hidden`}
       variants={{
         long: { maxWidth: 950 },
         short: { maxWidth: 280 },
@@ -50,7 +49,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
           transition: { delay: 0, duration: 0.3 },
         },
         showNav: {
-          height: 200,
+          height: 220,
           borderRadius: 22,
           alignItems: "start",
           transition: { delay: 0 },
@@ -65,13 +64,13 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         damping: 14,
       }}
     >
-      <div className="min-w-[40px] min-h-[40px] rounded-full gap-2 bg-slate-50 flex items-center justify-center">
-        <img
-          src={logo}
+      <div className=" min-w-[40px] min-h-[40px] rounded-full gap-2 bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
+        <Image
+          src="/assets/logo.svg"
           alt="logo"
-          width={44}
-          height={44}
-          className={`${checked ? "" : "invert"}`}
+          width={40}
+          height={40}
+          className="invert dark:invert-0"
         />
       </div>
       <motion.ul
@@ -106,12 +105,12 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
             smooth={true}
             duration={500}
           >
-            {"About"}
+            {"About Me"}
           </Link>
         </li>
         <li>
           <Link
-            to="About Me"
+            to="Skills"
             spy={true}
             activeClass="active"
             smooth={true}
@@ -122,7 +121,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         </li>
         <li>
           <Link
-            to="About Me"
+            to="Recent Projects"
             spy={true}
             activeClass="active"
             smooth={true}
@@ -130,6 +129,9 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
           >
             {"Projects"}
           </Link>
+        </li>
+        <li>
+          <Toggle checked={checked} onChange={onChange} size={20} />
         </li>
       </motion.ul>
 
@@ -148,9 +150,14 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         initial="hidden"
         animate={hidden ? "visible" : "hidden"}
       >
-        <Button variant={"accent"} className="w-full">
-          Contact
-        </Button>
+        <Link to="Contact" spy={true} smooth={true} duration={500}>
+          <Button
+            variant={darkMode ? "secondary" : "accent"}
+            className="w-full"
+          >
+            Contact
+          </Button>
+        </Link>
       </motion.div>
 
       <Button

@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import styled from "styled-components";
 import { LinkStyle } from "../components/StyledButton";
+import Image from "next/image";
 //import { animateScroll as scroll } from "react-scroll";
 import { animateScroll as scroll } from "react-scroll";
 type NavProps = {
@@ -36,6 +37,9 @@ const LeftGroup = styled.div`
 
 const LogoButton = styled.div<{ checked: boolean }>`
   filter: ${(props) => (props.checked ? "invert(0%)" : "invert(100%)")};
+  position: relative;
+  width: 50px;
+  height: 50px;
 `;
 const RightGroup = styled.div`
   display: flex;
@@ -73,18 +77,15 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
     }
   });
   return (
-    <NavContainer checked={checked}>
-      <LeftGroup>
-        <LogoButton checked={checked} onClick={() => scroll.scrollToTop()}>
-          <img
-            src={logo}
-            alt="logo"
-            onClick={() => {
-              scroll.scrollToTop();
-            }}
-          />
-        </LogoButton>
-      </LeftGroup>
+    <div className="h-[100px] flex justify-between items-center fixed w-screen z-[100] top-0 dark:bg-[linear-gradient(180deg,#0C0C0F,rgba(12,12,15,0.8)_59%,transparent)] bg-[linear-gradient(180deg,#F5F5F5,rgba(245,245,245,0.8)_59%,transparent)]">
+      <div className="flex basis-1/5 h-full items-center justify-center">
+        <div
+          className="relative w-[50px] h-[50px] invert dark:invert-0"
+          onClick={() => scroll.scrollToTop()}
+        >
+          <Image src="/assets/logo.svg" alt="logo" fill />
+        </div>
+      </div>
       <motion.nav
         variants={{
           visible: { y: 0 },
@@ -93,19 +94,19 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         animate={hidden ? "hidden" : "visible"}
       >
-        <MiddleGroup>
+        <div className="hidden md:flex md:justify-center md:items-center md:basis-[70%] md:h-full md:gap-8">
           <LinkStyle to="Experience">Experience</LinkStyle>
           <LinkStyle to="About Me">About Me</LinkStyle>
           {/* <LinkStyle name="Projects" to="Projects" /> */}
           <LinkStyle to="Contact">Contact</LinkStyle>
           {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
-        </MiddleGroup>
+        </div>
       </motion.nav>
-      <RightGroup>
+      <div className="flex justify-end items-center basis-[10%] h-full mr-8">
         <Toggle checked={checked} onChange={onChange} />
-      </RightGroup>
-    </NavContainer>
+      </div>
+    </div>
   );
 };
 

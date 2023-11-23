@@ -7,7 +7,6 @@ import {
   useTransform,
 } from "framer-motion";
 
-import styled from "styled-components";
 type CardType = {
   url: string;
   title: string;
@@ -146,16 +145,4 @@ const TiltCard = ({
   );
 };
 
-const CardBackground = styled(motion.div)`
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 9;
-  top: 0;
-  right: 0;
-  left: -100;
-  bottom: 0;
-  background: ${(props: any) => props.theme.background};
-  opacity: 0.5;
-`;
 export default HoverCard;

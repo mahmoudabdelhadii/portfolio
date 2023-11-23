@@ -5,7 +5,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <motion.div className="flex flex-col items-center justify-start min-h-screen h-max md:items-start md:justify-center md:h-fit md:min-h-fit md:w-4/5">
+    <motion.div className="flex flex-col items-center justify-start min-h-screen h-max md:items-start md:justify-center md:h-fit md:min-h-fit md:w-full">
       <div className="w-5/6 flex flex-col justify-center items-center gap-4 md:w-full md:flex-row md:justify-between md:items-center">
         <div
           data-aos="fade-right"

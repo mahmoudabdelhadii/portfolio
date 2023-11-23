@@ -1,5 +1,4 @@
 import { m, LazyMotion, domAnimation } from "framer-motion";
-import styled from "styled-components";
 interface Param {
   children: any;
   delay?: number;
@@ -9,9 +8,10 @@ const FadeUpContainer: React.FunctionComponent<Param> = ({
   delay = 0.15,
 }) => {
   return (
-    <AnimationContainer>
+    <span className="overflow-hidden inline-block">
       <LazyMotion features={domAnimation}>
-        <FadeUpItem
+        <m.span
+          className="inline-block"
           initial={{ y: 80 }}
           animate={{ y: 0 }}
           transition={{
@@ -20,19 +20,10 @@ const FadeUpContainer: React.FunctionComponent<Param> = ({
           }}
         >
           {children}
-        </FadeUpItem>
+        </m.span>
       </LazyMotion>
-    </AnimationContainer>
+    </span>
   );
 };
-
-const AnimationContainer = styled.span`
-  overflow: hidden;
-  display: inline-block;
-`;
-
-const FadeUpItem = styled(m.span)`
-  display: inline-block;
-`;
 
 export default FadeUpContainer;

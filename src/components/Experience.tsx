@@ -1,8 +1,8 @@
 import Card from "./Card";
 import Reveal from "./Reveal";
-import RBClogo from "../assets/RBClogo.png";
-import TUTfclogo from "../assets/TUTfclogo.png";
-
+// import RBClogo from "../assets/RBClogo.png";
+// import TUTfclogo from "../assets/TUTfclogo.png";
+import Image from "next/image";
 import { StyledButton } from "./StyledButton";
 import PdfViewer from "./PdfViewer";
 import { GrInstallOption } from "react-icons/gr";
@@ -10,14 +10,13 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFacebook, BsWhatsapp, BsPrinter, BsMessenger } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
-import { useTheme } from "styled-components";
+
 import { Wrapper } from "./PageComponents";
-import whatsapp from "../assets/icons8-whatsapp.svg";
-import messenger from "../assets/icons8-messenger-48.png";
+
 const Experience: React.FunctionComponent<any | false> = () => {
   const cardData: ReactNode[] = [
     {
-      logo: RBClogo,
+      logo: "/assets/RBClogo.png",
       title: "Full Stack Engineer",
       subtitle: "RBC",
       company: "RBC",
@@ -27,7 +26,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
     },
     {
-      logo: RBClogo,
+      logo: "/assets/RBClogo.png",
       company: "RBC",
       fromDate: "September, 2022",
       toDate: "August, 2023",
@@ -37,7 +36,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nihil voluptate sapiente! Enim tenetur sint, aspernatur earum eum libero officia eius odit, molestiae debitis reiciendis ipsam nulla nisi ut cum?",
     },
     {
-      logo: TUTfclogo,
+      logo: "/assets/TUTfclogo.png",
       company: "Tutankhamun FC",
       fromDate: "May, 2021",
       toDate: "August 2021",
@@ -62,15 +61,14 @@ const Experience: React.FunctionComponent<any | false> = () => {
     );
   });
   const [showPDF, setShowPDF] = useState(false);
-  const theme = useTheme();
-  console.log("Current theme: ", theme);
+
   return (
     <div className="w-full h-max flex flex-col justify-center items-center min-h-screen md:h-min md:max-h-max md:min-h-fit">
       <Wrapper
         name="Experience"
         showTitle
         ParentClass="flex h-max flex-col justify-evenly items-center md:flex-row md:flex md:h-1/8 md:justify-between w-full items-center"
-        SubParentClass="justify-center items-center"
+        SubParentClass="justify-center items-center w-full h-full"
       >
         <div data-aos="left" className="w-full">
           <StyledButton onClick={() => setShowPDF(true)}>
@@ -102,8 +100,6 @@ const SpringModal = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const theme = useTheme();
-
   const onDownload = () => {
     const pdfUrl = "Mahmoud_Abdelhadi_Resume.pdf";
     const link = document.createElement("a");
@@ -128,9 +124,7 @@ const SpringModal = ({
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className={`${
-              theme.color === "#fff" ? "bg-transparent" : "bg-white"
-            }  text-white p-6 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden`}
+            className="dark:bg-transparent text-slate-900 bg-white dark:text-white p-6 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden"
           >
             <div className="flex flex-col md:justify-between gap-4 z-10 w-full h-full md:p-8">
               <PdfViewer />
@@ -138,33 +132,31 @@ const SpringModal = ({
               <div className="h-1/4 w-full">
                 <motion.div className="w-full h-full flex justify-between gap-2 md:gap-12 md:justify-center items-center">
                   <GrInstallOption
-                    className={`${
-                      theme.color === "#fff" ? "invert" : ""
-                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
+                    className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer"
                     onClick={onDownload}
                   />
                   <AiOutlineMail
-                    className={`${
-                      theme.color === "#fff" ? "" : "invert"
-                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
+                    className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
                       )
                     }
                   />
-                  <BsPrinter
-                    className={`${
-                      theme.color === "#fff" ? "" : "invert"
-                    } h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer`}
-                  />
-                  <img
-                    src={whatsapp}
+                  <BsPrinter className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer" />
+                  <Image
+                    src="/assets/icons8-whatsapp.svg"
                     className="h-[7vh] w-[8vw] max-h-20 max-w-20 cursor-pointer"
+                    alt="whatsapp"
+                    width={48}
+                    height={48}
                   />
-                  <img
-                    src={messenger}
+                  <Image
+                    src="/assets/icons8-messenger-48.png"
                     className="h-[3vh] w-[6vw] md:h-16 md:w-16 cursor-pointer"
+                    alt="messenger"
+                    width={48}
+                    height={48}
                   />
                 </motion.div>
               </div>

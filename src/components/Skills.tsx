@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+
 import { Wrapper } from "./PageComponents";
 import ChipTabs from "./ChipTab";
 
@@ -33,25 +33,12 @@ const Skills: React.FunctionComponent<any> = () => {
             Machine Learning
           </h2>
         </div>
-        <CardBodyRight>
+        <div className="flex basis-3/4 flex-col items-center justify-start md:min-h-[35rem] pt-16 min-h-fit md:pt-4">
           <ChipTabs />
-        </CardBodyRight>
+        </div>
       </div>
     </Wrapper>
   );
 };
-
-const CardBodyRight = styled.div`
-  display: flex;
-  flex-basis: 50%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  @media (max-width: 768px) {
-    padding-top: 4rem;
-    justify-content: flex-start;
-    min-height: 35rem;
-  }
-`;
 
 export default Skills;

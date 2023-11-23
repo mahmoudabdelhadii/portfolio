@@ -45,7 +45,7 @@ const Projects: React.FunctionComponent<any> = () => {
                   cy="20"
                   r="20"
                   stroke="grey"
-                  stroke-width="0"
+                  strokeWidth="0"
                   fill="grey"
                 />
               </motion.svg>
@@ -98,7 +98,7 @@ const Projects: React.FunctionComponent<any> = () => {
                   cy="20"
                   r="20"
                   stroke="grey"
-                  stroke-width="0"
+                  strokeWidth="0"
                   fill="grey"
                 />
               </motion.svg>

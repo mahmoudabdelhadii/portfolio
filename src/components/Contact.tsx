@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { StyledButton } from "./StyledButton";
 import { Wrapper } from "./PageComponents";
 import { MdOutlineEmail } from "react-icons/md";
-import { useTheme } from "styled-components";
+
+import Image from "next/image";
 import typewritter from "../assets/typewriter.png";
 const Contact: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -36,7 +37,12 @@ const Contact: React.FunctionComponent<any> = () => {
         </div>
       </div>
       <div className="z-10 opacity-75 ">
-        <motion.img src={typewritter} width={800} height={600} />
+        <Image
+          src="/assets/typewriter.png"
+          alt="typewriter"
+          width={800}
+          height={600}
+        />
       </div>
       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
       {/* </Wrapper> */}
@@ -51,7 +57,6 @@ const SpringModal = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const theme = useTheme();
   useEffect(() => {
     isOpen
       ? (document.body.style.overflow = "hidden")
@@ -72,11 +77,7 @@ const SpringModal = ({
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className={`${
-              theme.color === "#fff"
-                ? "bg-transparent  text-white"
-                : "bg-white text-black"
-            }  p-6 rounded-lg w-fit max-w-[80vw] h-fit max-h-[90vh] md:max-w-fit shadow-xl cursor-default relative overflow-hidden flex flex-col justify-end md:justify-start items-center`}
+            className="dark:bg-transparent  dark:text-white bg-white text-black p-6 rounded-lg w-fit max-w-[80vw] h-fit max-h-[90vh] md:max-w-fit shadow-xl cursor-default relative overflow-hidden flex flex-col justify-end md:justify-start items-center"
           >
             <h1 className="text-xl md:text-base flex flex-col gap-2 z-10 w-full pt-8 text-center m-0">
               Thank you for reaching out.

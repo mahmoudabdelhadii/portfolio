@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import f1gif from "../assets/ezgif-1-a134de1717.gif";
-import pcagif from "../assets/PCA.gif";
+// import f1gif from "../assets/ezgif-1-a134de1717.gif";
+// import pcagif from "../assets/PCA.gif";
 import HoverCard from "./HoverCard";
-import amaaz from "../assets/amaaz.gif";
+import Image from "next/image";
+// import amaaz from "../assets/amaaz.gif";
 const HoverCards = ({
   page,
   className,
@@ -82,33 +83,33 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: amaaz,
+    url: "/assets/ezgif-1-a134de1717.gif",
     title: "Title 1",
     id: 1,
   },
   {
-    url: amaaz,
+    url: "/assets/ezgif-1-a134de1717.gif",
     title: "Title 2",
     id: 2,
   },
   {
-    url: amaaz,
+    url: "/assets/amaaz.gif",
     title: "Title 3",
     id: 3,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 4",
     id: 4,
   },
   {
-    url: pcagif,
+    url: "/assets/PCA.gif",
     title: "Title 5",
     id: 5,
   },
 
   {
-    url: f1gif,
+    url: "/assets/PCA.gif",
     title: "Formula One Predictor",
     id: 6,
   },
