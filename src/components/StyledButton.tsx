@@ -17,10 +17,7 @@ export const LinkStyle: React.FunctionComponent<any> = ({ children, to }) => {
   );
 };
 
-interface ButtonProps extends React.ButtonHTMLAttributes<motion.button> {
-  children: React.ReactNode;
-}
-export const StyledButton = React.forwardRef<motion.button, ButtonProps>(
+export const StyledButton = React.forwardRef<HTMLButtonElement, any>(
   ({ className, ...props }, ref) => {
     return (
       <motion.button
