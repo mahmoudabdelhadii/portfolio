@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Toggle } from "../components/themeToggle";
 import { useDarkMode } from "./useDarkMode";
 import { Link } from "react-scroll";
-import "./tailwind.css";
 import Image from "next/image";
 
 type NavProps = {
