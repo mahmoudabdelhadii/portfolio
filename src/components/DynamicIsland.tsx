@@ -6,6 +6,7 @@ import { Toggle } from "./themeToggle";
 import { useDarkMode } from "./useDarkMode";
 import { Link } from "react-scroll";
 import Image from "next/image";
+import { LinkStyle } from "./StyledButton";
 
 type NavProps = {
   checked: boolean;
@@ -73,7 +74,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         />
       </div>
       <motion.ul
-        className={`w-full ${
+        className={`w-full text-white ${
           showNav
             ? "[--display-from:none] [--display-to:flex]"
             : "max-sm:[--display-from:none] sm:[--display-to:flex]"
@@ -96,8 +97,9 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
           showNav ? "visible" : "",
         ]}
       >
-        <li>
+        <li className="">
           <Link
+            className="text-white"
             to="About Me"
             spy={true}
             activeClass="active"
@@ -109,6 +111,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         </li>
         <li>
           <Link
+            className="text-white"
             to="Skills"
             spy={true}
             activeClass="active"
@@ -120,6 +123,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         </li>
         <li>
           <Link
+            className="text-white"
             to="Recent Projects"
             spy={true}
             activeClass="active"
@@ -150,7 +154,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         animate={hidden ? "visible" : "hidden"}
       >
         <Link to="Contact" spy={true} smooth={true} duration={500}>
-          <Button variant={"accent"} className="w-full">
+          <Button variant={"accent"} className="w-full text-white">
             Contact
           </Button>
         </Link>
@@ -159,13 +163,17 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
       <Button
         size={"icon"}
         variant={"ghost"}
-        className="rounded-full min-w-[40px] sm:hidden"
+        className="rounded-full min-w-[40px] sm:hidden invert dark:invert-0"
         onClick={() => {
           setHidden(false);
           setShowNav((prev) => !prev);
         }}
       >
-        {showNav ? <ChevronUp /> : <ChevronDown />}
+        {showNav ? (
+          <ChevronUp className="invert-0 dark:invert" />
+        ) : (
+          <ChevronDown className="invert-0 dark:invert" />
+        )}
       </Button>
     </motion.nav>
   );

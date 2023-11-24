@@ -21,7 +21,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
       {showTitle && (
         <div
           className={`${
-            "flex flex-row justify-start items-center w-full h-full " +
+            "flex flex-row justify-start items-center w-full h-fit " +
             (SubParentClass ? SubParentClass : "")
           }`}
         >

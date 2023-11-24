@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { StyledButton } from "./StyledButton";
 import { Wrapper } from "./PageComponents";
 import { MdOutlineEmail } from "react-icons/md";
-
+import TerminalContact from "./CommandLineForm";
 import Image from "next/image";
 
 const Contact: React.FunctionComponent<any> = () => {
@@ -15,7 +15,7 @@ const Contact: React.FunctionComponent<any> = () => {
           data-aos="fade-up"
           className="flex flex-col justify-center items-center h-screen gap-4 md:h-[50vh] md:min-h-fit md:max-h-screen md:justify-center z-10"
         > */}
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col justify-center items-center">
           <p className="text-blue-400 font-bold">CONTACT ME</p>
           <h3 className="text-2xl font-bold md:text-4xl">
             Get in touch with me.
@@ -28,11 +28,9 @@ const Contact: React.FunctionComponent<any> = () => {
             debitis reiciendis dicta?
           </p>
           <div className="flex flex-row justify-center w-full md:w-fit">
-            <div className="">
-              <StyledButton onClick={() => setIsOpen(true)}>
-                Write me an Email <MdOutlineEmail className="h-10" />
-              </StyledButton>
-            </div>
+            <StyledButton onClick={() => setIsOpen(true)}>
+              Write me an Email <MdOutlineEmail className="h-10" />
+            </StyledButton>
           </div>
         </div>
       </div>
@@ -40,7 +38,7 @@ const Contact: React.FunctionComponent<any> = () => {
         <Image
           src="/assets/typewriter.png"
           alt="typewriter"
-          width={800}
+          width={600}
           height={600}
         />
       </div>
@@ -77,9 +75,9 @@ const SpringModal = ({
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="dark:bg-transparent  dark:text-white bg-white text-black p-6 rounded-lg w-fit max-w-[80vw] h-fit max-h-[90vh] md:max-w-fit shadow-xl cursor-default relative overflow-hidden flex flex-col justify-end md:justify-start items-center"
+            className="text-left"
           >
-            <h1 className="text-xl md:text-base flex flex-col gap-2 z-10 w-full pt-8 text-center m-0">
+            {/* <h1 className="text-xl md:text-base flex flex-col gap-2 z-10 w-full pt-8 text-center m-0">
               Thank you for reaching out.
             </h1>
             <h3 className="text-l md:text-base text-center pt-2 pb-4  text-gray-500">
@@ -155,8 +153,9 @@ const SpringModal = ({
                 >
                   Send
                 </StyledButton>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
+            <TerminalContact setIsCardOpened={setIsOpen} name="contact Me" />
           </motion.div>
         </motion.div>
       )}

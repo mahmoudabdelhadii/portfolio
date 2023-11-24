@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Nav from "../components/Nav";
-
+import TerminalContact from "../components/CommandLineForm";
 import * as React from "react";
 
 import AOS from "aos";
@@ -87,7 +87,7 @@ export default function Home() {
 
   const isBreakpoint = useMediaQuery(768);
   return (
-    <div className="container w-full h-full bg-[#F5F5F5] dark:bg-[#0C0C0F] text-[#0C0C0F] dark:text-[#F5F5F5] flex flex-col justify-center items-center md:pt-20 pt-24 ">
+    <div className="overscroll-y-none container w-full h-full bg-[#F5F5F5] dark:bg-[#0C0C0F] text-[#0C0C0F] dark:text-[#F5F5F5] flex flex-col justify-center items-center md:pt-20 pt-24 ">
       {/* <ThemeProvider theme={theme === "light" ? baseTheme : darkTheme}>
        <Container> */}
       {isBreakpoint ? (
@@ -97,7 +97,7 @@ export default function Home() {
       )}
       {/* <Navbar onChange={toggleTheme} checked={theme === "dark"} /> */}
       {/* <Nav onChange={toggleTheme} checked={theme === "dark"} /> */}
-      <div className="w-[90%] overflow-x-clip gap-8 flex flex-col items-start justify-start md:w-4/5">
+      <div className="overscroll-y-none w-[90%] overflow-x-clip gap-8 flex flex-col items-start justify-start md:w-4/5">
         <IntroSlide />
         <Element name="Skills" className="w-full h-full">
           <Skills />

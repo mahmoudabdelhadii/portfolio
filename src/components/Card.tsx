@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import Reveal from "./Reveal";
 import { StyledButton } from "./StyledButton";
 import Image from "next/image";
+import { TerminalHeader } from "./CommandLineForm";
 type CardProps = {
   index: number;
   title: string;
@@ -36,9 +37,9 @@ const Card: React.FunctionComponent<CardProps> = ({
       <motion.div
         className={`${
           isCardOpened
-            ? "cursor-auto border-2 bg-white dark:bg-black border-[#689af8] md:w-[min(30rem,95%)] md:h-[calc(100%_-_20rem)] overflow-y-auto overflow-x-hidden fixed z-20 flex justify-start flex-col m-auto p-4 inset-0 w-[80vw] h-[80vh]"
+            ? "cursor-auto border-none bg-white dark:bg-black border-[#689af8] md:w-[min(30rem,95%)] md:h-[calc(100%_-_20rem)] overflow-y-auto overflow-x-hidden fixed z-20 flex justify-start flex-col m-auto p-0 md:p-0 inset-0 w-[80vw] h-[80vh]"
             : "cursor-pointer"
-        } h-fit w-fit rounded-2xl`}
+        } h-fit w-fit`}
         ref={card}
         layout
         onClick={() => {
@@ -59,7 +60,7 @@ const Card: React.FunctionComponent<CardProps> = ({
             <motion.div
               className={`${
                 isCardOpened
-                  ? "h-[calc(100vh_-_20rem)] p-4 justify-start gap-4 items-center"
+                  ? "h-[calc(100vh_-_20rem)] w-full md:p-0 justify-start gap-4 items-center flex-col "
                   : " "
               } flex `}
             >
@@ -70,6 +71,12 @@ const Card: React.FunctionComponent<CardProps> = ({
               >
                 |
               </motion.span>
+              {isCardOpened && (
+                <TerminalHeader
+                  name={company + " / " + title}
+                  setIsCardOpened={setIsCardOpened}
+                />
+              )}
               <motion.div
                 className={`${isCardOpened ? "flex w-fit h-fit" : "hidden"}`}
               >
@@ -120,7 +127,7 @@ const Card: React.FunctionComponent<CardProps> = ({
             }}
           ></div>
           <motion.div
-            className=" h-screen w-screen fixed z-9 top-0 right-0 left-0 bottom-0 cursor-pointer  bg-white  dark:bg-black opacity-50"
+            className=" h-screen w-screen fixed z-10 top-0 right-0 left-0 bottom-0 cursor-pointer  bg-white  dark:bg-black opacity-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             onClick={() => setIsCardOpened(false)}

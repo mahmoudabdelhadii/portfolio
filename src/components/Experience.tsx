@@ -10,7 +10,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFacebook, BsWhatsapp, BsPrinter, BsMessenger } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
-
+import { TerminalHeader } from "./CommandLineForm";
 import { Wrapper } from "./PageComponents";
 
 const Experience: React.FunctionComponent<any | false> = () => {
@@ -125,9 +125,10 @@ const SpringModal = ({
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="dark:bg-transparent text-slate-900 bg-white dark:text-white p-6 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden"
+            className="dark:bg-black text-slate-900 bg-white dark:text-white p-0 md:p-0 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden"
           >
-            <div className="flex flex-col md:justify-between gap-4 z-10 w-full h-full md:p-8">
+            <div className="flex flex-col md:justify-between gap-4 z-10 w-full h-full md:p-0">
+              <TerminalHeader setIsCardOpened={setIsOpen} name="Resume" />
               <PdfViewer />
 
               <div className="h-1/4 w-full">
