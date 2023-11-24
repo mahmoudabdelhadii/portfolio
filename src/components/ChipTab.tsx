@@ -178,7 +178,7 @@ const ChipTabs = () => {
       <motion.div
         ref={ref}
         layout
-        animate={{ borderLeft: "1px solid blue" }}
+        animate={{ borderLeft: "1px solid #60A5FA" }}
         transition={{
           borderLeft: { ease: "linear" },
           layout: { duration: 1 },
@@ -209,7 +209,7 @@ const ChipTabs = () => {
             <motion.div
               key={index}
               ref={ref}
-              className="flex justify-between items-center my-4 ml-8"
+              className="flex justify-between items-center my-4 ml-8 h-5 md:h-8"
               data-aos="fade-up"
             >
               <Whisper
@@ -222,20 +222,28 @@ const ChipTabs = () => {
                   ref={ref}
                   key={index}
                   className={
-                    logo.toString().includes("hasura") ? "dark:invert" : ""
+                    logo.toString().includes("hasura")
+                      ? "dark:invert"
+                      : "" + " w-6 h-5 md:w-12 md:h-8"
                   }
+                  style={{
+                    backgroundImage: `url(${logo})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
                 >
-                  <Image src={logo} alt={name} width={50} height={50} />
+                  {/* <Image src={logo} alt={name} fill sizes="" /> */}
                 </motion.div>
               </Whisper>
 
-              <div className="basis-4/5 h-8 flex w-full">
+              <div className="basis-4/5 h-5 md:h-8 flex w-full">
                 <motion.div
                   variants={variants}
                   initial="enter"
                   animate="animate"
                   exit="enter"
-                  className={`h-8 w-[${rating}%] z-0 bg-gradient-to-br from-blue-300 to-violet-300`}
+                  className={`h-5 md:h-10 w-[${rating}%] z-0 bg-gradient-to-br from-blue-300 to-violet-300`}
                 />
               </div>
             </motion.div>

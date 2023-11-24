@@ -48,7 +48,7 @@ const config: Config = {
       colors: {
         primary: '#0C0C0F',
         secondary: '#F5F5F5',
-        accent: '#6A52FF',
+        accent: '#689af8',
         white: '#F5F5F5',
         beige: '#F8F7F4',
         black:'#0C0C0F'

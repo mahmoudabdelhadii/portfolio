@@ -36,7 +36,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
   return (
     <motion.nav
       className={`${
-        checked ? " bg-blue-500 text-slate-50 " : "bg-black text-slate-50 "
+        checked ? " bg-slate-900 text-slate-50 " : "bg-black text-slate-50 "
       } z-[100] fixed inset-0 top-4 w-[95%] sm:w-[90%] mx-auto font-medium flex max-sm:justify-between gap-4 px-3 max-w-7xl items-center rounded-full font-mono h-14 p-5 overflow-hidden`}
       variants={{
         long: { maxWidth: 950 },
@@ -169,11 +169,7 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
           setShowNav((prev) => !prev);
         }}
       >
-        {showNav ? (
-          <ChevronUp className="invert-0 dark:invert" />
-        ) : (
-          <ChevronDown className="invert-0 dark:invert" />
-        )}
+        {showNav ? <ChevronUp /> : <ChevronDown />}
       </Button>
     </motion.nav>
   );

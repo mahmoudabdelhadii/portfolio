@@ -37,7 +37,7 @@ const Card: React.FunctionComponent<CardProps> = ({
       <motion.div
         className={`${
           isCardOpened
-            ? "cursor-auto border-none bg-white dark:bg-black border-[#689af8] md:w-[min(30rem,95%)] md:h-[calc(100%_-_20rem)] overflow-y-auto overflow-x-hidden fixed z-20 flex justify-start flex-col m-auto p-0 md:p-0 inset-0 w-[80vw] h-[80vh]"
+            ? "cursor-auto border-none bg-white dark:bg-black border-[#689af8] md:w-[min(30rem,95%)] md:h-[calc(100%_-_20rem)] overflow-y-auto overflow-x-hidden fixed z-20 flex justify-start flex-col m-auto p-0 md:p-0 inset-0 w-[80vw] h-[80vh] rounded-md"
             : "cursor-pointer"
         } h-fit w-fit`}
         ref={card}

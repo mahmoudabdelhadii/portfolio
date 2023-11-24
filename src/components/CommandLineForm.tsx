@@ -49,21 +49,24 @@ export const TerminalHeader = ({
   setIsCardOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0 ">
+    <div className="group w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0 ">
       <div
         className="w-3 h-3 rounded-full bg-red-500 flex justify-center items-center cursor-default"
         onClick={() => setIsCardOpened(false)}
       >
-        <IoIosClose className="text-black" />
+        <IoIosClose className="text-black hidden group-hover:block" />
       </div>
       <div
         className="w-3 h-3 rounded-full bg-yellow-500 flex justify-center items-center cursor-default"
         onClick={() => setIsCardOpened(false)}
       >
-        <div className="bg-black h-[1px] w-[5px]" />
+        <div className="bg-black h-[1px] w-[5px] hidden group-hover:block" />
       </div>
       <div className="w-3 h-3 rounded-full bg-green-500 justify-center items-center cursor-default">
-        <RiExpandLeftRightFill size={12} className="text-black rotate-45" />
+        <RiExpandLeftRightFill
+          size={12}
+          className="text-black rotate-45 hidden group-hover:block"
+        />
       </div>
       <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
         {name}
