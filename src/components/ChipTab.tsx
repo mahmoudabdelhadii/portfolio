@@ -209,7 +209,7 @@ const ChipTabs = () => {
             <motion.div
               key={index}
               ref={ref}
-              className="flex justify-between items-center my-4 ml-8 h-5 md:h-8"
+              className="flex justify-between items-center my-4 ml-8 h-6 md:h-10"
               data-aos="fade-up"
             >
               <Whisper
@@ -222,14 +222,13 @@ const ChipTabs = () => {
                   ref={ref}
                   key={index}
                   className={
-                    logo.toString().includes("hasura")
-                      ? "dark:invert"
-                      : "" + " w-6 h-5 md:w-12 md:h-8"
+                    (logo.toString().includes("hasura") ? "dark:invert" : "") +
+                    " w-10 h-6 md:h-10"
                   }
                   style={{
                     backgroundImage: `url(${logo})`,
                     backgroundPosition: "center",
-                    backgroundSize: "cover",
+                    backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                   }}
                 >
@@ -237,7 +236,7 @@ const ChipTabs = () => {
                 </motion.div>
               </Whisper>
 
-              <div className="basis-4/5 h-5 md:h-8 flex w-full">
+              <div className="basis-4/5 h-6 md:h-10 flex w-full">
                 <motion.div
                   variants={variants}
                   initial="enter"

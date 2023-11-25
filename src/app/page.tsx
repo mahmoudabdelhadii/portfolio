@@ -97,26 +97,26 @@ export default function Home() {
       )}
       {/* <Navbar onChange={toggleTheme} checked={theme === "dark"} /> */}
       {/* <Nav onChange={toggleTheme} checked={theme === "dark"} /> */}
-      <div className="overscroll-y-none w-[90%] overflow-x-clip gap-8 flex flex-col items-start justify-start md:w-4/5">
-        <IntroSlide />
-        <Element name="Skills" className="w-full h-full">
-          <Skills />
-        </Element>
+      {/* <div className="overscroll-y-none w-[90%] overflow-x-clip gap-8 flex flex-col items-start justify-start md:w-4/5"> */}
+      <IntroSlide />
+      <Element name="Skills" className="w-full h-full">
+        <Skills />
+      </Element>
 
-        <Element name="Projects" className="w-full h-full">
-          <Projects />
-        </Element>
-        <Element name="Experience" className="w-full h-full">
-          <Experience />
-        </Element>
-        <Element name="About Me" className="w-full h-full">
-          <AboutMe />
-        </Element>
+      <Element name="Projects" className="w-full h-full">
+        <Projects />
+      </Element>
+      <Element name="Experience" className="w-full h-full">
+        <Experience />
+      </Element>
+      <Element name="About Me" className="w-full h-full">
+        <AboutMe />
+      </Element>
 
-        <Element name="Contact" className="w-full h-full">
-          <Contact />
-        </Element>
-      </div>
+      <Element name="Contact" className="w-full h-full">
+        <Contact />
+      </Element>
+      {/* </div> */}
       {/* //   </Container>
     // </ThemeProvider> */}
     </div>

@@ -34,12 +34,13 @@ const Contact: React.FunctionComponent<any> = () => {
           </div>
         </div>
       </div>
-      <div className="z-10 opacity-75 ">
+      <div className="z-10 relative w-full h-full opacity-75 ">
         <Image
           src="/assets/typewriter.png"
           alt="typewriter"
           width={600}
           height={600}
+          className="absolute left-0"
         />
       </div>
       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />

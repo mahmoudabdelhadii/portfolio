@@ -101,7 +101,7 @@ const TiltCard = ({
           }}
           className={`${
             isOpen
-              ? "grid h-[80vh] w-[80vw] md:h-[60vh] md:w-[65vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
+              ? "h-[80vh] w-[80vw] md:h-[60vh] md:w-[65vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
               : "relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300 cursor-pointer"
           } `}
         >
@@ -116,7 +116,7 @@ const TiltCard = ({
               key={card.id}
               className={`${
                 isOpen
-                  ? "group relative h-[78vh] w-[78vw] md:h-[59vh] md:w-[64vw] md:overflow-hidden bg-neutral-200"
+                  ? "group relative h-[78vh] w-[78vw] md:h-[59vh] md:w-[64vw] md:overflow-hidden bg-white dark:bg-black"
                   : "group relative h-[18vh] w-[55vw] md:h-[18vw] md:w-[29vw] md:overflow-hidden bg-neutral-200"
               }`}
             >
