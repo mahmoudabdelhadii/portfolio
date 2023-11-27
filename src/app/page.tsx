@@ -87,7 +87,7 @@ export default function Home() {
 
   const isBreakpoint = useMediaQuery(768);
   return (
-    <div className="overscroll-y-none container w-full h-full bg-[#F5F5F5] dark:bg-[#0C0C0F] text-[#0C0C0F] dark:text-[#F5F5F5] flex flex-col justify-center items-center md:pt-20 pt-24 ">
+    <div className="overscroll-y-none container w-full h-full bg-[#F5F5F5] dark:bg-[#0C0C0F] text-[#0C0C0F] dark:text-[#F5F5F5] flex flex-col justify-center max-w-screen items-center md:pt-20 pt-24 ">
       {/* <ThemeProvider theme={theme === "light" ? baseTheme : darkTheme}>
        <Container> */}
       {isBreakpoint ? (

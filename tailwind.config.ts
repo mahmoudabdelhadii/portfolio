@@ -10,10 +10,11 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '4rem',
+      padding: '10vw',
+      
 
       screens: {
-        '2xl': '1400px',
+        '2xl': '3000px',
       },
     },
     extend: {

@@ -126,7 +126,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
 const InitialText = () => {
   return (
     <>
-      <p>Hey there! We're excited to link 🔗</p>
+      <p>Hey there! Thank you for reaching out </p>
       <p className="whitespace-wrap md:whitespace-nowrap overflow-hidden font-light">
         ------------------------------------------------------------------------
       </p>
@@ -193,7 +193,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
 
   return (
     <>
-      <p>Beautiful! Here's what we've got:</p>
+      <p>Amazing! Here's what we've got:</p>
       {questions.map((q) => {
         return (
           <p key={q.key}>
@@ -205,7 +205,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
       {complete ? (
         <p className="text-emerald-300">
           <FiCheckCircle className="inline-block mr-2" />
-          <span>Sent! We'll get back to you ASAP 😎</span>
+          <span>Sent! I will get back to you ASAP 😎</span>
         </p>
       ) : (
         <div className="flex gap-4 mt-2">
