@@ -39,7 +39,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
       </div>
       <div
         data-aos="fade-up"
-        className="flex w-full flex-col md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
+        className="flex w-full flex-col z-20 md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
       >
         <div className="w-full md:basis-1/2 z-99">
           <StyledButton

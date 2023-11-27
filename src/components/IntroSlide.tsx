@@ -13,7 +13,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
       ParentClass="min-h-[90vh] h-max w-full flex items-center justify-center"
       ChildrenClass="justify-center items-center md:justify-between"
     >
-      <div className="flex justify-between flex-col-reverse items-center h-full md:flex-row">
+      <div className="flex justify-between md:justify-center gap-6 flex-col-reverse items-center h-full md:flex-row">
         <div className="flex flex-col justify-center items-center md:items-start md:w-1/3 md:max-w-1/2 ">
           <h2
             data-aos="fade-right"
