@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-
+import { TerminalHeader } from "./CommandLineForm";
 type CardType = {
   url: string;
   title: string;
@@ -16,7 +16,7 @@ type CardType = {
 const HoverCard = ({ card }: { card: CardType }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <div className="grid place-content-center text-slate-900">
+    <div className="grid place-content-center  text-slate-900">
       <TiltCard card={card} isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
@@ -84,7 +84,7 @@ const TiltCard = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={() => {
-            setIsOpen(true);
+            setIsOpen(false);
             if (!isOpen) {
               setCardDimensions({
                 // @ts-ignore
@@ -101,8 +101,8 @@ const TiltCard = ({
           }}
           className={`${
             isOpen
-              ? "h-[80vh] w-[80vw] md:h-[60vh] md:w-[65vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
-              : "relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300 cursor-pointer"
+              ? "h-[80vh] w-[80vw] md:h-[70vh] md:w-[70vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
+              : "relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300 cursor-pointer "
           } `}
         >
           <div
@@ -110,16 +110,23 @@ const TiltCard = ({
               transform: "translateZ(75px)",
               transformStyle: "preserve-3d",
             }}
-            className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg"
+            className={`${
+              !isOpen
+                ? "absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg"
+                : ""
+            }`}
           >
             <div
               key={card.id}
               className={`${
                 isOpen
-                  ? "group relative h-[78vh] w-[78vw] md:h-[59vh] md:w-[64vw] md:overflow-hidden bg-white dark:bg-black"
-                  : "group relative h-[18vh] w-[55vw] md:h-[18vw] md:w-[29vw] md:overflow-hidden bg-neutral-200"
+                  ? "z-30 relative h-[78vh] w-[78vw] md:h-[68vh] md:w-[68vw] md:overflow-hidden bg-white dark:bg-black"
+                  : "relative h-[18vh] w-[55vw] md:h-[18vw] md:w-[29vw] md:overflow-hidden bg-neutral-200"
               }`}
             >
+              {isOpen && (
+                <TerminalHeader setIsCardOpened={setIsOpen} name={card.title} />
+              )}
               <div
                 style={{
                   backgroundImage: `url(${card.url})`,
@@ -132,14 +139,23 @@ const TiltCard = ({
                     : "absolute inset-0 z-0 transition-transform rounded-xl duration-300 group-hover:scale-110"
                 }`}
               ></div>
-              <div className="absolute inset-0 z-10 grid place-content-end">
-                <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl font-black uppercase text-black ">
+              <div
+                className={`${
+                  isOpen
+                    ? "hidden"
+                    : "absolute inset-0 z-20 grid place-content-end"
+                }`}
+              >
+                <p className=" bg-gradient-to-br from-white/20 to-white/0 p-4 text-2xl font-black uppercase text-blue-800 ">
                   {card.title}
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
+        {false && (
+          <div className="absolute top-0 left-0 right-0 bottom-0 z-20 w-screen h-screen bg-slate-500/20" />
+        )}
       </>
     </AnimatePresence>
   );

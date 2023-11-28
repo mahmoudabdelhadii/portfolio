@@ -118,7 +118,7 @@ const SpringModal = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsOpen(false)}
-          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-end md:place-items-center overflow-y-scroll cursor-pointer"
+          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-[11] grid place-items-end md:place-items-center overflow-y-scroll cursor-pointer"
         >
           <motion.div
             initial={{ scale: 0, rotate: "12.5deg" }}
@@ -127,25 +127,25 @@ const SpringModal = ({
             onClick={(e) => e.stopPropagation()}
             className="dark:bg-black text-slate-900 bg-white dark:text-white p-0 md:p-0 rounded-lg h-[60vh] max-h-[70vh] w-[83vw] md:max-h-fit md:w-full md:max-w-4xl shadow-xl cursor-default flex justify-between relative overflow-hidden"
           >
-            <div className="flex flex-col md:justify-between gap-4 z-10 w-full h-full md:p-0">
+            <div className="flex flex-col md:justify-between gap-4 z-30 w-full h-full md:p-0">
               <TerminalHeader setIsCardOpened={setIsOpen} name="Resume" />
               <PdfViewer />
 
               <div className="h-1/4 w-full">
                 <motion.div className="w-full h-full flex justify-between gap-2 md:gap-12 md:justify-center items-center">
                   <GrInstallOption
-                    className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer"
+                    className="text-black dark:text-white h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer"
                     onClick={onDownload}
                   />
                   <AiOutlineMail
-                    className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer"
+                    className="text-black dark:text-white w-[5vw] max-h-20 max-w-20 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "mailto:email@example.com?subject=Subject&body=Body%20goes%20here"
                       )
                     }
                   />
-                  <BsPrinter className="invert dark:invert-0 h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer" />
+                  <BsPrinter className="text-black dark:text-white h-[5vh] w-[5vw] max-h-20 max-w-20 cursor-pointer" />
                   <Image
                     src="/assets/icons8-whatsapp.svg"
                     className="h-[7vh] w-[8vw] max-h-20 max-w-20 cursor-pointer"

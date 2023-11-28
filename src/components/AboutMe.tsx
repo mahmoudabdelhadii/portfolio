@@ -11,8 +11,8 @@ const AboutMe: React.FunctionComponent<any> = () => {
           data-aos="fade-right"
           className="flex md:basis-1/4 h-max flex-col justify-center items-center gap-4  md:gap-4 md:justify-between md:items-start w-full"
         >
-          <p className="z-0 font-bold text-blue-400 md:mb-4"> ABOUT ME</p>
-          <h3 className="z-0 text-2xl font-bold md:text-left md:text-4xl text-center">
+          <p className="z-10 font-bold text-blue-400 md:mb-4"> ABOUT ME</p>
+          <h3 className="z-10 text-2xl font-bold md:text-left md:text-4xl text-center">
             {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
           </h3>
@@ -39,9 +39,9 @@ const AboutMe: React.FunctionComponent<any> = () => {
       </div>
       <div
         data-aos="fade-up"
-        className="flex w-full flex-col z-20 md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
+        className="flex w-full flex-col z-10 md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
       >
-        <div className="w-full md:basis-1/2 z-99">
+        <div className="w-full md:basis-1/2 z-10">
           <StyledButton
             onClick={() => {
               window.open("https://github.com/melsafi1", "_blank");

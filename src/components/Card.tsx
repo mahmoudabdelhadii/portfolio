@@ -127,7 +127,7 @@ const Card: React.FunctionComponent<CardProps> = ({
             }}
           ></div>
           <motion.div
-            className=" h-screen w-screen fixed z-10 top-0 right-0 left-0 bottom-0 cursor-pointer  bg-white  dark:bg-black opacity-50"
+            className=" h-screen w-screen fixed z-[11] top-0 right-0 left-0 bottom-0 cursor-pointer  bg-white  dark:bg-black opacity-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             onClick={() => setIsCardOpened(false)}
