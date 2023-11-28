@@ -83,18 +83,18 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/assets/ezgif-1-a134de1717.gif",
-    title: "Title 1",
+    url: "/assets/portfolio.gif",
+    title: "My Portfolio",
     id: 1,
   },
   {
     url: "/assets/ezgif-1-a134de1717.gif",
-    title: "Title 2",
+    title: "Formula One Predictor",
     id: 2,
   },
   {
     url: "/assets/amaaz.gif",
-    title: "Title 3",
+    title: "Amazoom C# Automation",
     id: 3,
   },
   {

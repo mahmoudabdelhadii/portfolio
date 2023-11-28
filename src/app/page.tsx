@@ -18,7 +18,7 @@ import Navbar from "../components/DynamicIsland";
 import { useState, useCallback, useEffect } from "react";
 
 export default function Home() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("");
   useEffect(() => {
     if (theme === "dark") {
       localStorage.theme = "dark";
@@ -30,8 +30,10 @@ export default function Home() {
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
+      setTheme("dark");
       document.documentElement.classList.add("dark");
     } else {
+      setTheme("light");
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);

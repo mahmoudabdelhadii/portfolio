@@ -68,6 +68,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
         autoPlay
         loop
         muted
+        playsInline
         className="invert z-0 sepia-[50%] hue-rotate-180 dark:invert-0 dark:sepia-0 dark:hue-rotate-0 absolute top-0 left-0 w-full h-full object-cover opacity-25"
       >
         <source src="/assets/video.mp4" type="video/mp4" />

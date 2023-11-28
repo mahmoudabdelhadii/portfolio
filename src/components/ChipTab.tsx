@@ -4,7 +4,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import "rsuite/dist/rsuite.min.css";
 import { Popover, Whisper } from "rsuite";
-
+import Reveal from "./Reveal";
 const tabs = ["Languages", "Frontend", "Backend", "Frameworks", "Cloud"];
 interface tabratingType {
   name: string;
@@ -30,7 +30,7 @@ const tabrating: tabratingType[] = [
   {
     name: "Python",
     group: "Languages",
-    logo: "/assets/PyTorchlogo.png",
+    logo: "/assets/Pythonlogo.png",
     rating: 30,
   },
   {
@@ -159,7 +159,6 @@ const ChipTabs = () => {
       mainControls.start("visible");
     }
   }, [isInView]);
-  // const themeContext = useTheme();
   return (
     <div className="flex flex-col justify-start items-center w-full">
       <motion.div className="hidden w-full md:flex md:gap-2 flex-wrap md:flex-row md:justify-evenly mb-8">
@@ -212,29 +211,30 @@ const ChipTabs = () => {
               className="flex justify-between items-center my-4 ml-8 h-6 md:h-10"
               data-aos="fade-up"
             >
-              <Whisper
-                followCursor
-                placement="top"
-                speaker={<Popover arrow={false}>{name}</Popover>}
-              >
-                <motion.div
-                  data-aos="fade-right"
-                  ref={ref}
-                  key={index}
-                  className={
-                    (logo.toString().includes("hasura") ? "dark:invert" : "") +
-                    " w-10 h-6 md:h-10"
-                  }
-                  style={{
-                    backgroundImage: `url(${logo})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                  }}
+              <Reveal from="left" delay={index * 0.1}>
+                <Whisper
+                  followCursor
+                  placement="top"
+                  speaker={<Popover arrow={false}>{name}</Popover>}
                 >
+                  <motion.div
+                    ref={ref}
+                    key={index}
+                    className={
+                      (logo.toString().includes("hasura")
+                        ? "dark:invert"
+                        : "") + " w-10 h-6 md:h-10"
+                    }
+                    style={{
+                      backgroundImage: `url(${logo})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  />
                   {/* <Image src={logo} alt={name} fill sizes="" /> */}
-                </motion.div>
-              </Whisper>
+                </Whisper>
+              </Reveal>
 
               <div className="basis-4/5 h-6 md:h-10 flex w-full">
                 <motion.div

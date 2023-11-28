@@ -26,7 +26,7 @@ const TerminalContact: React.FunctionComponent<any> = ({
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   return (
-    <section className="px-4 py-12 w-full">
+    <section className=" w-full">
       <div
         ref={containerRef}
         onClick={() => {
@@ -302,7 +302,7 @@ export default TerminalContact;
 const QUESTIONS: QuestionType[] = [
   {
     key: "email",
-    text: "To start, could you give us ",
+    text: "To start, could you give me ",
     postfix: "your email?",
     complete: false,
     value: "",
@@ -317,7 +317,7 @@ const QUESTIONS: QuestionType[] = [
   {
     key: "description",
     text: "Perfect, and ",
-    postfix: "how can we help you?",
+    postfix: "how can I help you?",
     complete: false,
     value: "",
   },
