@@ -13,28 +13,27 @@ const AboutMe: React.FunctionComponent<any> = () => {
         >
           <p className="z-10 font-bold text-blue-400 md:mb-4"> ABOUT ME</p>
           <h3 className="z-10 text-2xl font-bold md:text-left md:text-4xl text-center">
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+            Hey! thank you for stopping by.
           </h3>
         </div>
         <p
           data-aos="fade-left"
-          className="w-5/6 text-slate-400 text-justify md:basis-1/2 overflow-auto"
+          className="w-5/6 text-black dark:text-slate-400 text-justify md:basis-1/2 overflow-auto"
         >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-          deleniti esse necessitatibus pariatur! Nesciunt totam suscipit
-          inventore maiores esse eum odio nisi nulla explicabo aut, praesentium
-          nobis dignissimos numquam repellat facere error. Nesciunt sint alias
-          reiciendis amet aliquam temporibus adipisci repellendus, deserunt
-          aperiam quo culpa modi iure eius? Corrupti, animi perferendis. Ut
-          quasi earum adipisci aliquid deserunt? Laborum distinctio quam a quae
-          vel eum, quas officia, assumenda recusandae, laboriosam ab. Suscipit,
-          eveniet? Numquam deleniti temporibus, atque eos inventore ea animi
-          ratione dolore soluta quod. Nisi, consequatur odit exercitationem quo,
-          laborum ab minima eligendi voluptatem nihil quasi saepe harum tenetur
-          dolorum deleniti impedit ipsam perferendis quidem soluta mollitia
-          repellendus, repudiandae iure rem blanditiis. Enim illo incidunt ipsa
-          dolor nobis repellendus aut, explicabo, eligendi fugiat error nemo
+          I am a software engineer with a BASc in Electrical and Computer
+          Engineering from UBC, where I graduated with an International Major
+          Entrance Scholarship. I have a strong interest and skill in software
+          development, security engineering, systems architecture, and
+          artificial intelligence.
+          <br />
+          <br />
+          When I am not on my laptop, I love
+          <br />
+          <ul className="justify-start  text-left list-disc lg:mt-4 font  ">
+            <li className="ml-4"> Playing Volleyball, Tennis, and Football </li>
+            <li className="ml-4">Going to the gym (🫶🏾 Deadlifts)</li>
+            <li className="ml-4">Playing Fifa and COD on console</li>
+          </ul>
         </p>
       </div>
       <div

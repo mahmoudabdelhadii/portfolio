@@ -3,6 +3,7 @@ import { FiCheckCircle } from "react-icons/fi";
 import { IoIosClose } from "react-icons/io";
 import { RiExpandLeftRightFill } from "react-icons/ri";
 import { StyledButton } from "./StyledButton";
+import emailjs from "@emailjs/browser";
 import {
   ChangeEvent,
   Dispatch,
@@ -181,12 +182,28 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
   };
 
   const handleSend = () => {
-    const formData = questions.reduce((acc, val) => {
+    const formData: any = questions.reduce((acc, val) => {
       return { ...acc, [val.key]: val.value };
     }, {});
 
+    <form></form>;
     // Send this data to your server or whatever :)
     console.log(formData);
+    emailjs
+      .send(
+        "service_9keaw7e",
+        "template_2q4lbkc",
+        formData,
+        "UWRaOLfHKrayjEGU1"
+      )
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
 
     setComplete(true);
   };

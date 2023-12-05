@@ -21,11 +21,11 @@ const Contact: React.FunctionComponent<any> = () => {
             Get in touch with me.
           </h3>
           <p className="text-slate-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+            If you have any question, would like to send me a compliment,
             <br />
-            tempore est delectus saepe accusamus non architecto, incidunt
+            or wanna go for a coffee, please
             <br />
-            debitis reiciendis dicta?
+            feel free to contact me here.
           </p>
           <div className="flex flex-row justify-center w-full md:w-fit">
             <StyledButton onClick={() => setIsOpen(true)}>

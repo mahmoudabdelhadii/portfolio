@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, ReactNode } from "react";
 import Reveal from "./Reveal";
 import { StyledButton } from "./StyledButton";
 import Image from "next/image";
@@ -12,7 +12,7 @@ type CardProps = {
   company: string;
   fromDate: string;
   toDate: string;
-  description: string;
+  description: string | ReactNode | JSX.Element;
 };
 const Card: React.FunctionComponent<CardProps> = ({
   index,
@@ -43,7 +43,7 @@ const Card: React.FunctionComponent<CardProps> = ({
         ref={card}
         layout
         onClick={() => {
-          if (!isCardOpened) setIsCardOpened(true);
+          if (!isCardOpened) setIsCardOpened(false);
 
           if (!isCardOpened) {
             setCardDimensions({
@@ -64,34 +64,35 @@ const Card: React.FunctionComponent<CardProps> = ({
                   : " "
               } flex `}
             >
-              <motion.span
-                className={`${
-                  isCardOpened ? "hidden" : ""
-                } text-[rgb(104_154_248)] font-bold text-2xl`}
-              >
-                |
-              </motion.span>
+              {!isCardOpened && (
+                <motion.span className="text-[rgb(104_154_248)] font-bold text-2xl">
+                  |
+                </motion.span>
+              )}
               {isCardOpened && (
                 <TerminalHeader
                   name={company + " / " + title}
                   setIsCardOpened={setIsCardOpened}
                 />
               )}
-              <motion.div
-                className={`${isCardOpened ? "flex w-fit h-fit" : "hidden"}`}
-              >
-                <Image src={logo} alt="logo" height={30} width={40} />
-              </motion.div>
-              <div className="flex flex-col pl-4 m-1">
-                <h5 className="font-bold text-2xl leading-8 m-0">{company}</h5>
+              <div className="flex flex-row items-center justify-center gap-4">
+                <motion.div
+                  className={`${isCardOpened ? "flex w-fit h-fit" : "hidden"}`}
+                >
+                  <Image src={logo} alt="logo" height={30} width={40} />
+                </motion.div>
+                <div className="flex flex-col pl-4 m-1">
+                  <h5 className="font-bold text-2xl leading-8 m-0">
+                    {company}
+                  </h5>
 
-                <p className="m-0">{title}</p>
-                <p className="text-[rgb(103_103_103)] mt-2 mb-0 mx-0">
-                  {fromDate} - {toDate}
-                </p>
+                  <p className="m-0">{title}</p>
+                  <p className="text-[rgb(103_103_103)] mt-2 mb-0 mx-0">
+                    {fromDate} - {toDate}
+                  </p>
+                </div>
               </div>
             </motion.div>
-            <div className=" flex flex-col pl-[1.3rem] m-0"></div>
           </motion.div>
         </Reveal>
 
