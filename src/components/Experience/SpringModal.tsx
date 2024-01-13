@@ -78,7 +78,7 @@ const SpringModal = ({
               </div> */}
               <div className="p-0 pt-4 md:p-8 gap-4 md:gap-12 flex flex-col md:flex-row md:w-2/3 w-full justify-center md:justify-end">
                 <motion.button
-                  className="mb-2 bg-slate-400 dark:bg-slate-100 relative dark:text-black text-white border w-full h-20 flex justify-center items-center hover:pl-3 hover:bg-[#0B2762]/[0.24] md:w-1/3 md:h-20
+                  className="mb-2 bg-slate-400 dark:bg-slate-900 relative dark:text-white text-black border w-full h-20 flex justify-center items-center hover:pl-3 hover:bg-[#0B2762]/[0.24] md:w-1/3 md:h-20
     bg-transparent transition-all duration-[508ms] ease-[cubic-bezier(0.77,0,0.175,1)] text-[0.8rem] tracking-[0.25rem] uppercase cursor-pointer pl-0 pr-[0.6rem] py-[0.6rem] rounded-none border-[#689af8]"
                   whileTap={{ scale: 1.1 }}
                   onClick={() => {
