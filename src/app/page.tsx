@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Nav from "../components/Nav";
-import TerminalContact from "../components/CommandLineForm";
+import TerminalContact from "../components/Contact/CommandLineForm";
 import * as React from "react";
 
 import AOS from "aos";
@@ -14,7 +14,7 @@ import Contact from "../components/Contact";
 import Skills from "../components/Skills";
 import AboutMe from "../components/AboutMe";
 import { Element } from "react-scroll";
-import Navbar from "../components/DynamicIsland";
+import Navbar from "../components/Nav/DynamicIsland";
 import { useState, useCallback, useEffect } from "react";
 
 export default function Home() {
@@ -87,26 +87,28 @@ export default function Home() {
   const isBreakpoint = useMediaQuery(768);
   return (
     <div className="overscroll-y-none container w-full h-full bg-[#F5F5F5] dark:bg-[#0C0C0F] text-[#0C0C0F] dark:text-[#F5F5F5] flex flex-col justify-center max-w-screen items-center md:pt-20 pt-24 ">
-      {/* <ThemeProvider theme={theme === "light" ? baseTheme : darkTheme}>
-       <Container> */}
       {isBreakpoint ? (
         <Navbar onChange={toggleTheme} checked={theme === "dark"} />
       ) : (
         <Nav onChange={toggleTheme} checked={theme === "dark"} />
       )}
-      {/* <Navbar onChange={toggleTheme} checked={theme === "dark"} /> */}
-      {/* <Nav onChange={toggleTheme} checked={theme === "dark"} /> */}
-      {/* <div className="overscroll-y-none w-[90%] overflow-x-clip gap-8 flex flex-col items-start justify-start md:w-4/5"> */}
+
       <IntroSlide />
-      <Element name="Skills" className="w-full h-full">
+
+      <Element
+        name="Experience"
+        className="w-full h-full flex justify-center items-start"
+      >
+        <Experience />
+      </Element>
+      <Element
+        name="Skills"
+        className="w-full h-full flex justify-center items-start"
+      >
         <Skills />
       </Element>
-
       <Element name="Projects" className="w-full h-full">
         <Projects />
-      </Element>
-      <Element name="Experience" className="w-full h-full">
-        <Experience />
       </Element>
       <Element name="About Me" className="w-full h-full">
         <AboutMe />
@@ -115,9 +117,6 @@ export default function Home() {
       <Element name="Contact" className="w-full h-full">
         <Contact />
       </Element>
-      {/* </div> */}
-      {/* //   </Container>
-    // </ThemeProvider> */}
     </div>
   );
 }
