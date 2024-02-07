@@ -75,10 +75,11 @@ const Card = ({ card }: { card: CardType }) => {
 
 export default HoverCards;
 
-type CardType = {
+export type CardType = {
   url: string;
   title: string;
   id: number;
+  link?: string;
 };
 
 const cards: CardType[] = [
@@ -86,31 +87,30 @@ const cards: CardType[] = [
     url: "/assets/portfolio.gif",
     title: "My Portfolio",
     id: 1,
+    link: "https://github.com/mahmoudabdelhadii/portfolio",
   },
   {
     url: "/assets/ezgif-1-a134de1717.gif",
     title: "Formula One Predictor",
     id: 2,
+    link: "https://github.com/mahmoudabdelhadii/Formula-One-Predictor",
   },
   {
     url: "/assets/amaaz.gif",
     title: "Amazoom C# Automation",
     id: 3,
+    link: "https://github.com/mahmoudabdelhadii/Amazoom-Warehouse-Automation",
   },
   {
-    url: "/assets/PCA.gif",
-    title: "Title 4",
+    url: "/assets/app.jpeg",
+    title: "Armed Parcel Pad",
     id: 4,
+    link: "https://github.com/mahmoudabdelhadii/ArmedParcelPadApp",
   },
   {
-    url: "/assets/PCA.gif",
-    title: "Title 5",
+    url: "/assets/SVM.gif",
+    title: "SVM Cross Validation",
     id: 5,
-  },
-
-  {
-    url: "/assets/PCA.gif",
-    title: "Formula One Predictor",
-    id: 6,
+    link: "https://github.com/mahmoudabdelhadii/SVM-Cross-Vaildation",
   },
 ];

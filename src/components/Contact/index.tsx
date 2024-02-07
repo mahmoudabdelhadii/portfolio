@@ -4,9 +4,9 @@ import { StyledButton } from "../StyledButton";
 import { MdOutlineEmail } from "react-icons/md";
 import TerminalContact from "./CommandLineForm";
 import Image from "next/image";
-
 const Contact: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <div className="mb-10 text-center md:mb-0 w-full h-screen md:h-[50vh] flex justify-center items-center">
       <div className="flex justify-center items-center h-[full] m-full w-[calc(100vw-5rem)] absolute z-20 mx-10 text-center align-middle left-0">

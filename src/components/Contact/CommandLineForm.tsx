@@ -15,7 +15,7 @@ import {
   useRef,
   useState,
 } from "react";
-
+import { z } from "zod";
 const TerminalContact: React.FunctionComponent<any> = ({
   name,
   setIsCardOpened,
@@ -25,6 +25,7 @@ const TerminalContact: React.FunctionComponent<any> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const FormSchema = z.string();
 
   return (
     <section className=" w-full">
@@ -79,6 +80,7 @@ export const TerminalHeader = ({
 const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
   const [focused, setFocused] = useState(false);
   const [text, setText] = useState("");
+  const [warning, setWarning] = useState(false);
 
   const [questions, setQuestions] = useState(QUESTIONS);
 
@@ -89,11 +91,26 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
       setQuestions((pv) =>
         pv.map((q) => {
           if (q.key === curQuestion.key) {
-            return {
-              ...q,
-              complete: true,
-              value,
-            };
+            if (
+              (curQuestion.key === "email" &&
+                !z.string().email().safeParse(value).success) ||
+              (curQuestion.key === "name" &&
+                !z.string().min(3).max(15).safeParse(value).success) ||
+              (curQuestion.key === "description" &&
+                !z.string().min(3).max(1000).safeParse(value).success)
+            ) {
+              setWarning(true);
+              return {
+                ...q,
+              };
+            } else {
+              setWarning(false);
+              return {
+                ...q,
+                complete: true,
+                value,
+              };
+            }
           }
           return q;
         })
@@ -105,7 +122,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
     <div className="p-2 text-slate-100 text-lg">
       <InitialText />
       <PreviousQuestions questions={questions} />
-      <CurrentQuestion curQuestion={curQuestion} />
+      <CurrentQuestion curQuestion={curQuestion} warning={warning} />
       {curQuestion ? (
         <CurLine
           text={text}
@@ -116,6 +133,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
           command={curQuestion?.key || ""}
           handleSubmitLine={handleSubmitLine}
           containerRef={containerRef}
+          warning={warning}
         />
       ) : (
         <Summary questions={questions} setQuestions={setQuestions} />
@@ -127,7 +145,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
 const InitialText = () => {
   return (
     <>
-      <p>Hey there! Thank you for reaching out </p>
+      <p>Hey there! Thank you for reaching out :) </p>
       <p className="whitespace-wrap md:whitespace-nowrap overflow-hidden font-light">
         ------------------------------------------------------------------------
       </p>
@@ -161,16 +179,23 @@ const PreviousQuestions = ({ questions }: PreviousQuestionProps) => {
   );
 };
 
-const CurrentQuestion = ({ curQuestion }: CurrentQuestionProps) => {
+const CurrentQuestion = ({ curQuestion, warning }: CurrentQuestionProps) => {
   if (!curQuestion) return <></>;
 
   return (
-    <p>
-      {curQuestion.text || ""}
-      {curQuestion.postfix && (
-        <span className="text-violet-300">{curQuestion.postfix}</span>
+    <div className="flex flex-col">
+      <p>
+        {curQuestion.text || ""}
+        {curQuestion.postfix && (
+          <span className="text-violet-300">{curQuestion.postfix}</span>
+        )}
+      </p>
+      {warning && (
+        <span className="text-slate-100">
+          zsh: Please enter a valid {curQuestion.key}
+        </span>
       )}
-    </p>
+    </div>
   );
 };
 
@@ -253,6 +278,7 @@ const CurLine = ({
   command,
   handleSubmitLine,
   containerRef,
+  warning,
 }: CurrentLineProps) => {
   const scrollToBottom = () => {
     if (containerRef.current) {
@@ -310,6 +336,9 @@ const CurLine = ({
           />
         )}
       </p>
+      {/* {warning && (
+        <span className="text-red-500">{"   "}Please enter a valid</span>
+      )} */}
     </>
   );
 };
@@ -349,6 +378,7 @@ interface CurrentLineProps {
   command: string;
   handleSubmitLine: Function;
   containerRef: MutableRefObject<HTMLDivElement | null>;
+  warning: boolean;
 }
 
 type QuestionType = {
@@ -375,4 +405,5 @@ interface SummaryProps {
 
 interface CurrentQuestionProps {
   curQuestion: QuestionType | undefined;
+  warning: boolean;
 }

@@ -7,12 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { TerminalHeader } from "../Contact/CommandLineForm";
-type CardType = {
-  url: string;
-  title: string;
-  id: number;
-};
-
+import type { CardType } from "./HoverCards";
 const HoverCard = ({ card }: { card: CardType }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
@@ -84,6 +79,7 @@ const TiltCard = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={() => {
+            window.open(card.link, "_blank");
             setIsOpen(false);
             if (!isOpen) {
               setCardDimensions({
@@ -102,7 +98,7 @@ const TiltCard = ({
           className={`${
             isOpen
               ? "h-[80vh] w-[80vw] md:h-[70vh] md:w-[70vw] place-content-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 bottom-0 left-0 m-auto z-20 flex justify-start flex-col p-4"
-              : "relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300"
+              : " hover:cursor-pointer relative h-[20vh] w-[60vw] md:h-[20vw] md:w-[31vw] rounded-xl bg-blue-300"
           } `}
         >
           <div
@@ -146,7 +142,7 @@ const TiltCard = ({
                     : "absolute inset-0 z-20 grid place-content-end"
                 }`}
               >
-                <p className=" bg-gradient-to-br from-white/20 to-white/0 p-4 text-2xl font-black uppercase text-blue-800 ">
+                <p className=" bg-gradient-to-br from-white/20 to-white/0 p-4 text-2xl font-black uppercase text-black ">
                   {card.title}
                 </p>
               </div>

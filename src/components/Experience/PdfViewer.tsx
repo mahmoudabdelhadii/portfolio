@@ -21,7 +21,7 @@ const resizeObserverOptions = {};
 const maxWidth = 1100;
 
 export default function Sample() {
-  const file = "/Abdelhadi_Mahmoud_Resume.pdf";
+  const file = "/Resume-Package.pdf";
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();
