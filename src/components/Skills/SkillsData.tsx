@@ -19,7 +19,7 @@ const SkillsDataUnsorted: SkillsData[] = [
     rating: 100,
   },
   {
-    name: "Nuxt",
+    name: "NuxtJs",
     group: "Frameworks",
     logo: "/assets/nuxticon.png",
     rating: 100,
@@ -29,7 +29,7 @@ const SkillsDataUnsorted: SkillsData[] = [
     name: "React",
     group: "Frontend",
     logo: "/assets/Reacticon.png",
-    rating: 80,
+    rating: 95,
   },
 
   {
@@ -56,7 +56,7 @@ const SkillsDataUnsorted: SkillsData[] = [
     name: "Docker",
     group: "Cloud",
     logo: "/assets/dockerlogo.png",
-    rating: 70,
+    rating: 95,
   },
   {
     name: "TypeScript/JavaScript",
@@ -68,9 +68,9 @@ const SkillsDataUnsorted: SkillsData[] = [
     name: "Azure Kubernetes Service",
     group: "Cloud",
     logo: "/assets/akslogo-removebg-preview.png",
-    rating: 90,
+    rating: 80,
   },
-  { name: "AWS", group: "Cloud", logo: "/assets/awslogo.png", rating: 80 },
+  { name: "AWS", group: "Cloud", logo: "/assets/awslogo.png", rating: 90 },
   {
     name: "Java",
     group: "Languages",
@@ -93,7 +93,7 @@ const SkillsDataUnsorted: SkillsData[] = [
     name: "Next.js",
     group: "Frameworks",
     logo: "/assets/nextjs.png",
-    rating: 80,
+    rating: 97,
   },
   {
     name: "Hasura GraphQL",
