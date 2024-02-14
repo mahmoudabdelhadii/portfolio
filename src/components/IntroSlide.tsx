@@ -41,7 +41,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
           application development and deployment, to data and model training
         </p>
 
-        <LinkStyle className="w-full md:w-fit" to="Skills">
+        <LinkStyle className="w-5/6 md:w-fit" to="Experience">
           Scroll for more
         </LinkStyle>
       </div>

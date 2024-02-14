@@ -21,7 +21,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
             </span>
           </h1>
         </div>
-        <div data-aos="left" className="w-full md:w-fit">
+        <div data-aos="left" className="w-5/6 md:w-fit">
           <StyledButton onClick={() => setShowPDF(true)}>
             Download Resume
           </StyledButton>

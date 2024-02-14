@@ -5,8 +5,8 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
-    <div className="relative flex flex-col p-0 items-center justify-start min-h-screen h-max md:items-center md:justify-center md:h-fit md:min-h-fit md:w-full">
-      <div className="md:w-[80%]">
+    <div className="relative flex flex-col p-0 items-center justify-center min-h-screen h-max md:items-center md:justify-center md:h-fit md:min-h-fit md:w-full">
+      <div className="md:w-[80%] flex flex-col justify-center items-center">
         <div className="w-5/6 flex flex-col justify-center items-center gap-4 md:w-full md:flex-row md:justify-between md:items-center z-10">
           <div
             data-aos="fade-right"
@@ -20,7 +20,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
           <div className="flex flex-col w-5/6 md:basis-1/2">
             <p
               data-aos="fade-left"
-              className=" text-black dark:text-slate-400 text-justify  overflow-auto"
+              className=" text-black dark:text-white text-justify  overflow-auto"
             >
               I am a software engineer with a BASc in Electrical and Computer
               Engineering from UBC, where I graduated with an International
@@ -32,7 +32,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
               When I am not on my laptop, I love
               <br />
             </p>
-            <ul className="justify-start  text-left list-disc lg:mt-4 font  ">
+            <ul className="justify-start text-left list-disc lg:mt-4 font  ">
               <li className="ml-4">
                 {" "}
                 Playing Volleyball, Tennis, and Football{" "}
@@ -44,7 +44,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
         </div>
         <div
           data-aos="fade-up"
-          className="flex w-full flex-col z-10 md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
+          className="flex w-5/6 flex-col z-10 md:flex-row md:justify-between md:items-center md:w-1/2 gap-2 my-4"
         >
           <div className="w-full md:basis-1/2 z-10">
             <StyledButton

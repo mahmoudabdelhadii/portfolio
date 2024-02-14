@@ -100,37 +100,37 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         <li className="">
           <Link
             className="text-white"
-            to="About Me"
+            to="Experience"
             spy={true}
             activeClass="active"
             smooth={true}
             duration={500}
           >
-            {"About Me"}
+            {"Experience"}
           </Link>
         </li>
         <li>
           <Link
             className="text-white"
-            to="Skills"
-            spy={true}
-            activeClass="active"
-            smooth={true}
-            duration={500}
-          >
-            {"Skills"}
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="text-white"
-            to="Recent Projects"
+            to="Projects"
             spy={true}
             activeClass="active"
             smooth={true}
             duration={500}
           >
             {"Projects"}
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="text-white"
+            to="Contact"
+            spy={true}
+            activeClass="active"
+            smooth={true}
+            duration={500}
+          >
+            {"Contact"}
           </Link>
         </li>
         <li>
