@@ -22,19 +22,21 @@ export default function Home() {
   useEffect(() => {
     if (theme === "dark") {
       localStorage.theme = "dark";
-    } else {
-      localStorage.theme = "light";
-    }
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      setTheme("dark");
       document.documentElement.classList.add("dark");
+    } else if (theme === "light") {
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    if (localStorage.theme === "dark" || !("theme" in localStorage)) {
+      setTheme("dark");
     } else {
       setTheme("light");
-      document.documentElement.classList.remove("dark");
+      console.log("theme ", theme);
+      console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      console.log(localStorage.theme);
     }
   }, [theme]);
 
