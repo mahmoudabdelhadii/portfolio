@@ -54,13 +54,13 @@ yarn dev
 Open http://localhost:8080 to view it in the browser.
 
 ## Project Structure
-**pages/** - Next.js pages including home, about, and project details.
-**components/** - Reusable UI components like Header, Footer, and ProjectCard.
-**styles/** - Tailwind configuration and additional custom styles.
-**schemas/** - Zod schemas for validating contact form inputs and other data.
-**public/** - Static assets such as images and resume PDF.
+**pages/** - Next.js pages including home, about, and project details.\
+**components/** - Reusable UI components like Header, Footer, and ProjectCard.\
+**styles/** - Tailwind configuration and additional custom styles.\
+**schemas/** - Zod schemas for validating contact form inputs and other data.\
+**public/** - Static assets such as images and resume PDF.\
 ## Features
-**Responsive Design:** Utilizes TailwindCSS for a mobile-first, responsive layout.
-**Dynamic Project Listings:** Projects are displayed dynamically, showcasing my work effectively.
-**Contact Form Validation:** Integrates Zod to validate contact form inputs, ensuring data integrity.
+**Responsive Design:** Utilizes TailwindCSS for a mobile-first, responsive layout.\
+**Dynamic Project Listings:** Projects are displayed dynamically, showcasing my work effectively.\
+**Contact Form Validation:** Integrates Zod to validate contact form inputs, ensuring data integrity.\
 
