@@ -16,7 +16,7 @@ import AboutMe from "../components/AboutMe";
 import { Element } from "react-scroll";
 import Navbar from "../components/Nav/DynamicIsland";
 import { useState, useCallback, useEffect } from "react";
-
+import ChatBox from "../components/ChatBox";
 export default function Home() {
   const [theme, setTheme] = useState("");
   useEffect(() => {

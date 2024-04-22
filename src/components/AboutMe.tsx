@@ -38,6 +38,7 @@ const AboutMe: React.FunctionComponent<any> = () => {
                 Playing Volleyball, Tennis, and Football{" "}
               </li>
               <li className="ml-4">Going to the gym (🫶🏾 Deadlifts)</li>
+              <li className="ml-4">Scubadiving</li>
               <li className="ml-4">Playing Fifa and COD on console</li>
             </ul>
           </div>

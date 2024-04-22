@@ -33,7 +33,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
         </div>
         <p
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-delay="2000"
           className="text-base leading-6 text-justify text-[rgb(153_153_153)] w-1/2 max-w-1/2 md:max-w-fit md:w-[85%] mx-0 my-6 z-20 md:text-lg"
         >
@@ -48,7 +48,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
 
       <div
         data-aos="zoom-in-left"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
         className="relative rounded-full max-w-[250px] md:max-w-[400px] overflow-hidden bg-cover bg-[50%] bg-no-repeat"
       >
         <img
