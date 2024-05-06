@@ -4,7 +4,9 @@ import { LinkStyle } from "./StyledButton";
 
 import { TypeAnimation } from "react-type-animation";
 
+import { SendEmail, SpringModal } from "./Contact/SendEmail";
 const IntroSlide: React.FunctionComponent<any> = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <div className="md:h-screen flex justify-between md:justify-center gap-6 flex-col-reverse items-center h-full md:flex-row">
       <div className="flex flex-col justify-center items-center md:items-start md:w-1/3 md:max-w-1/2 ">
@@ -41,9 +43,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
           application development and deployment, to data and model training
         </p>
 
-        <LinkStyle className="w-5/6 md:w-fit" to="Experience">
-          Scroll for more
-        </LinkStyle>
+        <SendEmail isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
       <div
@@ -74,6 +74,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
           />
         </FadeImage>
       </div> */}
+      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
