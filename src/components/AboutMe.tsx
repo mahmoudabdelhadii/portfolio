@@ -32,7 +32,10 @@ const AboutMe: React.FunctionComponent<any> = () => {
               When I am not on my laptop, I love
               <br />
             </p>
-            <ul className="justify-start text-left list-disc lg:mt-4 font  ">
+            <ul
+              data-aos="fade-up"
+              className="justify-start text-left list-disc lg:mt-4 font  "
+            >
               <li className="ml-4">
                 {" "}
                 Playing Volleyball, Tennis, and Football{" "}

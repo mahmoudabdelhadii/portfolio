@@ -6,12 +6,12 @@ export interface SkillsData {
 }
 
 const SkillsDataUnsorted: SkillsData[] = [
-  //   {
-  //     name: "JavaScript",
-  //     group: "Languages",
-  //     logo: "/assets/JavaScriptlogo.png",
-  //     rating: 100,
-  //   },
+  {
+    name: "Go",
+    group: "Languages",
+    logo: "/assets/GO_logo.png",
+    rating: 65,
+  },
   {
     name: "Python",
     group: "Languages",

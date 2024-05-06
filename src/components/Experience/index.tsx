@@ -29,7 +29,7 @@ const Experience: React.FunctionComponent<any | false> = () => {
       </div>
       <div className="w-2/3 h-full md:w-full flex justify-center align-center">
         <motion.div
-          className="flex flex-col justify-between w-full gap-8 md:gap-0 items-start my-8 h-2/3 md:flex-row"
+          className="flex flex-col justify-left w-full gap-8 md:gap-32 items-start my-8 h-2/3 md:flex-row"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{

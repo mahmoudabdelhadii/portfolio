@@ -4,22 +4,22 @@ import { RBC_DE, RBC_FSE, TUT_MLE } from "./ExperienceDetails";
 const ExperienceCards: ReactNode[] = [
   {
     logo: "/assets/RBClogo.png",
-    title: "Full Stack Engineer",
+    title: "Full Stack + Data Engineer",
     subtitle: "RBC",
     company: "RBC",
     fromDate: "September, 2022",
     toDate: "August, 2023",
     description: <RBC_FSE />,
   },
-  {
-    logo: "/assets/RBClogo.png",
-    company: "RBC",
-    fromDate: "September, 2022",
-    toDate: "August, 2023",
-    title: "Data Engineer",
-    subtitle: "RBC",
-    description: <RBC_DE />,
-  },
+  // {
+  //   logo: "/assets/RBClogo.png",
+  //   company: "RBC",
+  //   fromDate: "September, 2022",
+  //   toDate: "August, 2023",
+  //   title: "Data Engineer",
+  //   subtitle: "RBC",
+  //   description: <RBC_DE />,
+  // },
   {
     logo: "/assets/TUTfclogo.png",
     company: "Tutankhamun FC",
