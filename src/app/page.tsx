@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Nav from "../components/Nav";
-import TerminalContact from "../components/Contact/CommandLineForm";
 import * as React from "react";
 
 import AOS from "aos";
@@ -96,7 +95,9 @@ export default function Home() {
       )}
 
       <IntroSlide />
-
+      <Element name="About Me" className="w-full h-full">
+        <AboutMe />
+      </Element>
       <Element
         name="Experience"
         className="w-full h-full flex justify-center items-start"
@@ -111,9 +112,6 @@ export default function Home() {
       </Element>
       <Element name="Projects" className="w-full h-full">
         <Projects />
-      </Element>
-      <Element name="About Me" className="w-full h-full">
-        <AboutMe />
       </Element>
 
       <Element name="Contact" className="w-full h-full">
