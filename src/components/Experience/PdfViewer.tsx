@@ -1,53 +1,53 @@
 import { useCallback, useState } from "react";
-import { useResizeObserver } from "@wojtekmaj/react-hooks";
-import { pdfjs, Document, Page } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
+// import { useResizeObserver } from "@wojtekmaj/react-hooks";
+// import { pdfjs, Document, Page } from "react-pdf";
+// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+// import "react-pdf/dist/esm/Page/TextLayer.css";
 
-import type { PDFDocumentProxy } from "pdfjs-dist";
+// import type { PDFDocumentProxy } from "react-pdf";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.js",
+//   import.meta.url
+// ).toString();
 
-const options = {
-  cMapUrl: "/cmaps/",
-  standardFontDataUrl: "/standard_fonts/",
-};
+// const options = {
+//   cMapUrl: "/cmaps/",
+//   standardFontDataUrl: "/standard_fonts/",
+// };
 
-const resizeObserverOptions = {};
+// const resizeObserverOptions = {};
 
-const maxWidth = 1100;
+// const maxWidth = 1100;
 
 export default function Sample() {
-  const file = "/Resume-Package.pdf";
-  const [numPages, setNumPages] = useState<number>();
-  const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-  const [containerWidth, setContainerWidth] = useState<number>();
+  //   const file = "/Resume-Package.pdf";
+  //   const [numPages, setNumPages] = useState<number>();
+  //   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
+  //   const [containerWidth, setContainerWidth] = useState<number>();
 
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
+  //   const onResize = useCallback<ResizeObserverCallback>((entries) => {
+  //     const [entry] = entries;
 
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
-    }
-  }, []);
+  //     if (entry) {
+  //       setContainerWidth(entry.contentRect.width);
+  //     }
+  //   }, []);
 
-  useResizeObserver(containerRef, resizeObserverOptions, onResize);
+  //   useResizeObserver(containerRef, resizeObserverOptions, onResize);
 
-  function onDocumentLoadSuccess({
-    numPages: nextNumPages,
-  }: PDFDocumentProxy): void {
-    setNumPages(nextNumPages);
-  }
+  //   function onDocumentLoadSuccess({
+  //     numPages: nextNumPages,
+  //   }: PDFDocumentProxy): void {
+  //     setNumPages(nextNumPages);
+  //   }
 
   return (
     <div
       className="h-2/3 max-h-3/4 w-full overflow-scroll"
-      ref={setContainerRef}
+      // ref={setContainerRef}
     >
-      <Document
+      {/* <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}
         options={options}
@@ -61,7 +61,7 @@ export default function Sample() {
             }
           />
         ))}
-      </Document>
+      </Document> */}
     </div>
   );
 }

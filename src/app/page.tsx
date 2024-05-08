@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import Nav from "../components/Nav";
 import IntroSlide from "../components/IntroSlide";
 import Navbar from "../components/Nav/DynamicIsland";
+import Resume from "@/components/Experience/Resume";
 // Lazy loaded
 
 // Dynamically import components with placeholders
@@ -171,7 +172,7 @@ export default function Home() {
       ) : (
         <Nav onChange={toggleTheme} checked={theme === "dark"} />
       )}
-
+      <Resume />
       {/* <IntroSlide /> */}
       {/* <Element name="About Me" className="w-full h-full" data-name="About Me">
         <div ref={refs.aboutMe}>
