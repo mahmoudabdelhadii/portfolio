@@ -12,7 +12,6 @@ import {
   animate,
 } from "framer-motion";
 import Image from "next/image";
-import Nav from "@/components/Nav";
 
 const NotFound: React.FC = () => {
   return <AuroraHero />;
