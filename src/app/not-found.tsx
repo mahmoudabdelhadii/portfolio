@@ -42,8 +42,17 @@ export const AuroraHero = () => {
     <>
       <div className="h-[100px] flex justify-between items-center fixed w-screen z-[100] top-0 bg-[linear-gradient(180deg,#0C0C0F,rgba(12,12,15,0.8)_59%,transparent)] ">
         <div className="flex basis-1/5 h-full items-center justify-center">
-          <Link className="relative w-[50px] h-[50px]" href="/">
-            <Image src="/assets/logo.svg" alt="logo" fill />
+          <Link href="/">
+            <a className="relative" style={{ width: 50, height: 50 }}>
+              <Image
+                src="/assets/logo.svg"
+                alt="logo"
+                layout="fixed"
+                width={50} // Specify the exact width
+                height={50} // Specify the exact height
+                priority // If it's critical for the initial load, keep the priority
+              />
+            </a>
           </Link>
         </div>
       </div>

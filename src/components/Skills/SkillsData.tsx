@@ -9,7 +9,7 @@ const SkillsDataUnsorted: SkillsData[] = [
   {
     name: "Go",
     group: "Languages",
-    logo: "/assets/GO_logo.png",
+    logo: "/assets/GOlogo.png",
     rating: 65,
   },
   {

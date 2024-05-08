@@ -27,12 +27,21 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
   return (
     <div className="h-[100px] flex justify-between items-center fixed w-screen z-[100] top-0 dark:bg-[linear-gradient(180deg,#0C0C0F,rgba(12,12,15,0.8)_59%,transparent)] bg-[linear-gradient(180deg,#F5F5F5,rgba(245,245,245,0.8)_59%,transparent)]">
       <div className="flex basis-1/5 h-full items-center justify-center">
-        <div
-          className="relative w-[50px] h-[50px] invert dark:invert-0"
+        <button
+          className="relative w-[50px] h-[50px] "
           onClick={() => scroll.scrollToTop()}
         >
           <Image src="/assets/logo.svg" alt="logo" fill />
-        </div>
+          <Image
+            src="/assets/logo.svg"
+            alt="logo"
+            layout="fixed"
+            width={50} // Specify the exact width
+            height={50} // Specify the exact height
+            priority // If it's critical for the initial load, keep the priority
+            className="invert dark:invert-0"
+          />
+        </button>
       </div>
       <motion.nav
         variants={{

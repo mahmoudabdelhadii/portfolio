@@ -37,7 +37,7 @@ const SkillCardItem = ({ item }) => {
               speaker={<Popover arrow={false}>{Val.name}</Popover>}
             >
               <div
-                className={`relative w-auto h-10 md:h-10 ${
+                className={`relative w-auto h-6 md:h-10 ${
                   Val.logo.toString().includes("hasura") ||
                   Val.logo.toString().includes("next") ||
                   Val.logo.toString().includes("aws")
@@ -48,10 +48,7 @@ const SkillCardItem = ({ item }) => {
                 <Image
                   src={Val.logo}
                   alt={Val.name}
-                  layout="fixed"
-                  width={40} // Corresponds to w-10
-                  height={40} // Corresponds to the larger of the heights specified
-                  sizes="(max-width: 767px) 40px, 40px"
+                  layout="fill"
                   objectFit="contain"
                 />
               </div>
