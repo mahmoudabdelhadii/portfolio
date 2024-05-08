@@ -31,14 +31,12 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
           className="relative w-[50px] h-[50px] "
           onClick={() => scroll.scrollToTop()}
         >
-          <Image src="/assets/logo.svg" alt="logo" fill />
           <Image
             src="/assets/logo.svg"
             alt="logo"
-            layout="fixed"
             width={50} // Specify the exact width
             height={50} // Specify the exact height
-            priority // If it's critical for the initial load, keep the priority
+            priority={true} // If it's critical for the initial load, keep the priority
             className="invert dark:invert-0"
           />
         </button>

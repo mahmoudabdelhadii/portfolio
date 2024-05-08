@@ -76,10 +76,9 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         <Image
           src="/assets/logo.svg"
           alt="logo"
-          layout="fixed"
           width={40} // Specify the exact width
           height={40} // Specify the exact height
-          priority // If it's critical for the initial load, keep the priority
+          priority={true} // If it's critical for the initial load, keep the priority
           className="invert dark:invert-0"
         />
       </div>

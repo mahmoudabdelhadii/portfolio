@@ -211,9 +211,8 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
       return { ...acc, [val.key]: val.value };
     }, {});
 
-    <form></form>;
     // Send this data to your server or whatever :)
-    console.log(formData);
+
     emailjs
       .send(
         "service_9keaw7e",

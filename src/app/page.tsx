@@ -72,9 +72,6 @@ export default function Home() {
       setTheme("dark");
     } else {
       setTheme("light");
-      console.log("theme ", theme);
-      console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
-      console.log(localStorage.theme);
     }
   }, [theme]);
 
@@ -101,7 +98,7 @@ export default function Home() {
           entries.forEach((entry) => {
             const target = entry.target as HTMLElement; // Correct type assertion here
             const name = target.dataset.name; // Now safely accessing dataset
-            console.log("att name", name);
+
             if (entry.isIntersecting && name) {
               setVisibleSection((prevState) => ({
                 ...prevState,
@@ -137,10 +134,6 @@ export default function Home() {
         });
       };
     }, []);
-
-    useEffect(() => {
-      console.log("Current visibility state:", visibleSection);
-    }, [visibleSection]);
 
     useEffect(() => {
       const media = window.matchMedia(`(max-width: ${width}px)`);

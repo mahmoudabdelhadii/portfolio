@@ -47,10 +47,9 @@ export const AuroraHero = () => {
               <Image
                 src="/assets/logo.svg"
                 alt="logo"
-                layout="fixed"
                 width={50} // Specify the exact width
                 height={50} // Specify the exact height
-                priority // If it's critical for the initial load, keep the priority
+                priority={true} // If it's critical for the initial load, keep the priority
               />
             </a>
           </Link>
