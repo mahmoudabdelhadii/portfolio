@@ -4,6 +4,7 @@ import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import { FiArrowLeft } from "react-icons/fi";
+import "./globals.css";
 import {
   useMotionTemplate,
   useMotionValue,
@@ -34,8 +35,8 @@ export const AuroraHero = () => {
   }, []);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
-  const border = useMotionTemplate`1px solid ${color}`;
-  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+  const borderColor = useMotionTemplate`${color}`;
+  const boxShadow = useMotionTemplate`0px 4px 24px -24px ${color}`;
 
   return (
     <>
@@ -52,12 +53,12 @@ export const AuroraHero = () => {
         }}
         className="relative grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
       >
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative font-GTWalsh z-10 flex flex-col items-center">
           <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
-            Uh oh
+            UH OH
           </span>
           <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
-            Not found - 404!
+            NOT FOUND - 404!
           </h1>
           <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
             The page you are looking for doesn't exist or has been moved. Please
@@ -66,16 +67,16 @@ export const AuroraHero = () => {
           <Link href="/">
             <motion.button
               style={{
-                border,
+                borderColor,
+                borderWidth: "0px 0px 2px 0px",
+                borderStyle: "solid",
                 boxShadow,
-              }}
-              whileHover={{
-                scale: 1.015,
               }}
               whileTap={{
                 scale: 0.985,
               }}
-              className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
+              className="group relative flex w-fit items-center gap-1.5 px-4 py-[0.6] transition-[colors,all] hover:bg-gray-950/50 mb-2 border-b text-white h-20  hover:pl-3  
+              bg-transparent duration-[508ms] ease-[cubic-bezier(0.77,0,0.175,1)] text-[0.8rem] tracking-[0.25rem] uppercase cursor-pointer pl-0 pr-[0.6rem] rounded-none"
             >
               <FiArrowLeft className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
               Go back home
