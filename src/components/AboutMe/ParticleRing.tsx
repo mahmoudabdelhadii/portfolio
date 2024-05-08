@@ -3,15 +3,17 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { pointsInner, pointsOuter } from "./utils";
 import { Group } from "three";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const ParticleRing = ({ children }) => {
+  const isBreakpoint = useMediaQuery(768);
   return (
     <div className="relative">
       <Canvas
         camera={{
           position: [10, -7.5, -5],
         }}
-        style={{ height: "70vh" }}
+        style={{ height: isBreakpoint ? "110vh" : "70vh" }}
         className="bg-[#F5F5F5] dark:bg-[#0C0C0F]"
       >
         <OrbitControls maxDistance={20} minDistance={10} />

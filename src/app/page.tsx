@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { Element } from "react-scroll";
 import dynamic from "next/dynamic";
 //Not lazy loaded
 import Nav from "../components/Nav";
-import IntroSlide from "../components/IntroSlide";
 import Navbar from "../components/Nav/DynamicIsland";
 // Lazy loaded
 
@@ -82,82 +81,49 @@ export default function Home() {
       once: true,
     });
   }, []);
-  const useMediaQuery = (width: number) => {
-    const [targetReached, setTargetReached] = useState(false);
 
-    const updateTarget = useCallback((e: any) => {
-      if (e.matches) {
-        setTargetReached(true);
-      } else {
-        setTargetReached(false);
-      }
-    }, []);
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const target = entry.target as HTMLElement; // Correct type assertion here
-            const name = target.dataset.name; // Now safely accessing dataset
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target as HTMLElement; // Correct type assertion here
+          const name = target.dataset.name; // Now safely accessing dataset
 
-            if (entry.isIntersecting && name) {
-              setVisibleSection((prevState) => ({
-                ...prevState,
-                [name]: true,
-              }));
-              const currentIndex = componentSequence.indexOf(name);
-              const nextComponent = componentSequence[currentIndex + 1];
-              if (nextComponent) {
-                import(`../components/${nextComponent}`); // Preload next component
-              }
+          if (entry.isIntersecting && name) {
+            setVisibleSection((prevState) => ({
+              ...prevState,
+              [name]: true,
+            }));
+            const currentIndex = componentSequence.indexOf(name);
+            const nextComponent = componentSequence[currentIndex + 1];
+            if (nextComponent) {
+              import(`../components/${nextComponent}`); // Preload next component
             }
-          });
-        },
-
-        {
-          threshold: 0.1,
-        }
-      );
-
-      // Attach observer to each ref element
-      Object.entries(refs).forEach(([key, ref]) => {
-        if (ref.current) {
-          observer.observe(ref.current);
-        }
-      });
-
-      // Cleanup observer on component unmount
-      return () => {
-        Object.entries(refs).forEach(([key, ref]) => {
-          if (ref.current) {
-            observer.disconnect();
           }
         });
-      };
-    }, []);
+      },
 
-    useEffect(() => {
-      const media = window.matchMedia(`(max-width: ${width}px)`);
-      if (media.addEventListener) {
-        media.addEventListener("change", updateTarget);
-      } else {
-        // compatibility for browser that dont have addEventListener
-        media.addListener(updateTarget);
+      {
+        threshold: 0.1,
       }
-      // Check on mount (callback is not called until a change occurs)
-      if (media.matches) {
-        setTargetReached(true);
-      }
+    );
 
-      if (media.removeEventListener) {
-        return () => media.removeEventListener("change", updateTarget);
-      } else {
-        // compatibility for browser that dont have removeEventListener
-        return () => media.removeListener(updateTarget);
+    // Attach observer to each ref element
+    Object.entries(refs).forEach(([key, ref]) => {
+      if (ref.current) {
+        observer.observe(ref.current);
       }
-    }, []);
+    });
 
-    return targetReached;
-  };
+    // Cleanup observer on component unmount
+    return () => {
+      Object.entries(refs).forEach(([key, ref]) => {
+        if (ref.current) {
+          observer.disconnect();
+        }
+      });
+    };
+  }, []);
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
