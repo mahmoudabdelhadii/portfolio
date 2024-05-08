@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import "rsuite/dist/rsuite.min.css";
+import Image from "next/image";
 import { Popover, Whisper } from "rsuite";
-import { useRef } from "react";
-import type { SkillsData } from "./SkillsData";
+import "rsuite/dist/rsuite.min.css";
+
 const SkillCardItem = ({ item }) => {
   return (
     <>
@@ -24,6 +24,7 @@ const SkillCardItem = ({ item }) => {
             transition,
           },
         };
+
         return (
           <motion.div
             key={index}
@@ -35,23 +36,25 @@ const SkillCardItem = ({ item }) => {
               placement="top"
               speaker={<Popover arrow={false}>{Val.name}</Popover>}
             >
-              <motion.div
-                key={index}
-                className={
-                  (Val.logo.toString().includes("hasura") ||
+              <div
+                className={`relative w-auto h-10 md:h-10 ${
+                  Val.logo.toString().includes("hasura") ||
                   Val.logo.toString().includes("next") ||
                   Val.logo.toString().includes("aws")
                     ? "dark:invert"
-                    : "") + " w-10 h-6 md:h-10"
-                }
-                style={{
-                  backgroundImage: `url(${Val.logo})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-              {/* <Image src={Val.logo} alt={Val.name} fill sizes="" /> */}
+                    : ""
+                }`}
+              >
+                <Image
+                  src={Val.logo}
+                  alt={Val.name}
+                  layout="fixed"
+                  width={40} // Corresponds to w-10
+                  height={40} // Corresponds to the larger of the heights specified
+                  sizes="(max-width: 767px) 40px, 40px"
+                  objectFit="contain"
+                />
+              </div>
             </Whisper>
 
             <div className="basis-4/5 h-6 md:h-10 flex w-full">
@@ -69,4 +72,5 @@ const SkillCardItem = ({ item }) => {
     </>
   );
 };
+
 export default SkillCardItem;

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { LinkStyle } from "./StyledButton";
-
+import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
 import { SendEmail, SpringModal } from "./Contact/SendEmail";
@@ -49,12 +49,18 @@ const IntroSlide: React.FunctionComponent<any> = () => {
       <div
         data-aos="zoom-in-left"
         data-aos-duration="1000"
-        className="relative rounded-full max-w-[250px] md:max-w-[400px] overflow-hidden bg-cover bg-[50%] bg-no-repeat"
+        className="relative rounded-full max-w-[250px] md:max-w-[400px] overflow-hidden bg-cover bg-no-repeat"
       >
-        <img
+        <Image
           src="/assets/pic2.png"
-          className="dark:opacity-80 w-[200px] h-[200px] aspect-[0.7_/_1] md:z-0 md:flex md:basis-1/2 md:w-[400px] md:h-[400px]"
+          alt="Description of Image" // Always add an alt attribute for accessibility
+          layout="responsive"
+          width={400} // Adjust width and height based on your design requirements
+          height={400}
+          className="dark:opacity-80 md:z-0 md:flex md:basis-1/2"
+          quality={100} // Optional: Adjust the quality of the image (1-100)
         />
+
         {/* <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[radial-gradient(transparent_60%,rgba(245,245,245,0.7)_25%,rgba(245,245,245,0.1)_15%)]"></div> */}
       </div>
       {/* <div
