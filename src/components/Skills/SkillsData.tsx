@@ -70,6 +70,18 @@ const SkillsDataUnsorted: SkillsData[] = [
     logo: "/assets/akslogo-removebg-preview.png",
     rating: 80,
   },
+  {
+    name: "Terraform",
+    group: "Cloud",
+    logo: "/assets/terraform-icon.png",
+    rating: 80,
+  },
+  {
+    name: "Hashicorp Vault",
+    group: "Cloud",
+    logo: "/assets/vault-enterprise.svg",
+    rating: 80,
+  },
   { name: "AWS", group: "Cloud", logo: "/assets/awslogo.png", rating: 90 },
   {
     name: "Java",
@@ -101,7 +113,12 @@ const SkillsDataUnsorted: SkillsData[] = [
     logo: "/assets/hasuralogo.png",
     rating: 80,
   },
-  //   { name: "HTML", group: "Languages", logo: "/assets/html.webp", rating: 45 },
+  {
+    name: "GraphQL",
+    group: "Frontend",
+    logo: "/assets/GraphQL_Logo.png",
+    rating: 90,
+  },
   {
     name: "C++",
     group: "Languages",

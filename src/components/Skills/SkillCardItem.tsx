@@ -40,7 +40,7 @@ const SkillCardItem = ({ item }) => {
                 className={`relative min-w-6 w-auto h-6 md:min-w-10 md:h-10 ${
                   Val.logo.toString().includes("hasura") ||
                   Val.logo.toString().includes("next") ||
-                  Val.logo.toString().includes("aws")
+                  Val.logo.toString().includes("vault")
                     ? "dark:invert"
                     : ""
                 }`}
