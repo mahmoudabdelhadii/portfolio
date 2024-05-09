@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 //Not lazy loaded
 import Nav from "../components/Nav";
 import Navbar from "../components/Nav/DynamicIsland";
+import IntroSlide from "@/components/IntroSlide";
 // Lazy loaded
 
 // Dynamically import components with placeholders
@@ -37,7 +38,6 @@ interface VisibilityState {
   [key: string]: boolean;
 }
 const componentSequence = [
-  "IntroSlide",
   "AboutMe",
   "Experience",
   "Skills",
@@ -138,7 +138,7 @@ export default function Home() {
         <Nav onChange={toggleTheme} checked={theme === "dark"} />
       )}
 
-      {/* <IntroSlide /> */}
+      <IntroSlide />
       {/* <Element name="About Me" className="w-full h-full" data-name="About Me">
         <div ref={refs.aboutMe}>
           {visibleSection["About Me"] && <AboutMe />}
