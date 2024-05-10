@@ -16,7 +16,13 @@ const ParticleRing = ({ children }) => {
         style={{ height: isBreakpoint ? "110vh" : "70vh" }}
         className="bg-[#F5F5F5] dark:bg-[#0C0C0F] opacity-65"
       >
-        <OrbitControls maxDistance={20} minDistance={10} />
+        <OrbitControls
+          maxDistance={20}
+          minDistance={10}
+          enablePan={isBreakpoint ? false : true}
+          enableRotate={isBreakpoint ? false : true}
+          enableZoom={isBreakpoint ? false : true}
+        />
         <directionalLight />
         <pointLight position={[-30, 0, -30]} power={10.0} />
         <PointCircle />

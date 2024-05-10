@@ -6,7 +6,7 @@ import ParticleRing from "./ParticleRing";
 const AboutMe: React.FunctionComponent<any> = () => {
   return (
     <ParticleRing>
-      <div className="absolute flex flex-col p-0 items-center justify-center min-h-screen h-max w-full md:items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] md:justify-center md:h-fit md:min-h-fit md:w-full pointer-events-none">
+      <div className="absolute flex flex-col p-0 items-center justify-center min-h-screen h-max w-full md:items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] md:justify-center md:h-fit md:min-h-fit md:w-full md:pointer-events-none">
         <div className="md:w-[80%] flex flex-col justify-center items-center">
           <div className="w-5/6 flex flex-col justify-center items-center gap-4 md:w-full md:flex-row md:justify-between md:items-center z-10">
             <div
