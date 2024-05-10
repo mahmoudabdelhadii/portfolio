@@ -175,7 +175,7 @@ export default function Home() {
           ref={refs[component]}
           data-name={component} // Ensure to set data-name for observer identification
         >
-          <Element name={component}>
+          <Element name={component.toUpperCase()}>
             {visibleSection[component] &&
               React.createElement(
                 require(`../components/${component}`).default

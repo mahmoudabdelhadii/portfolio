@@ -10,8 +10,8 @@ export const LinkStyle: React.FunctionComponent<any> = ({ children, to }) => {
       activeClass="page-active"
       smooth={true}
       duration={500}
-      offset={-100}
       className="w-5/6"
+      hashSpy={true}
     >
       <StyledButton children={children} />
     </Link>

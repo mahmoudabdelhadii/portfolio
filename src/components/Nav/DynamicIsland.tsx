@@ -109,11 +109,12 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         <li className="">
           <Link
             className="text-white"
-            to="Experience"
+            to="EXPERIENCE"
             spy={true}
             activeClass="active"
             smooth={true}
             duration={500}
+            hashSpy={true}
           >
             {"Experience"}
           </Link>
@@ -121,11 +122,12 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         <li>
           <Link
             className="text-white"
-            to="Projects"
+            to="PROJECTS"
             spy={true}
             activeClass="active"
             smooth={true}
             duration={500}
+            hashSpy={true}
           >
             {"Projects"}
           </Link>
@@ -133,11 +135,12 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         <li>
           <Link
             className="text-white"
-            to="Contact"
+            to="CONTACT"
             spy={true}
             activeClass="active"
             smooth={true}
             duration={500}
+            hashSpy={true}
           >
             {"Contact"}
           </Link>
@@ -162,7 +165,13 @@ const DynamicIsland: React.FunctionComponent<NavProps> = ({
         initial="hidden"
         animate={hidden ? "visible" : "hidden"}
       >
-        <Link to="Contact" spy={true} smooth={true} duration={500}>
+        <Link
+          to="Contact"
+          spy={true}
+          smooth={true}
+          duration={500}
+          hashSpy={true}
+        >
           <Button variant={"accent"} className="w-full text-white">
             Contact
           </Button>

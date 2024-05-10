@@ -50,10 +50,10 @@ const Nav: React.FunctionComponent<NavProps> = ({ onChange, checked }) => {
         animate={hidden ? "hidden" : "visible"}
       >
         <div className="hidden md:flex md:justify-center md:items-center md:basis-[70%] md:h-full md:gap-8">
-          <LinkStyle to="Experience">Experience</LinkStyle>
-          {/* <LinkStyle to="About Me">About Me</LinkStyle> */}
-          <LinkStyle to="Projects">Projects</LinkStyle>
-          <LinkStyle to="Contact">Contact</LinkStyle>
+          <LinkStyle to="ABOUTME">About Me</LinkStyle>
+          <LinkStyle to="EXPERIENCE">Experience</LinkStyle>
+          <LinkStyle to="PROJECTS">Projects</LinkStyle>
+          <LinkStyle to="CONTACT">Contact</LinkStyle>
           {/* <LinkStyle name="Skills" to="Skills" />
         <LinkStyle name="Contact" to="Contact" /> */}
         </div>
