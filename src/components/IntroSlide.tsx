@@ -56,7 +56,7 @@ const IntroSlide: React.FunctionComponent<any> = () => {
         className="relative rounded-full max-w-[250px] md:max-w-[400px] overflow-hidden bg-cover bg-no-repeat"
       >
         <Image
-          src="/assets/pic2.png"
+          src="/assets/Grad-photo-nobg.png"
           alt="My profile picture" // Always add an alt attribute for accessibility
           width={400} // Adjust width and height based on your design requirements
           height={400}

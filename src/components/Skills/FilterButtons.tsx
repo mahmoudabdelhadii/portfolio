@@ -25,8 +25,8 @@ const FilterButtons = ({
               }}
               className={`${
                 Val === selected
-                  ? "text-white "
-                  : "text-slate-300 hover:text-slate-200 hover:bg-slate-300 "
+                  ? "dark:text-white text-black "
+                  : "dark:text-slate-300 text-black hover:text-slate-200 hover:bg-slate-300 "
               } text-sm transition-colors px-2.5 py-0.5 rounded-md flex flex-row`}
               key={id}
             >
