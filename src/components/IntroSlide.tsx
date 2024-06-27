@@ -3,8 +3,9 @@ import * as React from "react";
 import { LinkStyle } from "./StyledButton";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-
+import { BackgroundBeams } from "../components/StartsBackground";
 import { SendEmail, SpringModal } from "./Contact/SendEmail";
+import { Spotlight } from "../components/Spotlight";
 const IntroSlide: React.FunctionComponent<any> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -45,7 +46,10 @@ const IntroSlide: React.FunctionComponent<any> = () => {
 
         <SendEmail isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-
+      {/* <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      /> */}
       <div
         data-aos="zoom-in-left"
         data-aos-duration="1000"
@@ -60,27 +64,9 @@ const IntroSlide: React.FunctionComponent<any> = () => {
           quality={100}
           priority={true}
         />
-
-        {/* <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[radial-gradient(transparent_60%,rgba(245,245,245,0.7)_25%,rgba(245,245,245,0.1)_15%)]"></div> */}
       </div>
-      {/* <div
-        data-aos="zoom-in-left"
-        data-aos-duration="2000"linear-gradient(180deg,#f5f5f5,rgba(245,245,245,1)_60%,transparent)
-        className="rounded-full max-w-[250px] h-auto relative overflow-hidden md:rounded-none md:max-w-[400px] "
-      >
-        <FadeImage>
-          <div
-            style={{
-              backgroundImage: "url(/assets/pic2.png)",
-              backgroundPosition: "center",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-            className="dark:opacity-80 w-[200px] h-[200px] aspect-[0.7_/_1] md:z-0 md:flex md:basis-1/2 md:w-[400px] md:h-[400px]"
-          />
-        </FadeImage>
-      </div> */}
       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      {/* <BackgroundBeams /> */}
     </div>
   );
 };

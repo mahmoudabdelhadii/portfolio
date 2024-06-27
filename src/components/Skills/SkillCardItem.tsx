@@ -46,6 +46,7 @@ const SkillCardItem = ({ item }) => {
                 }`}
               >
                 <Image
+                  key={Val.logo}
                   src={Val.logo}
                   alt={Val.name}
                   fill
